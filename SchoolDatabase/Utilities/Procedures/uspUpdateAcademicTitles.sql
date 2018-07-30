@@ -3,7 +3,7 @@
 	@FullTitle varchar(60),
 	@ShortTitle varchar(12)
 AS 
-	UPDATE AcademicTitle
+	UPDATE AcademicTitles
 	SET FullTitle=@FullTitle, ShortTitle=@ShortTitle
 	WHERE AcademicTitleId=@AcademicTitleId;
 RETURN 0

@@ -2,7 +2,7 @@
 	@StudentScholarshipId int,
 	@ScholarshipId int
 AS
-	UPDATE listeners.Student_Scholarships
-	SET ScholarhipId = @ScholarshipId
+	UPDATE Students_Scholarships
+	SET ScholarshipId = @ScholarshipId
 	WHERE StudentScholarshipId = @StudentScholarshipId
 RETURN 0

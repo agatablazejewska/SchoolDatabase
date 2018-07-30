@@ -69,6 +69,7 @@
     <Folder Include="Staff\Procedures" />
     <Folder Include="Studies\Procedures" />
     <Folder Include="Utilities\Procedures" />
+    <Folder Include="DatabaseBackup" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -171,5 +172,8 @@
     <Build Include="Utilities\Procedures\uspInsertStudyModes.sql" />
     <Build Include="Utilities\Procedures\uspUpdateStudyModes.sql" />
     <Build Include="Utilities\Procedures\uspDeleteStudyModes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatabaseBackup\SchoolDatabase.bak" />
   </ItemGroup>
 </Project>
