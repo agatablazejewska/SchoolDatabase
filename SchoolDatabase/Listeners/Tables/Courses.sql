@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [listeners].[Courses]
 (
 	CourseId int IDENTITY (1,1),
-    CourseGrade float,
+    CourseGrade decimal(2,1),
     DateOfAssessment DATE,
     CourseStudentId int NOT NULL,
     CourseSchoolSubjectId varchar(7) NOT NULL, 

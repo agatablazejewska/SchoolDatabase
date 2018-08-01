@@ -1,6 +1,0 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteStudyLevels]
-	@StudyLevelId int
-AS
-	DELETE FROM StudyLevels
-	WHERE StudyLevelId = @StudyLevelId
-RETURN 0
