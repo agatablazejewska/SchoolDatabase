@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudentsRepeatedSubjects]
-	@StudentId int
+	@StudentRepeatedSubjectId int
 AS
 	DELETE FROM listeners.StudentsRepeatedSubjects
-	WHERE RepeatingStudentId=@StudentId
+	WHERE StudentRepeatedSubjectId = @StudentRepeatedSubjectId;
 RETURN 0

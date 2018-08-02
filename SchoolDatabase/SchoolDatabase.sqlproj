@@ -91,6 +91,11 @@
     <Folder Include="Staff\Procedures\Other" />
     <Folder Include="Studies\Procedures\Other" />
     <Folder Include="Utilities\Procedures\Other" />
+    <Folder Include="Archived" />
+    <Folder Include="Archived\Listeners" />
+    <Folder Include="Archived\Staff" />
+    <Folder Include="Archived\Studies" />
+    <Folder Include="Archived\Utilities" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -198,7 +203,17 @@
     <Build Include="Listeners\Procedures\Other\uspCheckStudents_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Other\uspCheckEmployees_SchoolSubjects.sql" />
     <Build Include="Listeners\Triggers\TR_Courses_Update.sql" />
-    <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects.sql" />
+    <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Insert.sql" />
+    <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Delete.sql" />
+    <Build Include="Archived\archived.sql" />
+    <Build Include="Archived\Listeners\ArchivedCourses.sql" />
+    <Build Include="Archived\Listeners\ArchivedPayments.sql" />
+    <Build Include="Archived\Listeners\ArchivedStudents.sql" />
+    <Build Include="Archived\Listeners\ArchivedStudySemesters.sql" />
+    <Build Include="Archived\Studies\ArchivedSchoolSubjects.sql" />
+    <Build Include="Archived\Studies\ArchivedFieldsOfStudies.sql" />
+    <Build Include="Archived\Staff\ArchivedEmployees.sql" />
+    <Build Include="Archived\Utilities\ArchivedAddresses.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Listeners\Inserts\Listeners_Insert.sql" />

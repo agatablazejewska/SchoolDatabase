@@ -1,12 +1,7 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdateStudentsRepeatedSubjects]
-	@StudentId int
+	@RepeatingStudentId int,
+	@RepeatedSchoolSubjectId varchar(7)
 AS
-	EXEC listeners.uspDeleteStudentsRepeatedSubjects @StudentId
-
-	INSERT INTO listeners.StudentsRepeatedSubjects(RepeatingStudentId, RepeatedSubjectId)
-	SELECT c.CourseStudentId, c.CourseSchoolSubjectId
-	FROM listeners.Courses AS c
-	INNER JOIN listeners.Students AS s 
-	ON c.CourseStudentId=s.StudentId
-	WHERE c.CourseStudentId=@StudentId AND c.CourseSemester != s.StudentSemester AND c.CourseGrade < 3;
+	UPDATE listeners.StudentsRepeatedSubjects
+	SET RepeatingStudentId = @RepeatingStudentId, RepeatedSubjectId=@RepeatedSchoolSubjectId;
 RETURN 0

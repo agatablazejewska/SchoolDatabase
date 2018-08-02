@@ -8,9 +8,22 @@
 	@EmployeeAddressId int,
 	@EmployeeStatusId int
 AS
+
+	DECLARE @FacultyId varchar(10);
+	IF (@DepartmentId IS NOT NULL)
+		BEGIN
+			SELECT @FacultyId = FacultyId
+			FROM Departments
+			WHERE @DepartmentId = @DepartmentId;
+		END
+	ELSE 
+		BEGIN
+			 SET @FacultyId = NULL;
+		END
+
 	UPDATE staff.Employees
 	SET EmployeeName = @EmployeeName, EmployeeSurname = @EmployeeSurname, DepartmentId = @DepartmentId,
-	AcademicTitleId = @AcademicTitleId, PESEL = @PESEL,
+	FacultyId = @FacultyId, AcademicTitleId = @AcademicTitleId, PESEL = @PESEL,
 	EmployeeAddressId = @EmployeeAddressId, EmployeeStatusId = @EmployeeStatusId
 	WHERE EmployeeId = @EmployeeId
 RETURN 0

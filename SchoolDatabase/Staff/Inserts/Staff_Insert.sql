@@ -6,7 +6,7 @@ EXEC staff.uspInsertEmployees 'Michael','Felts', NULL, 'Eng','98374023841',20,20
 EXEC staff.uspInsertEmployees 'Daniel','Albright', NULL, 'Prof','983471039421', 19, 200;
 EXEC staff.uspInsertEmployees 'Ryan','Trent', NULL,'PhD','92381280940',18, 200;
 EXEC staff.uspInsertEmployees 'Richard','Zick', NULL,'MS','94029340239',17,200;
-EXEC staff.uspInsertEmployees 'Robert','Watts',NULL,'BS','83729102843',16,205;
+EXEC staff.uspInsertEmployees 'Robert','Watts',NULL,'83729102843',16,205;
 EXEC staff.uspInsertEmployees 'Julia','Smith',NULL,'Postdoc','83740182731',15,204;
 EXEC staff.uspInsertEmployees 'Terrance','Solares',NULL,'PhD','87492047128',14,200;
 EXEC staff.uspInsertEmployees 'Sandra','Caley',NULL,'MS','67723918321',13,201;
@@ -19,11 +19,11 @@ EXEC staff.uspInsertEmployees 'James', 'Levy', NULL,'Prof','73910385031', 7,200;
 EXEC staff.uspInsertEmployees 'Martin','Zepeda',NULL,'Prof','73048502174',6,200;
 
 --Inserting some data into staff.Departments
-EXEC staff.uspInsertDepartments 'Department of Computer Architecture', 'DoCA',12;
-EXEC staff.uspInsertDepartments 'Department of Organic Chemistry', 'DoOC', 13;
-EXEC staff.uspInsertDepartments 'Department of Biomedical Engineering', 'DoBE', 14;
-EXEC staff.uspInsertDepartments 'Department of Electrical Power Engineering', 'DoEPE', 15;
-EXEC staff.uspInsertDepartments 'Department of Geography', 'DoPC', 2;
+EXEC staff.uspInsertDepartments 'Department of Computer Architecture', 'DoCA','IaT',12;
+EXEC staff.uspInsertDepartments 'Department of Organic Chemistry', 'DoOC','Ch', 13;
+EXEC staff.uspInsertDepartments 'Department of Biomedical Engineering', 'DoBE','Bio', 14;
+EXEC staff.uspInsertDepartments 'Department of Electrical Power Engineering', 'DoEPE','En', 15;
+EXEC staff.uspInsertDepartments 'Department of Geography', 'DoPC','OEaST', 2;
 
 --Updating Departments in staff.Employees
 EXEC staff.uspUpdateEmployees 1,'Michael','Felts', 1, 'Eng','98374023841',20,200; 

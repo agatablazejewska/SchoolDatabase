@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [listeners].[uspCheckStudentsRepeatedSubjects]
+﻿CREATE PROCEDURE [listeners].[uspCheckStudentsRepeatedSubjects_Insert]
 	@CourseId int
 AS
 	DECLARE @StudentId int;
@@ -12,6 +12,6 @@ AS
 								FROM listeners.StudentsRepeatedSubjects AS srs
 								WHERE srs.RepeatingStudentId = @StudentId))
 		BEGIN
-			EXEC uspInsertStudentsRepeatedSubjects @StudentId, @SchoolSubjectId
+			EXEC listeners.uspInsertStudentsRepeatedSubjects @StudentId, @SchoolSubjectId
 		END
 RETURN 0

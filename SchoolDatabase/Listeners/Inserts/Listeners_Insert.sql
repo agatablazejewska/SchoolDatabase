@@ -1,1 +1,3 @@
-﻿
+﻿USE SchoolDatabase;
+GO
+ 

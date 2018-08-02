@@ -13,6 +13,10 @@ BEGIN
 
 	IF (@Grade < 3)
 		BEGIN
-			EXEC uspCheckStudentsRepeatedSubjects @CourseId;
+			EXEC listeners.uspCheckStudentsRepeatedSubjects_Insert @CourseId;
+		END
+	ELSE IF (@Grade >=3)
+		BEGIN
+			EXEC listeners.uspCheckStudentsRepeatedSubjects_Delete @CourseId;
 		END
 END

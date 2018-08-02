@@ -27,6 +27,6 @@ BEGIN
 	--Adding data into listeners.StudentRepeatedSubjects if Student's grade is below 3.0
 	IF(@Grade < 3)
 		BEGIN
-			EXEC uspCheckStudentsRepeatedSubjects @CourseId;
+			EXEC listeners.uspCheckStudentsRepeatedSubjects_Insert @CourseId;
 		END
 END

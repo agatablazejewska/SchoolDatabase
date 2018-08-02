@@ -6,5 +6,5 @@
 	Deadline DATE,
 	Paid bit NOT NULL,
 	CONSTRAINT FK_PaymentsStudents FOREIGN KEY (PaymentStudentId) REFERENCES listeners.Students,
-	CONSTRAINT PK_Payment PRIMARY KEY (PaymentId)
+	CONSTRAINT PK_Payments PRIMARY KEY (PaymentId)
 )
