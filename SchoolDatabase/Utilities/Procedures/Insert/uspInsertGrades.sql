@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertGrades]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertGrades]
 	@GradeId decimal(2,1),
 	@GradeNum decimal(2,1),
 	@GradeWritten varchar(25)

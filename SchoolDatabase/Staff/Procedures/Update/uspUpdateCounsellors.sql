@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [staff].[uspUpdateCounsellors]
+﻿ 
+ 
+
+CREATE PROCEDURE [staff].[uspUpdateCounsellors]
 	@CounsellorId int,
 	@CounsellorEmployeeId int,
 	@Email varchar(40),

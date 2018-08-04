@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [studies].[uspDeleteFaculties]
+﻿ 
+ 
+
+CREATE PROCEDURE [studies].[uspDeleteFaculties]
 	@FacultyId varchar(10)
 AS
 	DELETE FROM studies.Faculties

@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [studies].[uspDeleteFieldsOfStudies]
+﻿ 
+ 
+
+CREATE PROCEDURE [studies].[uspDeleteFieldsOfStudies]
 	@FieldOfStudyId int
 AS
 	DELETE FROM studies.FieldsOfStudies

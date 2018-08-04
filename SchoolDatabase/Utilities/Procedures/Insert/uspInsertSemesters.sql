@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertSemesters]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertSemesters]
 	@SemesterNum int,
 	@SemesterWritten varchar(10)
 AS

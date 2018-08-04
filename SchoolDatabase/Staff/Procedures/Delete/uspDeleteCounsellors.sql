@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [staff].[uspDeleteCounsellors]
+﻿ 
+ 
+
+CREATE PROCEDURE [staff].[uspDeleteCounsellors]
 	@CounsellorId int
 AS
 	DELETE FROM staff.Counsellors

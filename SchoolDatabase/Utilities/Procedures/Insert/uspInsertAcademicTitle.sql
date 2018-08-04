@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertAcademicTitle]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertAcademicTitle]
 	@FullTitle varchar(60),
 	@AcademicTitleId varchar(12)
 AS 

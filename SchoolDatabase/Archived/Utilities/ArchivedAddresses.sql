@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [archived].[ArchivedAddresses]
 (
-	AddressId int IDENTITY(1,1),
+	AddressId int,
 	City varchar(30) NOT NULL,
 	Street varchar(60) NOT NULL,
 	Building varchar(5) NOT NULL,

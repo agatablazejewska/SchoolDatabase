@@ -11,5 +11,4 @@ AS
 	SET City = @City, Street = @Street, Building = @Building, ApartmentNumber = @ApartmentNumber,
 	@CityState = @CityState, ZIP = @ZIP
 	WHERE AddressId = @AddressId
-	
 RETURN 0

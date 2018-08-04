@@ -1,4 +1,7 @@
-﻿CREATE TABLE [utilities].[Statuses]
+﻿ 
+ 
+
+CREATE TABLE [utilities].[Statuses]
 (
 	StatusId int IDENTITY (200,1),
 	StatusType varchar(20)

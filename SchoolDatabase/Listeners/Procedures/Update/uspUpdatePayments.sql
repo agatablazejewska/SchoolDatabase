@@ -1,10 +1,20 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdatePayments]
-	@PaymentStudentId int,
-	@Deadline DATE,
-	@Paid bit
+	@PaymentId int = NULL,
+	@PaymentStudentId int = NULL,
+	@Deadline date = NULL,
+	@Paid bit = 0
 
-AS
-	UPDATE listeners.Payments
-	SET Deadline = @Deadline, Paid=@Paid
-	WHERE PaymentStudentId=@PaymentStudentId
+AS	
+	DECLARE @Charge int;
+	IF(@PaymentStudentId != NULL)
+	BEGIN
+		SET @Charge = listeners.CHARGE(@PaymentStudentId);
+		UPDATE listeners.Payments
+		SET Charge = @Charge, Deadline = ISNULL(@Deadline,Deadline), Paid=ISNULL(@Paid, Paid)
+		WHERE PaymentStudentId=@PaymentStudentId;
+	END
+	ELSE IF(@PaymentId != NULL)
+		UPDATE listeners.Payments
+		SET Deadline = ISNULL(@Deadline,Deadline), Paid=ISNULL(@Paid, Paid)
+		WHERE PaymentId=@PaymentId;
 RETURN 0

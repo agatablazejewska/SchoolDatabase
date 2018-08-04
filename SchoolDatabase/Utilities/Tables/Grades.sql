@@ -1,4 +1,7 @@
-﻿CREATE TABLE [utilities].[Grades]
+﻿ 
+ 
+
+CREATE TABLE [utilities].[Grades]
 (
 	GradeId decimal(2,1),
 	GradeNum decimal(2,1),

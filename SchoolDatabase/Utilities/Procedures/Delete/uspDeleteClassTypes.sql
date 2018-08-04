@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteClassTypes]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspDeleteClassTypes]
 	@ClassTypeId int
 AS
 	DELETE FROM utilities.ClassTypes

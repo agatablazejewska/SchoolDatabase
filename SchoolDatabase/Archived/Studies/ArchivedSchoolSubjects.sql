@@ -9,4 +9,4 @@
 	CONSTRAINT FK_ArchivedSchoolSubjectsCLassTypes FOREIGN KEY (ClassType) REFERENCES utilities.ClassTypes,
 	CONSTRAINT PK_ArchivedSchoolSubjects PRIMARY KEY (SchoolSubjectId)
 )
-)
+

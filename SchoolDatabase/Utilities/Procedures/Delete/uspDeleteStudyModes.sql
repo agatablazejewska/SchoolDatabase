@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteFormsOfStudy]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspDeleteFormsOfStudy]
 	@FormOfStudyId char(1)
 AS
 	DELETE FROM utilities.FormsOfStudy

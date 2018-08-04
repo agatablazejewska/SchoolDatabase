@@ -1,6 +1,9 @@
-﻿CREATE TABLE [listeners].[Courses]
+﻿ 
+ 
+
+CREATE TABLE [listeners].[Courses]
 (
-	CourseId int IDENTITY (1,1),
+	CourseId bigint IDENTITY (1,1),
     CourseGrade decimal(2,1),
     DateOfAssessment DATE,
     CourseStudentId int NOT NULL,

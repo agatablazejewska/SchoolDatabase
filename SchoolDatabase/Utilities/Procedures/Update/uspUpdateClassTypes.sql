@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspUpdateClassTypes]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspUpdateClassTypes]
 	@ClassTypeId char(1),
 	@Weighted decimal(2,1)
 AS

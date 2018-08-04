@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteAcademicTitles]
+﻿ CREATE PROCEDURE [utilities].[uspDeleteAcademicTitles]
 	@AcademicTitleId varchar(12)
 AS 
 	DELETE FROM utilities.AcademicTitles

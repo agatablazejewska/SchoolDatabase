@@ -1,4 +1,7 @@
-﻿CREATE TABLE [utilities].[Addresses]
+﻿ 
+ 
+
+CREATE TABLE [utilities].[Addresses]
 (
 	AddressId int IDENTITY(1,1),
 	City varchar(30) NOT NULL,

@@ -10,4 +10,5 @@ AS
 	CourseEmployeeId, CourseSemester)
 	VALUES (@CourseGrade, @DateOfAssessment, @CourseStudentId, @CourseSchoolSubjectId,
 	@CourseEmployeeId, @CourseSemester)
+	EXEC listeners.uspCheckStudents_SchoolSubjects @CourseStudentId, @CourseSchoolSubjectId;
 RETURN 0

@@ -1,4 +1,7 @@
-﻿CREATE TABLE [staff].[Employees_SchoolSubjects]
+﻿ 
+ 
+
+CREATE TABLE [staff].[Employees_SchoolSubjects]
 (
 	EmployeeSchoolSubjectId int IDENTITY(1,1),
 	EmployeeId int NOT NULL,

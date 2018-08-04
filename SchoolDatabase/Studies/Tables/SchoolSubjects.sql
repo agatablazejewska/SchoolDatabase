@@ -1,4 +1,7 @@
-﻿CREATE TABLE [studies].[SchoolSubjects]
+﻿ 
+ 
+
+CREATE TABLE [studies].[SchoolSubjects]
 (
 	SchoolSubjectId varchar(7),
     SchoolSubjectName varchar(200) NOT NULL, 

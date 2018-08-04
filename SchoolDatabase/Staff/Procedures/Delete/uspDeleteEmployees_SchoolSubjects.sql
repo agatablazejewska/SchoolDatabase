@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [staff].[uspDeleteEmployees_SchoolSubjects]
+﻿ 
+ 
+
+CREATE PROCEDURE [staff].[uspDeleteEmployees_SchoolSubjects]
 	@EmployeeSchoolSubjectId int
 AS
 	DELETE FROM staff.Employees_SchoolSubjects

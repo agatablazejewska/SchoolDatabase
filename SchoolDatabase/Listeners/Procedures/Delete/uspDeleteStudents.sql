@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [listeners].[upsDeleteStudents]
+﻿CREATE PROCEDURE [listeners].[uspDeleteStudents]
 	@StudentId int
 AS
 	DELETE FROM listeners.Students

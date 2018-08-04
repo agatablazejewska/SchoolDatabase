@@ -1,11 +1,13 @@
 ﻿CREATE TABLE [archived].[ArchivedStudySemesters]
 (
-	StudySemesterId int IDENTITY (1000,1),
+	StudySemesterId int,
 	StudySemester int,
 	PresentFieldOfStudyId int,
 	ArchivedFieldOfStudyId int,
+	StudyLevelId int,
 	StartYear int NOT NULL,
 	StudySemesterStatusId int,
+	CONSTRAINT FK_ArchivedStudySemestersStudyLevels FOREIGN KEY (StudyLevelId) REFERENCES utilities.StudyLevels,
 	CONSTRAINT FK_ArchivedStudySemesterStatuses FOREIGN KEY (StudySemesterStatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_ArchivedStudySemestersFieldsOfStudies FOREIGN KEY (PresentFieldOfStudyId) REFERENCES studies.FieldsOfStudies,
 	CONSTRAINT FK_ArchivedStudySemestersArchivedFieldsOfStudies FOREIGN KEY (ArchivedFieldOfStudyId) REFERENCES archived.ArchivedFieldsOfStudies,

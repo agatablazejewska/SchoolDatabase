@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [listeners].[uspUpdateStudents_SchoolSubjects]
+﻿ 
+ 
+
+CREATE PROCEDURE [listeners].[uspUpdateStudents_SchoolSubjects]
 	@StudentId int
 AS
 	EXEC listeners.uspDeleteStudents_SchoolSubjects @StudentId

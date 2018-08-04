@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertScholarships]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertScholarships]
 	@ScholarshipType varchar(20),
 	@ScholarshipAmount int
 AS

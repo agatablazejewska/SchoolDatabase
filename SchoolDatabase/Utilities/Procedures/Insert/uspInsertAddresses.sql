@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertAddresses]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertAddresses]
 	@City varchar(30),
 	@Street varchar(60),
 	@Building varchar(5),

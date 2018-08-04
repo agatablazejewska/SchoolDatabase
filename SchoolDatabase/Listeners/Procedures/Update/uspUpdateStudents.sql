@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE [listeners].[uspUpdateStudents]
+﻿ CREATE PROCEDURE [listeners].[uspUpdateStudents]
 	@StudentId int,
-	@StudentSurname varchar(50),
+	@StudentSurname varchar(50), 
 	@StudentStudySemesterId int,
 	@StudentDeanGroupId int,
 	@StudentSemester int,
@@ -9,14 +9,7 @@
 	@StudentAddressId int,
 	@StudentStatusId int
 AS
-	DECLARE @CurrentDeanGroupId int;
-	SET @CurrentDeanGroupId = (SELECT StudentDeanGroupId FROM listeners.Students WHERE StudentId = @StudentId)
-	IF @CurrentDeanGroupId != @StudentDeanGroupId
-		BEGIN
-		EXEC listeners.uspUpdateDeanGroups @CurrentDeanGroupId, -1
-		EXEC listeners.uspUpdateDeanGroups @StudentDeanGroupId, 1
-		END
-
+	
 	UPDATE listeners.Students
 	SET StudentSurname = @StudentSurname, StudentStudySemesterId = @StudentStudySemesterId,
 	StudentDeanGroupId = @StudentDeanGroupId, 

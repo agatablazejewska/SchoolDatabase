@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertClassTypes]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertClassTypes]
 	@ClassTypeId char(1),
 	@ClassTypeName varchar(15),
 	@Weighted decimal(2,1)

@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertFormsOfStudy]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertFormsOfStudy]
 	@FormOfStudyId char(1),
 	@FormOfStudyName varchar(15),
 	@DaysOfWeek varchar(25),

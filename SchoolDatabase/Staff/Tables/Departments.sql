@@ -1,4 +1,7 @@
-﻿CREATE TABLE [staff].[Departments]
+﻿ 
+ 
+
+CREATE TABLE [staff].[Departments]
 (
 	DepartmentId int IDENTITY(1,1),
 	DepartmentName varchar(100) NOT NULL,

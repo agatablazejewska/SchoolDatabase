@@ -1,4 +1,6 @@
-﻿CREATE TABLE [utilities].[Semesters]
+﻿ 
+ 
+CREATE TABLE [utilities].[Semesters]
 (
 	SemesterId int IDENTITY (1,1),
 	SemesterNum int,

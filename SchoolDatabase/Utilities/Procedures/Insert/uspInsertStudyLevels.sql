@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertStudyLevels]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertStudyLevels]
 	@StudyLevelName varchar(15),
 	@Semesters int
 AS

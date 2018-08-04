@@ -1,4 +1,7 @@
-﻿CREATE TABLE [studies].[Faculties]
+﻿ 
+ 
+
+CREATE TABLE [studies].[Faculties]
 (
 	FacultyId varchar(10),
 	FacultyFullName varchar(70) NOT NULL,

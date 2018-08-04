@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [studies].[uspUpdateFaculties]
+﻿ 
+ 
+
+CREATE PROCEDURE [studies].[uspUpdateFaculties]
 	@FacultyId varchar(10),
 	@DeanId int, 
 	@DeputyDeanId int

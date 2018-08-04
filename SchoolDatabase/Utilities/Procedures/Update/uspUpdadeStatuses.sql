@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [utilities].[uspUpdadeStatuses]
+﻿ CREATE PROCEDURE [utilities].[uspUpdadeStatuses]
 	@StatusId int,
 	@StatusType varchar(20)
 AS

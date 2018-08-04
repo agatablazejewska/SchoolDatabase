@@ -1,6 +1,9 @@
-﻿CREATE TABLE [staff].[Counsellors]
+﻿ 
+ 
+
+CREATE TABLE [staff].[Counsellors]
 (
-	CounsellorId int IDENTITY(1,1),
+	CounsellorId int,
 	CounsellorEmployeeId int NOT NULL,
 	Email varchar(40),
 	PhoneNumber varchar(15),

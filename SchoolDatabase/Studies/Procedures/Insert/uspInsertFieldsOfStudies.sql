@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [studies].[uspInsertFieldsOfStudies]
+﻿ 
+ 
+
+CREATE PROCEDURE [studies].[uspInsertFieldsOfStudies]
 	@FieldOfStudyName varchar(60),
 	@MaxAmountOfStudents int,
 	@FieldOfStudyFacultyId varchar(10)

@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteStudyLevels]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspDeleteStudyLevels]
 	@StudyLevelId int
 AS
 	DELETE FROM utilities.StudyLevels

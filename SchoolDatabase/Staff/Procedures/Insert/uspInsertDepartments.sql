@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [staff].[uspInsertDepartments]
+﻿ 
+ 
+
+CREATE PROCEDURE [staff].[uspInsertDepartments]
 	@DepartmentName varchar(100),
 	@ShortName varchar(10),
 	@FacultyId varchar(10),

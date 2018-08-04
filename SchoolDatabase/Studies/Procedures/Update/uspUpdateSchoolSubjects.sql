@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [studies].[uspUpdateSchoolSubjects]
+﻿ 
+ 
+
+CREATE PROCEDURE [studies].[uspUpdateSchoolSubjects]
 	@SchoolSubjectId varchar(7),
 	@HoursAmount int,
 	@ECTS int

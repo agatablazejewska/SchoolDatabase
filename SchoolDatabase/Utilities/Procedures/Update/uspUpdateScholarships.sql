@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspUpdateScholarships]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspUpdateScholarships]
 	@ScholarshipId int,
 	@ScholarshipType varchar(20),
 	@ScholarshipAmount int

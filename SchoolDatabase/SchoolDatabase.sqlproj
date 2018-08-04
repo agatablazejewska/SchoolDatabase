@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1adc7be9-36de-4b22-ba9c-aef596fd7c6e}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -67,9 +67,6 @@
     <Folder Include="Studies\Procedures" />
     <Folder Include="Utilities\Procedures" />
     <Folder Include="DatabaseBackup" />
-    <Folder Include="Listeners\Inserts" />
-    <Folder Include="Utilities\Inserts" />
-    <Folder Include="Studies\Inserts" />
     <Folder Include="Listeners\Triggers" />
     <Folder Include="Listeners\Procedures\Insert" />
     <Folder Include="Listeners\Procedures\Delete" />
@@ -83,7 +80,6 @@
     <Folder Include="Staff" />
     <Folder Include="Staff\Tables" />
     <Folder Include="Staff\Procedures" />
-    <Folder Include="Staff\Inserts" />
     <Folder Include="Staff\Procedures\Insert" />
     <Folder Include="Staff\Procedures\Delete" />
     <Folder Include="Staff\Procedures\Update" />
@@ -96,6 +92,18 @@
     <Folder Include="Archived\Staff" />
     <Folder Include="Archived\Studies" />
     <Folder Include="Archived\Utilities" />
+    <Folder Include="Staff\Triggers" />
+    <Folder Include="Archived\Listeners\Procedures" />
+    <Folder Include="Archived\Listeners\Procedures\Insert" />
+    <Folder Include="Archived\Listeners\Procedures\Delete" />
+    <Folder Include="Archived\Listeners\Procedures\Update" />
+    <Folder Include="Inserts" />
+    <Folder Include="Archived\Utilities\Procedures" />
+    <Folder Include="Archived\Utilities\Procedures\Insert" />
+    <Folder Include="Archived\Utilities\Procedures\Delete" />
+    <Folder Include="Utilities\Triggers" />
+    <Folder Include="Listeners\Types" />
+    <Folder Include="Archived\Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -121,8 +129,6 @@
     <Build Include="Listeners\Tables\DeanGroups.sql" />
     <Build Include="Listeners\Tables\Payments.sql" />
     <Build Include="Studies\Tables\SchoolSubjects.sql" />
-    <Build Include="Studies\Inserts\Studies_Insert.sql" />
-    <Build Include="Listeners\Triggers\TR_Courses_Insert.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertCourses.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertDeanGroups.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertPayments.sql" />
@@ -131,7 +137,6 @@
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudySemesters.sql" />
-    <Build Include="Listeners\Procedures\Delete\upsDeleteStudents.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteCourses.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteDeanGroups.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeletePayments.sql" />
@@ -202,23 +207,39 @@
     <Build Include="Staff\Procedures\Update\uspUpdateEmployees_SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Other\uspCheckStudents_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Other\uspCheckEmployees_SchoolSubjects.sql" />
-    <Build Include="Listeners\Triggers\TR_Courses_Update.sql" />
     <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Insert.sql" />
     <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Delete.sql" />
     <Build Include="Archived\archived.sql" />
     <Build Include="Archived\Listeners\ArchivedCourses.sql" />
-    <Build Include="Archived\Listeners\ArchivedPayments.sql" />
     <Build Include="Archived\Listeners\ArchivedStudents.sql" />
     <Build Include="Archived\Listeners\ArchivedStudySemesters.sql" />
     <Build Include="Archived\Studies\ArchivedSchoolSubjects.sql" />
     <Build Include="Archived\Studies\ArchivedFieldsOfStudies.sql" />
     <Build Include="Archived\Staff\ArchivedEmployees.sql" />
     <Build Include="Archived\Utilities\ArchivedAddresses.sql" />
+    <Build Include="Staff\Tables\Employees_Departments.sql" />
+    <Build Include="Staff\Procedures\Insert\uspInsertEmployees_Departments.sql" />
+    <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_Departments.sql" />
+    <Build Include="Staff\Procedures\Update\uspUpdateEmployees_Departments.sql" />
+    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedCourses.sql" />
+    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudySemesters.sql" />
+    <Build Include="Listeners\CHARGE.sql" />
+    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudents.sql" />
+    <Build Include="Archived\Utilities\Procedures\Insert\uspInsertArchivedAddresses.sql" />
+    <Build Include="Archived\Utilities\Procedures\Delete\uspDeleteArchivedAddresses.sql" />
+    <Build Include="Utilities\Triggers\TR_Addresses_Delete.sql" />
+    <Build Include="Archived\Types\AddressesArchiving.sql" />
+    <Build Include="Archived\Types\CoursesArchiving.sql" />
+    <Build Include="Listeners\Triggers\TR_Students_Delete.sql" />
+    <Build Include="Listeners\Triggers\TR_Courses_Delete.sql" />
+    <Build Include="Listeners\Procedures\Delete\uspDeleteStudents.sql" />
+    <Build Include="Archived\Types\StudentsArchiving.sql" />
+    <Build Include="Archived\Listeners\Procedures\Update\uspUpdateArchivedCourses.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Listeners\Inserts\Listeners_Insert.sql" />
-    <None Include="Utilities\Inserts\Utilities_Insert.sql" />
-    <None Include="Staff\Inserts\Staff_Insert.sql" />
+    <PostDeploy Include="Inserts\InsertingData.sql" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="DatabaseBackup\SchoolDatabase.bak" />
   </ItemGroup>
 </Project>

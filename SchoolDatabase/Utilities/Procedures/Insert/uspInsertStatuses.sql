@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspInsertStatuses]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspInsertStatuses]
 	@StatusType varchar(20)
 AS
 	INSERT INTO utilities.Statuses(StatusType)

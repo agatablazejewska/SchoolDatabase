@@ -1,4 +1,6 @@
-﻿CREATE TABLE [utilities].[StudyLevels]
+﻿ 
+ 
+CREATE TABLE [utilities].[StudyLevels]
 (	
 	StudyLevelId int IDENTITY(1,1),
 	StudyLevelName varchar(15) NOT NULL,

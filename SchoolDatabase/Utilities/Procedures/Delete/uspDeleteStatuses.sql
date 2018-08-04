@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspDeleteStatuses]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspDeleteStatuses]
 	@StatusId int
 AS
 	DELETE FROM utilities.Statuses

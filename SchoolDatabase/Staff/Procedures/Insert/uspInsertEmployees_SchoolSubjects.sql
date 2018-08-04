@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [staff].[uspInsertEmployees_SchoolSubjects]
+﻿ 
+ 
+
+CREATE PROCEDURE [staff].[uspInsertEmployees_SchoolSubjects]
 	@EmployeeId int,
 	@SchoolSubjectId varchar(7)
 AS

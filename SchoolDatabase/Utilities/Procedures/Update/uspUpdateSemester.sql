@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [utilities].[uspUpdateSemester]
+﻿ 
+ 
+
+CREATE PROCEDURE [utilities].[uspUpdateSemester]
 	@SemesterId int,
 	@SemesterNum int,
 	@SemesterWritten varchar(10)

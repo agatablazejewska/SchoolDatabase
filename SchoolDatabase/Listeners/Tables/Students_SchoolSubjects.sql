@@ -1,4 +1,7 @@
-﻿CREATE TABLE [listeners].[Students_SchoolSubjects]
+﻿ 
+ 
+
+CREATE TABLE [listeners].[Students_SchoolSubjects]
 (
 	StudentSchoolSubjectId int IDENTITY (1,1),
 	StudentId int NOT NULL,
