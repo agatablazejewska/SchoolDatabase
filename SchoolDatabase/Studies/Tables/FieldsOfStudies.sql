@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE TABLE [studies].[FieldsOfStudies]
+﻿CREATE TABLE [studies].[FieldsOfStudies]
 (
 	FieldOfStudyId int IDENTITY (1,1),
 	FieldOfStudyName varchar(60),

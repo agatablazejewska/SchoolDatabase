@@ -1,12 +1,8 @@
 ﻿CREATE PROCEDURE [archived].[uspInsertArchivedStudySemesters]
-	@StudySemesterId int,
-	@StudySemester int,
-	@PresentFieldOfStudyId int,
-	@StudyLevelId int,
-	@StartYear int,
-	@StudySemesterStatusId int
+	@Archived archived.StudySemestersArchiving READONLY
 AS
 	INSERT INTO archived.ArchivedStudySemesters(StudySemesterId, StudySemester, PresentFieldOfStudyId,
 	StudyLevelId, StartYear, StudySemesterStatusId)
-	VALUES(@StudySemesterId, @StudySemester, @PresentFieldOfStudyId, @StudyLevelId, @StartYear, @StudySemesterStatusId)
+	SELECT a.StudySemesterId, a.StudySemester, a.PresentFieldOfStudyId, a.StudyLevelId, a.StartYear, a.StudySemesterStatusId
+	FROM @Archived AS a
 RETURN 0

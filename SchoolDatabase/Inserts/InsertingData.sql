@@ -273,16 +273,16 @@ EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1001;
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1004;
 
 --Inserting some data into listeners.Students
-EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732', 1000, 1300, 'f', 5, 200;
-EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183', 1002, 1302, 'f', 4, 200;
-EXEC listeners.uspInsertStudents 'Judith','Sayler', '93827301748', 1001, 1301, 'f', 3, 200;
-EXEC listeners.uspInsertStudents 'Helen', 'Price', '98374017231', 1004, 1304, 'p', 2, 200;
-EXEC listeners.uspInsertStudents  'Donna','Chaney','87364026381', 1005, 1305, 'p', 1, 200;
-EXEC listeners.uspInsertStudents 'Lisa', 'Martin', '89372947291', 1003, 1303, 'f',21, 203;
-EXEC listeners.uspInsertStudents 'Malcolm','Leslie','98327482932',1000, 1309, 'f', 22, 200;
-EXEC listeners.uspInsertStudents 'William','Ballinger', '87301749372', 1001, 1308, 'f',23, 200; 
-EXEC listeners.uspInsertStudents  'Nikita','Santora', '90372819412', 1006, 1306, 'p', 24, 200;
-EXEC listeners.uspInsertStudents  'Howard','Vogel', '98346364923', 1005, 1305, 'f', 25, 200;
+EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732','f', 5, 200;
+EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183', 'f', 4, 200;
+EXEC listeners.uspInsertStudents 'Judith','Sayler', '93827301748','f', 3, 200;
+EXEC listeners.uspInsertStudents 'Helen', 'Price', '98374017231', 'p', 2, 200;
+EXEC listeners.uspInsertStudents  'Donna','Chaney','87364026381', 'p', 1, 200;
+EXEC listeners.uspInsertStudents 'Lisa', 'Martin', '89372947291', 'f',21, 203;
+EXEC listeners.uspInsertStudents 'Malcolm','Leslie','98327482932', 'f', 22, 200;
+EXEC listeners.uspInsertStudents 'William','Ballinger', '87301749372','f',23, 200; 
+EXEC listeners.uspInsertStudents  'Nikita','Santora', '90372819412', 'p', 24, 200;
+EXEC listeners.uspInsertStudents  'Howard','Vogel', '98346364923', 'f', 25, 200;
 
 --Inserting some data into listeners.Payments
 EXEC listeners.uspInsertPayments @PaymentStudentId = 1, @Deadline ='2018-10-30';

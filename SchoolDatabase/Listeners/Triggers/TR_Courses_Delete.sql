@@ -5,8 +5,8 @@ AS
 BEGIN
 	SET NOCOUNT ON
 	DECLARE @DeletedCourses archived.CoursesArchiving;
-	INSERT INTO @DeletedCourses(CourseGrade, DateOfAssessment, SchoolSubjectId, EmployeeId, CourseSemester, TempStudentId)
-	SELECT d.CourseGrade, d.DateOfAssessment, d.CourseSchoolSubjectId, d.CourseEmployeeId, d.CourseSemester, d.CourseStudentId
+	INSERT INTO @DeletedCourses(CourseGrade, DateOfAssessment, CourseSemester, TempStudentId, TempEmployeeId, TempSchoolSubjectId)
+	SELECT d.CourseGrade, d.DateOfAssessment, d.CourseSemester, d.CourseStudentId, d.CourseEmployeeId, d.CourseSchoolSubjectId
 	FROM deleted AS d;
 	EXEC archived.uspInsertArchivedCourses @DeletedCourses;
 END
