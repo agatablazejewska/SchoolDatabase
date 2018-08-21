@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE TABLE [utilities].[FormsOfStudy]
+﻿CREATE TABLE [utilities].[FormsOfStudy]
 (
 	FormOfStudyId char(1),
     FormOfStudyName varchar(15) NOT NULL,

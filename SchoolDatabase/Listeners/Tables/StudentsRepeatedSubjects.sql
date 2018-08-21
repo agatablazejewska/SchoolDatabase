@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE TABLE [listeners].[StudentsRepeatedSubjects]
+﻿CREATE TABLE [listeners].[StudentsRepeatedSubjects]
 (
 	StudentRepeatedSubjectId int IDENTITY (900,1),
 	RepeatingStudentId int NOT NULL,

@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [studies].[uspDeleteFaculties]
-	@FacultyId varchar(10)
+	@FacultyId nvarchar(10)
 AS
 	DELETE FROM studies.Faculties
 	WHERE FacultyId = @FacultyId

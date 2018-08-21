@@ -9,7 +9,7 @@
 	StudySemesterStatusId int NOT NULL,
 	CONSTRAINT FK_StudySemestersStudyLevels FOREIGN KEY (StudyLevelId) REFERENCES utilities.StudyLevels,
 	CONSTRAINT FK_StudySemesterStatuses FOREIGN KEY (StudySemesterStatusId) REFERENCES utilities.Statuses,
-	CONSTRAINT FK_StudySemesterCounsellors FOREIGN KEY (StudySemesterCounsellor) REFERENCES staff.Counsellors,
+	CONSTRAINT FK_StudySemesterCounsellors FOREIGN KEY (StudySemesterCounsellor) REFERENCES staff.Counsellors ON DELETE SET NULL,
 	CONSTRAINT FK_StudySemestersFieldsOfStudies FOREIGN KEY (FieldOfStudyId) REFERENCES studies.FieldsOfStudies,
 	CONSTRAINT CHK_StartYear CHECK (StartYear >= 2000 AND StartYear <= YEAR(GETDATE())),
 	CONSTRAINT FK_StudySemestersSemesters FOREIGN KEY (StudySemester) REFERENCES utilities.Semesters,

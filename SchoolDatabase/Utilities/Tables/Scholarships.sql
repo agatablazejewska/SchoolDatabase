@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE TABLE [utilities].[Scholarships]
+﻿CREATE TABLE [utilities].[Scholarships]
 (
 	ScholarshipId int IDENTITY (1,1),
 	ScholarshipType varchar(20) NOT NULL,

@@ -109,6 +109,9 @@
     <Folder Include="Archived\Staff\Procedures\Insert" />
     <Folder Include="Archived\Studies\Procedures\Insert" />
     <Folder Include="Studies\Triggers" />
+    <Folder Include="Utils" />
+    <Folder Include="Utils\Functions" />
+    <Folder Include="Utils\Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -228,7 +231,6 @@
     <Build Include="Staff\Procedures\Update\uspUpdateEmployees_Departments.sql" />
     <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedCourses.sql" />
     <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudySemesters.sql" />
-    <Build Include="Listeners\CHARGE.sql" />
     <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudents.sql" />
     <Build Include="Archived\Utilities\Procedures\Insert\uspInsertArchivedAddresses.sql" />
     <Build Include="Archived\Utilities\Procedures\Delete\uspDeleteArchivedAddresses.sql" />
@@ -272,6 +274,9 @@
     <Build Include="Archived\Studies\Procedures\Insert\uspInsertArchivedSchoolSubjects.sql" />
     <Build Include="Studies\Triggers\TR_SchoolSubjects_Delete.sql" />
     <Build Include="Staff\Triggers\TR_Employees_Update.sql" />
+    <Build Include="Utils\Functions\ufnBeginOfMonth.sql" />
+    <Build Include="Utils\utils.sql" />
+    <Build Include="Utils\Functions\ufnCharge.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

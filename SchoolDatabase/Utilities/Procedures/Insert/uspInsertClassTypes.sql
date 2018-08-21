@@ -3,7 +3,7 @@
 
 CREATE PROCEDURE [utilities].[uspInsertClassTypes]
 	@ClassTypeId char(1),
-	@ClassTypeName varchar(15),
+	@ClassTypeName nvarchar(15),
 	@Weighted decimal(2,1)
 AS
 	INSERT INTO utilities.ClassTypes(ClassTypeId, ClassTypeName, Weighted)

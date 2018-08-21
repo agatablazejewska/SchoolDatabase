@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE PROCEDURE [listeners].[uspUpdateStudentsRepeatedSubjects]
+﻿CREATE PROCEDURE [listeners].[uspUpdateStudentsRepeatedSubjects]
 	@RepeatingStudentId int,
 	@RepeatedSchoolSubjectId varchar(7)
 AS

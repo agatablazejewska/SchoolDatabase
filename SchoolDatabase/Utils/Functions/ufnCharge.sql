@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [listeners].[CHARGE]
+﻿CREATE FUNCTION [utils].[ufnCharge]
 (
 	@StudentId int
 )
@@ -8,8 +8,6 @@ BEGIN
 	DECLARE @Charge int;
 	DECLARE @ChargeFormOfStudy int;
 	DECLARE @ChargeRepeatedSubjects int;
-
-	
 	SET @ChargeFormOfStudy = (SELECT FormOfStudyPrice 
 							FROM utilities.FormsOfStudy 
 							WHERE FormOfStudyId = (SELECT StudentFormOfStudyId 

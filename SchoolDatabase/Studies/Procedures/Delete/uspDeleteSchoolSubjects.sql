@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [studies].[uspDeleteSchoolSubjects]
-	@SchoolSubjectId varchar(7)
+	@SchoolSubjectId nvarchar(7)
 AS
 	DELETE FROM studies.SchoolSubjects
 	WHERE SchoolSubjectId = @SchoolSubjectId

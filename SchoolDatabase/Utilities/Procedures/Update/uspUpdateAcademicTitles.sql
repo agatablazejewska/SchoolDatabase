@@ -2,8 +2,8 @@
  
 
 CREATE PROCEDURE [utilities].[uspUpdateAcademicTitles]
-	@AcademicTitleId varchar(12),
-	@FullTitle varchar(60)
+	@AcademicTitleId nvarchar(12),
+	@FullTitle nvarchar(60)
 AS 
 	UPDATE utilities.AcademicTitles
 	SET FullTitle=@FullTitle

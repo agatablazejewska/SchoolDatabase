@@ -1,6 +1,6 @@
 ﻿ CREATE PROCEDURE [utilities].[uspUpdadeStatuses]
 	@StatusId int,
-	@StatusType varchar(20)
+	@StatusType nvarchar(20)
 AS
 	UPDATE utilities.Statuses
 	SET StatusType = @StatusType

@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [utilities].[uspInsertStudyLevels]
-	@StudyLevelName varchar(15),
+	@StudyLevelName nvarchar(15),
 	@Semesters int
 AS
 	INSERT INTO utilities.StudyLevels(StudyLevelName, Semesters)

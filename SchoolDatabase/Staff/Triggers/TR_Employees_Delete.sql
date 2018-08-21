@@ -15,7 +15,7 @@ BEGIN
 	EmployeeStatusId)
 	SELECT d.EmployeeId, d.EmployeeName, d.EmployeeSurname, d.AcademicTitleId, d.PESEL, d.EmployeeAddressId, d.EmployeeStatusId
 	FROM deleted AS d
-	EXEC archived.uspInsertArchivedEmployees;
+	EXEC archived.uspInsertArchivedEmployees @DeletedEmployees;
 	-- Changing references in ArchivedCourses table
 	UPDATE ac
 	SET ac.ArchivedEmployeeId = ac.TempEmployeeId

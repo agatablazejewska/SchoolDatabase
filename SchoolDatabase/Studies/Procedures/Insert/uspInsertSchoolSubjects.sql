@@ -2,8 +2,8 @@
  
 
 CREATE PROCEDURE [studies].[uspInsertSchoolSubjects]
-	@SchoolSubjectId varchar(7),
-	@SchoolSubjectName varchar(200),
+	@SchoolSubjectId nvarchar(7),
+	@SchoolSubjectName nvarchar(200),
 	@HoursAmount int,
 	@ECTS int,
 	@ClassType char(1) 

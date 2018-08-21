@@ -4,7 +4,7 @@
 CREATE PROCEDURE [utilities].[uspUpdateSemester]
 	@SemesterId int,
 	@SemesterNum int,
-	@SemesterWritten varchar(10)
+	@SemesterWritten nvarchar(10)
 AS
 	UPDATE utilities.Semesters
 	SET SemesterNum = @SemesterNum, SemesterWritten = @SemesterWritten

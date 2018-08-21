@@ -12,7 +12,7 @@
 	CourseSemester int NOT NULL,
 	TempStudentId int,
 	TempEmployeeId int,
-	TempSchoolSubjectId int,
+	TempSchoolSubjectId varchar(7),
 	CONSTRAINT FK_ArchivedCoursesSemesters FOREIGN KEY (CourseSemester) REFERENCES utilities.Semesters,
 	CONSTRAINT FK_ArchivedCoursesGrades FOREIGN KEY (CourseGrade) REFERENCES utilities.Grades,
 	CONSTRAINT FK_ArchivedCoursesStudents FOREIGN KEY (PresentStudentId) REFERENCES listeners.Students ON DELETE SET NULL,

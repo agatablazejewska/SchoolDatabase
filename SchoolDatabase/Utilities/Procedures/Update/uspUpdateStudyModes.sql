@@ -3,8 +3,8 @@
 
 CREATE PROCEDURE [utilities].[uspUpdateFormsOfStudy]
 	@FormOfStudyId char(1),
-	@DaysOfWeek varchar(25),
-	@ClassHours varchar(12),
+	@DaysOfWeek nvarchar(25),
+	@ClassHours nvarchar(12),
 	@FormOfStudyPrice int
 AS
 	UPDATE utilities.FormsOfStudy

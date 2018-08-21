@@ -6,5 +6,5 @@
 	CourseSemester int,
 	TempStudentId int,
 	TempEmployeeId int,
-	TempSchoolSubjectId int
+	TempSchoolSubjectId varchar(7)
 )

@@ -2,9 +2,9 @@
  
 
 CREATE PROCEDURE [studies].[uspInsertFieldsOfStudies]
-	@FieldOfStudyName varchar(60),
+	@FieldOfStudyName nvarchar(60),
 	@MaxAmountOfStudents int,
-	@FieldOfStudyFacultyId varchar(10)
+	@FieldOfStudyFacultyId nvarchar(10)
 AS
 	INSERT INTO studies.FieldsOfStudies(FieldOfStudyName, MaxAmountOfStudents, FieldOfStudyFacultyId)
 	VALUES (@FieldOfStudyName, @MaxAmountOfStudents, @FieldOfStudyFacultyId)

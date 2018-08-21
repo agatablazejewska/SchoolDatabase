@@ -4,7 +4,7 @@
 	@Paid bit = 0
 AS
 	DECLARE @Charge int;
-	SET @Charge = listeners.CHARGE(@PaymentStudentId);
+	SET @Charge = utils.ufnCharge(@PaymentStudentId);
 	IF (@Charge = 0)
 		BEGIN
 			SET @Paid = 1;

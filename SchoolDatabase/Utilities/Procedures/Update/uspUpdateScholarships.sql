@@ -3,7 +3,7 @@
 
 CREATE PROCEDURE [utilities].[uspUpdateScholarships]
 	@ScholarshipId int,
-	@ScholarshipType varchar(20),
+	@ScholarshipType nvarchar(20),
 	@ScholarshipAmount int
 AS
 	UPDATE utilities.Scholarships

@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [studies].[uspUpdateSchoolSubjects]
-	@SchoolSubjectId varchar(7),
+	@SchoolSubjectId nvarchar(7),
 	@HoursAmount int,
 	@ECTS int
 AS

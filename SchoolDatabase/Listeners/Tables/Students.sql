@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [listeners].[Students]
 (
 	StudentId int IDENTITY(1,1),
-    StudentName varchar(20) NOT NULL,
-    StudentSurname varchar(50) NOT NULL,
+    StudentName nvarchar(20) NOT NULL,
+    StudentSurname nvarchar(50) NOT NULL,
     StudentPESEL varchar(11) NOT NULL,
     StudentFormOfStudyId char(1) NOT NULL,
 	StudentAddressId int NOT NULL,

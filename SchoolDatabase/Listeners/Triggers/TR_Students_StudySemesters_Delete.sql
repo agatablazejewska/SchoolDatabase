@@ -4,6 +4,7 @@ AFTER DELETE
 AS
 BEGIN
 	SET NOCOUNT ON
+	-- Archiving 
 	DECLARE @Archived archived.Students_StudySemestersArchiving;
 	INSERT INTO @Archived(TempStudentId, TempStudySemesterId, StudyLevelId)
 	SELECT d.StudentId, d.StudySemesterId, d.StudyLevelId

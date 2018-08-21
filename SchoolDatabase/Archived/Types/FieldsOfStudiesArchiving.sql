@@ -1,6 +1,6 @@
 ﻿CREATE TYPE [archived].[FieldsOfStudiesArchiving] AS TABLE
 (
 	FieldOfStudyId int,
-	FieldOfStudyName varchar(60),
-	FieldOfStudyFacultyId varchar(10)
+	FieldOfStudyName nvarchar(60),
+	FieldOfStudyFacultyId nvarchar(10)
 )

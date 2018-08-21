@@ -1,6 +1,6 @@
 ﻿ CREATE PROCEDURE [listeners].[uspUpdateStudents]
 	@StudentId int,
-	@StudentSurname varchar(50), 
+	@StudentSurname nvarchar(50), 
 	@StudentFormOfStudyId char(1),
 	@StudentAddressId int,
 	@StudentStatusId int

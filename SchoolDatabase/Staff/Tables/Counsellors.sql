@@ -1,12 +1,9 @@
-﻿ 
- 
-
-CREATE TABLE [staff].[Counsellors]
+﻿CREATE TABLE [staff].[Counsellors]
 (
 	CounsellorId int,
 	CounsellorEmployeeId int NOT NULL,
-	Email varchar(40),
-	PhoneNumber varchar(15),
-	CONSTRAINT FK_CounsellorsEmployees FOREIGN KEY (CounsellorEmployeeId) REFERENCES staff.Employees,
+	Email nvarchar(40),
+	PhoneNumber nvarchar(15),
+	CONSTRAINT FK_CounsellorsEmployees FOREIGN KEY (CounsellorEmployeeId) REFERENCES staff.Employees ON DELETE CASCADE, 
 	CONSTRAINT PK_Counsellors PRIMARY KEY (CounsellorId)	
 )

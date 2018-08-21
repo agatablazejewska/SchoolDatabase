@@ -3,7 +3,7 @@
 
 CREATE PROCEDURE [utilities].[uspUpdateStudyLevels]
 		@StudyLevelId int,
-		@StudyLevelName varchar(15),
+		@StudyLevelName nvarchar(15),
 		@Semesters int
 AS
 	UPDATE utilities.StudyLevels

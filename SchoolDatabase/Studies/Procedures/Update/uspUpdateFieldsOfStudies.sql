@@ -3,9 +3,9 @@
 
 CREATE PROCEDURE [studies].[uspUpdateFieldsOfStudies]
 	@FieldOfStudyId int,
-	@FieldOfStudyName varchar(60),
+	@FieldOfStudyName nvarchar(60),
 	@MaxAmountOfStudents int,
-	@FieldOfStudyFacultyId varchar(10)
+	@FieldOfStudyFacultyId nvarchar(10)
 AS
 	UPDATE studies.FieldsOfStudies
 	SET FieldOfStudyName = @FieldOfStudyName, MaxAmountOfStudents = @MaxAmountOfStudents, FieldOfStudyFacultyId = @FieldOfStudyFacultyId

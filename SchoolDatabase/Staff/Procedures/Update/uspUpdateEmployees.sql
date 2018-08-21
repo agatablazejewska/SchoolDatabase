@@ -1,10 +1,7 @@
-﻿ 
- 
-
-CREATE PROCEDURE [staff].[uspUpdateEmployees]
+﻿CREATE PROCEDURE [staff].[uspUpdateEmployees]
 	@EmployeeId int,
-	@EmployeeName varchar(20),
-	@EmployeeSurname varchar(50),
+	@EmployeeName nvarchar(20),
+	@EmployeeSurname nvarchar(50),
 	@AcademicTitleId varchar(12),
 	@PESEL varchar(11),
 	@EmployeeAddressId int,

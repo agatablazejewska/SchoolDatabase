@@ -125,16 +125,16 @@ EXEC staff.uspInsertEmployees 'James', 'Levy','Prof','73910385031', 7,200;
 EXEC staff.uspInsertEmployees 'Martin','Zepeda','Prof','73048502174',6,200;
 
 --Inserting into studies.Faculties
-EXEC studies.uspInsertFaculties 'IaT','Informatics and Telecommunications', 1,7, 'IT100';
-EXEC studies.uspInsertFaculties 'EaA', 'Electronics and Automatics', 12,1,'EA205';
-EXEC studies.uspInsertFaculties 'Ch','Chemistry',3,8,'CH125';
-EXEC studies.uspInsertFaculties	'Nano','Nanotechnology',13,8,'NANO874';
-EXEC studies.uspInsertFaculties 'Bio', 'Biomedicis',6,11,'BIO005';
-EXEC studies.uspInsertFaculties 'FaD','Food and Dietetics', 14,6,'FAD002';
-EXEC studies.uspInsertFaculties 'En', 'Energetics',5,10,'EN920';
-EXEC studies.uspInsertFaculties 'RaD', 'Robotics and Drives', 15,5,'RAD1450';
-EXEC studies.uspInsertFaculties 'OEaST', 'Ocean Engineering and Ship Technology',9,4,'OEAST918';
-EXEC studies.uspInsertFaculties 'CaEE', 'Civil and Environmental Engineering', 2,9,'CAEE1290';
+EXEC studies.uspInsertFaculties 'IaT','Informatics and Telecommunications', 1, 'IT100';
+EXEC studies.uspInsertFaculties 'EaA', 'Electronics and Automatics', 12,'EA205';
+EXEC studies.uspInsertFaculties 'Ch','Chemistry',3,'CH125';
+EXEC studies.uspInsertFaculties	'Nano','Nanotechnology',13,'NANO874';
+EXEC studies.uspInsertFaculties 'Bio', 'Biomedicis',6,'BIO005';
+EXEC studies.uspInsertFaculties 'FaD','Food and Dietetics', 14,'FAD002';
+EXEC studies.uspInsertFaculties 'En', 'Energetics',5,'EN920';
+EXEC studies.uspInsertFaculties 'RaD', 'Robotics and Drives', 15,'RAD1450';
+EXEC studies.uspInsertFaculties 'OEaST', 'Ocean Engineering and Ship Technology',9,'OEAST918';
+EXEC studies.uspInsertFaculties 'CaEE', 'Civil and Environmental Engineering', 2,'CAEE1290';
 
 --Inserting some data into studies.FieldsOfStudies
 EXEC studies.uspInsertFieldsOfStudies 'Informatics', 320,'IaT';

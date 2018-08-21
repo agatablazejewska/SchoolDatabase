@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [listeners].[uspInsertStudents]
-	@StudentName varchar(20),
-	@StudentSurname varchar(50),
+	@StudentName nvarchar(20),
+	@StudentSurname nvarchar(50),
 	@StudentPESEL varchar(11),
 	@StudentFormOfStudyId char(1),
 	@StudentAddressId int,

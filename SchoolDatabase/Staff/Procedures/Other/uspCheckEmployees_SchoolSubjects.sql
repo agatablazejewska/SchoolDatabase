@@ -3,7 +3,7 @@
 
 CREATE PROCEDURE [staff].[uspCheckEmployees_SchoolSubjects]
 	@EmployeeId int,
-	@SchoolSubjectId varchar(7)
+	@SchoolSubjectId nvarchar(7)
 AS
 	IF (@SchoolSubjectId NOT IN (SELECT ess.SchoolSubjectId 
 								FROM staff.Employees_SchoolSubjects AS ess

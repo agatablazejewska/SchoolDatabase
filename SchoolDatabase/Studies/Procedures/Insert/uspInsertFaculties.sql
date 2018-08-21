@@ -2,13 +2,12 @@
  
 
 CREATE PROCEDURE [studies].[uspInsertFaculties]
-	@FacultyId varchar(10),
-	@FacultyFullName varchar(70),
+	@FacultyId nvarchar(10),
+	@FacultyFullName nvarchar(70),
 	@DeanId int, 
-	@DeputyDeanId int,
-	@BuildingNumber varchar(10)
+	@BuildingNumber nvarchar(10)
 
 AS
-	INSERT INTO studies.Faculties(FacultyId, FacultyFullName, DeanId, DeputyDeanId, BuildingNumber)
-	VALUES (@FacultyId, @FacultyFullName, @DeanId, @DeputyDeanId, @BuildingNumber)
+	INSERT INTO studies.Faculties(FacultyId, FacultyFullName, DeanId, BuildingNumber)
+	VALUES (@FacultyId, @FacultyFullName, @DeanId, @BuildingNumber)
 RETURN 0

@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [utilities].[uspInsertScholarships]
-	@ScholarshipType varchar(20),
+	@ScholarshipType nvarchar(20),
 	@ScholarshipAmount int
 AS
 	INSERT INTO utilities.Scholarships(ScholarshipType, ScholarshipAmount)

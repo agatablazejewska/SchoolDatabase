@@ -1,12 +1,8 @@
-﻿ 
- 
-
-
-CREATE TABLE [staff].[Employees]
+﻿ CREATE TABLE [staff].[Employees]
 (
 	EmployeeId int IDENTITY(1,1),
-    EmployeeName varchar(20) NOT NULL,
-    EmployeeSurname varchar(50) NOT NULL,
+    EmployeeName nvarchar(20) NOT NULL,
+    EmployeeSurname nvarchar(50) NOT NULL,
     AcademicTitleId varchar(12), 
     PESEL varchar(11) NOT NULL,
 	EmployeeAddressId int NOT NULL, 

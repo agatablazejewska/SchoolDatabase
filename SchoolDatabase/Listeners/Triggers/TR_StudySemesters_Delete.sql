@@ -12,8 +12,7 @@ BEGIN
 	EXEC archived.uspInsertArchivedStudySemesters @Archived;
 	-- Adding reference in ArchivedStudents_StudySemesters to ArchivedStudySemesters
 	UPDATE asss
-	SET asss.PresentStudentId = asss.TempStudentId,
-	asss.ArchivedStudySemesterId = asss.TempStudySemesterId, asss.PresentStudySemesterId = NULL
+	SET asss.ArchivedStudySemesterId = asss.TempStudySemesterId
 	FROM archived.ArchivedStudents_StudySemesters AS asss
 	INNER JOIN deleted AS d
 	ON asss.TempStudySemesterId = d.StudySemesterId

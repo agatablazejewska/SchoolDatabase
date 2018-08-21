@@ -2,7 +2,7 @@
  
 
 CREATE PROCEDURE [utilities].[uspInsertStatuses]
-	@StatusType varchar(20)
+	@StatusType nvarchar(20)
 AS
 	INSERT INTO utilities.Statuses(StatusType)
 	VALUES (@StatusType)

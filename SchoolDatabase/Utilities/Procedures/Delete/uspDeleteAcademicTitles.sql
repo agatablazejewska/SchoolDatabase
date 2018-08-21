@@ -1,5 +1,5 @@
 ﻿ CREATE PROCEDURE [utilities].[uspDeleteAcademicTitles]
-	@AcademicTitleId varchar(12)
+	@AcademicTitleId nvarchar(12)
 AS 
 	DELETE FROM utilities.AcademicTitles
 	WHERE AcademicTitleId=@AcademicTitleId;

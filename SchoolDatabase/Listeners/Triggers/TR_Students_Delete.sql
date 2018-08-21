@@ -24,8 +24,7 @@ BEGIN
 	ON ac.TempStudentId = d.StudentId
 	--Updating ArchivedStudents_StudySemesters to have reference to deleted student
 	UPDATE asss
-	SET asss.ArchivedStudentId = asss.TempStudentId, asss.PresentStudentId = NULL,
-	asss.PresentStudySemesterId = asss.TempStudySemesterId
+	SET asss.ArchivedStudentId = asss.TempStudentId
 	FROM archived.ArchivedStudents_StudySemesters AS asss
 	INNER JOIN deleted AS d
 	ON asss.TempStudentId = d.StudentId
