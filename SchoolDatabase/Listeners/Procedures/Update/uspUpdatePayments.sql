@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [listeners].[uspUpdatePayments]
+﻿/*CREATE PROCEDURE [listeners].[uspUpdatePayments]
 	@PaymentId int = NULL,
 	@PaymentStudentId int = NULL,
 	@Deadline date = NULL,
@@ -17,4 +17,4 @@ AS
 		UPDATE listeners.Payments
 		SET Deadline = ISNULL(@Deadline,Deadline), Paid=ISNULL(@Paid, Paid)
 		WHERE PaymentId=@PaymentId;
-RETURN 0
+RETURN 0*/

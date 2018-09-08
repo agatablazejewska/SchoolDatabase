@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudents]
 	@StastusId int
 AS
+BEGIN TRY
+BEGIN TRANSACTION
 	IF OBJECT_ID('tempdb..#ArchivedStudents') IS NOT NULL
     DROP TABLE #ArchivedStudents;
 	IF OBJECT_ID('tempdb..#ArchivedAddresses') IS NOT NULL
@@ -9,12 +11,12 @@ AS
     DROP TABLE #ArchivedCourses;
 	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemesters') IS NOT NULL
     DROP TABLE #ArchivedStudents_StudySemesters;
-	--znalezienie wszystkich nieaktywnych studentów
+	--finding inactive students
 	SELECT * 
 	INTO #ArchivedStudents
 	FROM listeners.Students AS s
 	WHERE s.StudentStatusId = @StastusId;
-	--zarchiwizować adres
+	--archiving addresses
 	SELECT * 
 	INTO #ArchivedAddresses
 	FROM utilities.Addresses AS a
@@ -22,83 +24,100 @@ AS
 	INSERT INTO archived.ArchivedAddresses
 	SELECT *
 	FROM #ArchivedAddresses;
-	--zarchiwizować studenta
-	INSERT INTO archived.ArchivedStudents(StudentId, StudentName, StudentSurname, StudentPESEL, StudentFormOfStudyId, 
-	ArchivedAddressId, StudentStatusId)
-	SELECT ars.StudentId, ars.StudentName, ars.StudentSurname, ars.StudentPESEL, ars.StudentFormOfStudyId, ars.StudentAddressId,
-	ars.StudentStatusId
+	--archiving students
+	INSERT INTO archived.ArchivedStudents(StudentId, StudentName, StudentSurname, StudentPESEL, 
+	ArchivedAddressId, Nationality, StudentStatusId)
+	SELECT ars.StudentId, ars.StudentName, ars.StudentSurname, ars.StudentPESEL,  ars.StudentAddressId,
+	ars.Nationality ,ars.StudentStatusId
 	FROM #ArchivedStudents AS ars;
-	--zarchiwizować student_studySemesters
+	--archiving Students_StudySemesters
 	SELECT *
 	INTO #ArchivedStudents_StudySemesters
 	FROM listeners.Students_StudySemesters AS sss
 	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	INSERT INTO archived.ArchivedStudents_StudySemesters(ArchivedStudentId, PresentStudySemesterId, StudyLevelId)
-	SELECT asss.StudentId, asss.StudySemesterId, asss.StudyLevelId
+	INSERT INTO archived.ArchivedStudents_StudySemesters(ArchivedStudentId, PresentStudySemesterId, StudyLevelId, FormOfStudyId, Price, Paid)
+	SELECT asss.StudentId, asss.StudySemesterId, asss.StudyLevelId, asss.FormOfStudyId, asss.Price, asss.Paid
 	FROM #ArchivedStudents_StudySemesters AS asss;
--- update dla zeszlych rocznikow usuwanego studenta
+	--updating ArchivedStudents_StudySemesters to have reference to archived students
 	UPDATE asss
 	SET asss.ArchivedStudentId = temp.StudentId
 	FROM archived.ArchivedStudents_StudySemesters AS asss
 	INNER JOIN #ArchivedStudents_StudySemesters AS temp
 	ON asss.PresentStudentId = temp.StudentId;
-	SELECT * FROM archived.ArchivedStudents_StudySemesters;
-	--usunać student_StudySemesters
-	BEGIN TRAN
+	--deleting Students_StudySemesters
 	DELETE sss
 	FROM listeners.Students_StudySemesters AS sss
 	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--usunąć payments
-	BEGIN TRAN
+	--deleting Payments
 	DELETE p
 	FROM listeners.Payments AS p
-	WHERE p.PaymentStudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--usunąć scholarships
-	BEGIN TRAN
+	WHERE p.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
+	--Deleting Scholarships
 	DELETE ss
 	FROM listeners.Students_Scholarships AS ss
 	WHERE ss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--usunąć schoolsubjects
-	BEGIN TRAN
+	--Deleting SchoolSubjects
 	DELETE sss
 	FROM listeners.Students_SchoolSubjects AS sss
 	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--usunąć studentRepeatedSubjects
-	BEGIN TRAN
+	--Deleting StudentsRepeatedSubjects
 	DELETE srs
 	FROM listeners.StudentsRepeatedSubjects AS srs
 	WHERE srs.RepeatingStudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--zarchiwizowac kursy
+	--Archiving Courses
 	SELECT *
 	INTO #ArchivedCourses
 	FROM listeners.Courses AS c
 	WHERE c.CourseStudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	SELECT * FROM #ArchivedCourses;
 	INSERT INTO archived.ArchivedCourses (CourseGrade, DateOfAssessment, ArchivedStudentId, PresentSchoolSubjectId,
-	PresentEmployeeId, CourseSemester)
-	SELECT ac.CourseGrade, ac.DateOfAssessment, ac.CourseStudentId, ac.CourseSchoolSubjectId, ac.CourseEmployeeId, ac.CourseSemester
+	PresentEmployeeId, CourseSemester, PresentStudySemesterId)
+	SELECT ac.CourseGrade, ac.DateOfAssessment, ac.CourseStudentId,
+	ac.CourseSchoolSubjectId, ac.CourseEmployeeId, ac.CourseSemester, ac.StudySemester
 	FROM #ArchivedCourses AS ac;
-	SELECT * FROM archived.ArchivedCourses;
-	--usunąć kursy
-	BEGIN TRAN
+	--Deleting Courses
 	DELETE c
 	FROM listeners.Courses AS c
 	WHERE c.CourseId IN (SELECT ac.CourseId FROM #ArchivedCourses AS ac);
-	SELECT * FROM listeners.Courses;
-	--zrobić update kursów presentStudentid ->ArchivedStudentId
+	--Updating Courses: PresentStudentId -> ArchivedStudentId
 	UPDATE ac
 	SET ac.ArchivedStudentId = ars.StudentId
 	FROM archived.ArchivedCourses AS ac
 	INNER JOIN #ArchivedStudents AS ars
 	ON ac.PresentStudentId = ars.StudentId;
-	--usunąć studenta
-	BEGIN TRAN
+	--Deleting Students
 	DELETE s
 	FROM listeners.Students AS s
 	WHERE s.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--usunąć adres
-	BEGIN TRAN
+	--Deleting Addresses
 	DELETE a
 	FROM utilities.Addresses AS a
 	WHERE a.AddressId IN (SELECT aa.AddressId FROM #ArchivedAddresses AS aa);
-RETURN 0
+	IF OBJECT_ID('tempdb..#ArchivedStudents') IS NOT NULL
+    DROP TABLE #ArchivedStudents;
+	IF OBJECT_ID('tempdb..#ArchivedAddresses') IS NOT NULL
+    DROP TABLE #ArchivedAddresses;
+	IF OBJECT_ID('tempdb..#ArchivedCourses') IS NOT NULL
+    DROP TABLE #ArchivedCourses;
+	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemesters') IS NOT NULL
+    DROP TABLE #ArchivedStudents_StudySemesters;
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	EXEC utils.uspGetErrorInfo; 
+	/*Test XACT state 
+	if 1: the transaction is commitable
+	if -1: the transaction is uncommitable and should be rolled back
+	if 0: means that there is no transaction and a commit or rollback operation would generate an error*/
+	-- Test whether the transaction is uncommitable
+	IF (XACT_STATE()) = -1
+	BEGIN
+		PRINT N'The transaction is in uncommitable state.' + N'Rolling back transaction.';
+		ROLLBACK TRANSACTION
+	END
+	-- Test whether the transaction is commitable
+	IF (XACT_STATE()) = 1
+	BEGIN
+		PRINT N'The transaction is commitable.' + N'Commiting transaction.';
+		COMMIT TRANSACTION
+	END
+END CATCH

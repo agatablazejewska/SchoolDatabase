@@ -137,18 +137,13 @@
     <Build Include="Studies\Tables\SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertCourses.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertDeanGroups.sql" />
-    <Build Include="Listeners\Procedures\Insert\uspInsertPayments.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_Scholarships.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudySemesters.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteCourses.sql" />
-    <Build Include="Listeners\Procedures\Delete\uspDeleteDeanGroups.sql" />
-    <Build Include="Listeners\Procedures\Delete\uspDeletePayments.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_Scholarships.sql" />
-    <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_SchoolSubjects.sql" />
-    <Build Include="Listeners\Procedures\Delete\uspDeleteStudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudySemesters.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateCourses.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateDeanGroups.sql" />
@@ -210,10 +205,7 @@
     <Build Include="Staff\Procedures\Update\uspUpdateDepartments.sql" />
     <Build Include="Staff\Procedures\Update\uspUpdateEmployees.sql" />
     <Build Include="Staff\Procedures\Update\uspUpdateEmployees_SchoolSubjects.sql" />
-    <Build Include="Listeners\Procedures\Other\uspCheckStudents_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Other\uspCheckEmployees_SchoolSubjects.sql" />
-    <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Insert.sql" />
-    <Build Include="Listeners\Procedures\Other\uspCheckStudentsRepeatedSubjects_Delete.sql" />
     <Build Include="Archived\archived.sql" />
     <Build Include="Archived\Listeners\ArchivedCourses.sql" />
     <Build Include="Archived\Listeners\ArchivedStudents.sql" />
@@ -238,6 +230,7 @@
     <Build Include="Utils\Functions\ufnCharge.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees\uspDeleteEmployees.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents\uspDeleteStudents.sql" />
+    <Build Include="Utils\Procedures\uspGetErrorInfo.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

@@ -2,12 +2,12 @@
 	@StudentName nvarchar(20),
 	@StudentSurname nvarchar(50),
 	@StudentPESEL char(11),
-	@StudentFormOfStudyId char(1),
 	@StudentAddressId int,
+	@Nationality nvarchar(30),
 	@StudentStatusId int
 AS
 	INSERT INTO listeners.Students(StudentName, StudentSurname, StudentPESEL,
-	StudentFormOfStudyId, StudentAddressId, StudentStatusId)
+	 StudentAddressId, Nationality, StudentStatusId)
 	VALUES (@StudentName, @StudentSurname, @StudentPESEL, 
-	 @StudentFormOfStudyId, @StudentAddressId, @StudentStatusId)
+	@StudentAddressId, @Nationality, @StudentStatusId)
 RETURN 0

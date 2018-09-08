@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [utils].[ufnCharge]
+﻿/*CREATE FUNCTION [utils].[ufnCharge]
 (
 	@StudentId int
 )
@@ -8,11 +8,11 @@ BEGIN
 	DECLARE @Charge int;
 	DECLARE @ChargeFormOfStudy int;
 	DECLARE @ChargeRepeatedSubjects int;
-	SET @ChargeFormOfStudy = (SELECT FormOfStudyPrice 
+	SET @ChargeFormOfStudy = (SELECT sum(FormOfStudyPrice)
 							FROM utilities.FormsOfStudy 
-							WHERE FormOfStudyId = (SELECT StudentFormOfStudyId 
-												FROM listeners.Students 
-												WHERE StudentId=@StudentId));
+							WHERE FormOfStudyId IN (SELECT sss.FormOfStudyId
+												FROM listeners.Students_StudySemesters AS sss
+												WHERE sss.StudentId=@StudentId));
 	
 	SET @ChargeRepeatedSubjects = (SELECT sum(Price) FROM  studies.SchoolSubjects
 								  WHERE SchoolSubjectId IN (SELECT RepeatedSubjectId 
@@ -28,3 +28,4 @@ BEGIN
 		END
 	RETURN @Charge;
 END
+*/

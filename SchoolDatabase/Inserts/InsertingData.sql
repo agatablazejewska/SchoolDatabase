@@ -87,8 +87,8 @@ EXEC utilities.uspInsertSemesters 7, 'Seventh';
 
 --Inserting some data into utilities.Statuses
 EXEC utilities.uspInsertStatuses 'Active';
-EXEC utilities.uspInsertStatuses 'Retired';
 EXEC utilities.uspInsertStatuses 'Inactive';
+EXEC utilities.uspInsertStatuses 'Retired';
 EXEC utilities.uspInsertStatuses 'Dean''s leave';
 EXEC utilities.uspInsertStatuses 'Maternity leave';
 EXEC utilities.uspInsertStatuses 'Paternity leave';
@@ -108,8 +108,8 @@ EXEC utilities.uspInsertFormsOfStudy 'p','Part time', 'Fri.-Sun.', '07:15-21:15'
 EXEC utilities.uspInsertFormsOfStudy 'e', 'Evening', 'Mon.-Fri.', '17:15-21:15', 2000;
 
 --Inserting some data into staff.Employees
-EXEC staff.uspInsertEmployees 'Michael','Felts', 'Eng','98374023841',20,202; 
-EXEC staff.uspInsertEmployees 'Daniel','Albright','Prof','983471039421', 19, 202;
+EXEC staff.uspInsertEmployees 'Michael','Felts', 'Eng','98374023841',20,201; 
+EXEC staff.uspInsertEmployees 'Daniel','Albright','Prof','983471039421', 19, 201;
 EXEC staff.uspInsertEmployees 'Ryan','Trent','PhD','92381280940',18, 200;
 EXEC staff.uspInsertEmployees 'Richard','Zick','MS','94029340239',17,200;
 EXEC staff.uspInsertEmployees 'Robert','Watts','Prof','83729102843',16,205;
@@ -252,12 +252,12 @@ EXEC staff.uspInsertEmployees_Departments 10, 4;
 EXEC staff.uspInsertEmployees_Departments 4, 5;
 
 --Inserting some data into listeners.StudySemesters
-EXEC listeners.uspInsertStudySemesters 2, 19, 1, 4, 2017, 202;
-EXEC listeners.uspInsertStudySemesters 4,20,2,2,2016,202;
-EXEC listeners.uspInsertStudySemesters 2, 1,4,1, 2017,200;
-EXEC listeners.uspInsertStudySemesters 6, 5, 2,3,2015,200;
-EXEC listeners.uspInsertStudySemesters 4, 8, 1, 8, 2016, 200;
-EXEC listeners.uspInsertStudySemesters 2, 13, 2, 5, 2017, 200;
+EXEC listeners.uspInsertStudySemesters 2, 19, 1, 4, 2016, 201;
+EXEC listeners.uspInsertStudySemesters 4,20,2,2,2016,201;
+EXEC listeners.uspInsertStudySemesters 2, 1,4,1, 2015,201;
+EXEC listeners.uspInsertStudySemesters 6, 1, 2,3,2016,200;
+EXEC listeners.uspInsertStudySemesters 4, 20, 1, 8, 2017, 200;
+EXEC listeners.uspInsertStudySemesters 2, 19, 2, 5, 2017, 200;
 EXEC listeners.uspInsertStudySemesters 6, 16, 4, 10, 2015, 200;
 
 --Inserting some data into listeners.DeanGroups
@@ -273,18 +273,23 @@ EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1001;
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1004;
 
 --Inserting some data into listeners.Students
-EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732','f', 5, 202;
-EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183', 'f', 4, 202;
-EXEC listeners.uspInsertStudents 'Judith','Sayler', '93827301748','f', 3, 200;
-EXEC listeners.uspInsertStudents 'Helen', 'Price', '98374017231', 'p', 2, 200;
-EXEC listeners.uspInsertStudents  'Donna','Chaney','87364026381', 'p', 1, 200;
-EXEC listeners.uspInsertStudents 'Lisa', 'Martin', '89372947291', 'f',21, 203;
-EXEC listeners.uspInsertStudents 'Malcolm','Leslie','98327482932', 'f', 22, 200;
-EXEC listeners.uspInsertStudents 'William','Ballinger', '87301749372','f',23, 200; 
-EXEC listeners.uspInsertStudents  'Nikita','Santora', '90372819412', 'p', 24, 200;
-EXEC listeners.uspInsertStudents  'Howard','Vogel', '98346364923', 'f', 25, 200;
+EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732', 5,'USA', 201;
+EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183',  4,'Mexican', 201;
+EXEC listeners.uspInsertStudents 'Judith','Sayler', '93827301748', 3,'Canadian', 200;
+EXEC listeners.uspInsertStudents 'Helen', 'Price', '98374017231',  2, 'USA',200;
+EXEC listeners.uspInsertStudents  'Donna','Chaney','87364026381',  1, 'USA', 200;
+EXEC listeners.uspInsertStudents 'Lisa', 'Martin', '89372947291', 21, 'USA', 203;
+EXEC listeners.uspInsertStudents 'Malcolm','Leslie','98327482932', 22, 'USA', 200;
+EXEC listeners.uspInsertStudents 'William','Ballinger', '87301749372',23, 'USA', 200; 
+EXEC listeners.uspInsertStudents  'Nikita','Santora', '90372819412',  24, 'USA', 200;
+EXEC listeners.uspInsertStudents  'Howard','Vogel', '98346364923',  25, 'USA', 200;
 
---Inserting some data into listeners.Payments
+--Inserting some data into listeners.Students_StudySemesters
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1000, 1, 200, 'p';
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1001, 2, 200, 'f';
+EXEC listeners.uspInsertStudents_StudySemesters 2, 1002, 1, 200, 'f';
+
+/*--Inserting some data into listeners.Payments
 EXEC listeners.uspInsertPayments @PaymentStudentId = 1, @Deadline ='2018-10-30';
 EXEC listeners.uspInsertPayments @PaymentStudentId = 2,  @Deadline ='2018-10-30';
 EXEC listeners.uspInsertPayments @PaymentStudentId = 3, @Deadline ='2018-10-30';
@@ -294,8 +299,15 @@ EXEC listeners.uspInsertPayments @PaymentStudentId = 6, @Deadline ='2018-10-30';
 EXEC listeners.uspInsertPayments @PaymentStudentId = 7, @Deadline ='2018-10-30';
 EXEC listeners.uspInsertPayments @PaymentStudentId = 8, @Deadline ='2018-10-30';
 EXEC listeners.uspInsertPayments @PaymentStudentId = 9, @Deadline ='2018-10-30';
-EXEC listeners.uspInsertPayments @PaymentStudentId = 10, @Deadline ='2018-10-30';
+EXEC listeners.uspInsertPayments @PaymentStudentId = 10, @Deadline ='2018-10-30'*/;
 
 --Inserting some data into listeners.Courses
-EXEC listeners.uspInsertCourses 3.5, '2018-06-30', 1, 'eAM', 1, 2;
-EXEC listeners.uspInsertCourses 4.0, '2018-06-30', 1, 'lAM', 1,2;
+EXEC listeners.uspInsertCourses 2.5, '2018-06-30', 1, 'eAM', 1, 2, 1000;
+EXEC listeners.uspInsertCourses 4.0, '2018-06-30', 1, 'lAM', 1,2, 1000;
+EXEC listeners.uspInsertCourses 2.0, '2018-06-30', 1, 'lAI', 1,2, 1001;
+EXEC listeners.uspInsertCourses 4.0, '2018-06-30', 1, 'pAI', 1,2, 1001;
+EXEC listeners.uspInsertCourses 5.0, '2018-06-30', 2, 'lBoD', 1,2, 1002;
+EXEC listeners.uspInsertCourses 2.5, '2018-06-30', 2, 'pBoD', 1,2, 1002;
+
+
+
