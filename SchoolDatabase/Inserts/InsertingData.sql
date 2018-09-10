@@ -108,8 +108,8 @@ EXEC utilities.uspInsertFormsOfStudy 'p','Part time', 'Fri.-Sun.', '07:15-21:15'
 EXEC utilities.uspInsertFormsOfStudy 'e', 'Evening', 'Mon.-Fri.', '17:15-21:15', 2000;
 
 --Inserting some data into staff.Employees
-EXEC staff.uspInsertEmployees 'Michael','Felts', 'Eng','98374023841',20,200; 
-EXEC staff.uspInsertEmployees 'Daniel','Albright','Prof','983471039421', 19, 200;
+EXEC staff.uspInsertEmployees 'Michael','Felts', 'Eng','98374023841',20,202; 
+EXEC staff.uspInsertEmployees 'Daniel','Albright','Prof','983471039421', 19, 202;
 EXEC staff.uspInsertEmployees 'Ryan','Trent','PhD','92381280940',18, 200;
 EXEC staff.uspInsertEmployees 'Richard','Zick','MS','94029340239',17,200;
 EXEC staff.uspInsertEmployees 'Robert','Watts','Prof','83729102843',16,205;
@@ -252,8 +252,8 @@ EXEC staff.uspInsertEmployees_Departments 10, 4;
 EXEC staff.uspInsertEmployees_Departments 4, 5;
 
 --Inserting some data into listeners.StudySemesters
-EXEC listeners.uspInsertStudySemesters 2, 19, 1, 4, 2017, 200;
-EXEC listeners.uspInsertStudySemesters 4,20,2,2,2016,200;
+EXEC listeners.uspInsertStudySemesters 2, 19, 1, 4, 2017, 202;
+EXEC listeners.uspInsertStudySemesters 4,20,2,2,2016,202;
 EXEC listeners.uspInsertStudySemesters 2, 1,4,1, 2017,200;
 EXEC listeners.uspInsertStudySemesters 6, 5, 2,3,2015,200;
 EXEC listeners.uspInsertStudySemesters 4, 8, 1, 8, 2016, 200;
@@ -273,8 +273,8 @@ EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1001;
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1004;
 
 --Inserting some data into listeners.Students
-EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732','f', 5, 200;
-EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183', 'f', 4, 200;
+EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732','f', 5, 202;
+EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183', 'f', 4, 202;
 EXEC listeners.uspInsertStudents 'Judith','Sayler', '93827301748','f', 3, 200;
 EXEC listeners.uspInsertStudents 'Helen', 'Price', '98374017231', 'p', 2, 200;
 EXEC listeners.uspInsertStudents  'Donna','Chaney','87364026381', 'p', 1, 200;

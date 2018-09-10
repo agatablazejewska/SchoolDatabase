@@ -3,7 +3,7 @@
 	StudentId int IDENTITY(1,1),
     StudentName nvarchar(20) NOT NULL,
     StudentSurname nvarchar(50) NOT NULL,
-    StudentPESEL varchar(11) NOT NULL,
+    StudentPESEL char(11) NOT NULL,
     StudentFormOfStudyId char(1) NOT NULL,
 	StudentAddressId int NOT NULL,
 	StudentStatusId int NOT NULL,

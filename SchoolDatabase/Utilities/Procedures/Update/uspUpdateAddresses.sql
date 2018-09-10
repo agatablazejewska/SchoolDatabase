@@ -5,7 +5,7 @@
 	@Building varchar(5),
 	@ApartmentNumber varchar(5),
 	@CityState nvarchar(25),
-	@ZIP nvarchar(5)
+	@ZIP char(5)
 AS
 	UPDATE utilities.Addresses
 	SET City = @City, Street = @Street, Building = @Building, ApartmentNumber = @ApartmentNumber,

@@ -6,8 +6,6 @@
 	PresentStudySemesterId int,
 	ArchivedStudySemesterId int,
 	StudyLevelId int,
-	TempStudentId int,
-	TempStudySemesterId int,
 	CONSTRAINT FK_ArchivedStudents_StudySemestersStudents FOREIGN KEY (PresentStudentId) REFERENCES listeners.Students ON DELETE SET NULL,
 	CONSTRAINT FK_ArchivedStudents_StudySemestersArchivedStudents FOREIGN KEY (ArchivedStudentId) REFERENCES archived.ArchivedStudents,
 	CONSTRAINT FK_ArchivedStudents_StudySemestersStudySemesters FOREIGN KEY (PresentStudySemesterId) REFERENCES listeners.StudySemesters ON DELETE SET NULL,

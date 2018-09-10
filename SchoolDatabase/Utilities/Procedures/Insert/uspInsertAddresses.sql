@@ -7,7 +7,7 @@ CREATE PROCEDURE [utilities].[uspInsertAddresses]
 	@Building varchar(5),
 	@ApartmentNumber varchar(5),
 	@CityState nvarchar(25),
-	@ZIP nvarchar(5)
+	@ZIP char(5)
 AS
 	INSERT INTO utilities.Addresses(City, Street, Building, ApartmentNumber, CityState, ZIP)
 	VALUES (@City, @Street, @Building, @ApartmentNumber, @CityState, @ZIP)

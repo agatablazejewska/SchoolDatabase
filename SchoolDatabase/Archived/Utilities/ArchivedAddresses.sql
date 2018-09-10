@@ -6,7 +6,7 @@
 	Building varchar(5) NOT NULL,
 	ApartmentNumber varchar(5),
 	CityState nvarchar(25),
-	ZIP nvarchar(5),
+	ZIP char(5),
 	CONSTRAINT CHK_ArchivedZIP CHECK (LEN(ZIP) = 5),
 	CONSTRAINT PK_ArchivedAddresses PRIMARY KEY (AddressId)
 )

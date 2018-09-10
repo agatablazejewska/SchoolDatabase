@@ -93,10 +93,6 @@
     <Folder Include="Archived\Studies" />
     <Folder Include="Archived\Utilities" />
     <Folder Include="Staff\Triggers" />
-    <Folder Include="Archived\Listeners\Procedures" />
-    <Folder Include="Archived\Listeners\Procedures\Insert" />
-    <Folder Include="Archived\Listeners\Procedures\Delete" />
-    <Folder Include="Archived\Listeners\Procedures\Update" />
     <Folder Include="Inserts" />
     <Folder Include="Archived\Utilities\Procedures" />
     <Folder Include="Archived\Utilities\Procedures\Insert" />
@@ -112,6 +108,8 @@
     <Folder Include="Utils" />
     <Folder Include="Utils\Functions" />
     <Folder Include="Utils\Procedures" />
+    <Folder Include="Staff\Procedures\Delete\uspDeleteEmployees" />
+    <Folder Include="Listeners\Procedures\Delete\uspDeleteStudents" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -207,7 +205,6 @@
     <Build Include="Staff\Procedures\Insert\uspInsertEmployees_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteCounsellors.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteDepartments.sql" />
-    <Build Include="Staff\Procedures\Delete\uspDeleteEmployees.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Update\uspUpdateCounsellors.sql" />
     <Build Include="Staff\Procedures\Update\uspUpdateDepartments.sql" />
@@ -229,59 +226,25 @@
     <Build Include="Staff\Procedures\Insert\uspInsertEmployees_Departments.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_Departments.sql" />
     <Build Include="Staff\Procedures\Update\uspUpdateEmployees_Departments.sql" />
-    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedCourses.sql" />
-    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudySemesters.sql" />
-    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudents.sql" />
-    <Build Include="Archived\Utilities\Procedures\Insert\uspInsertArchivedAddresses.sql" />
     <Build Include="Archived\Utilities\Procedures\Delete\uspDeleteArchivedAddresses.sql" />
-    <Build Include="Utilities\Triggers\TR_Addresses_Delete.sql" />
-    <Build Include="Archived\Types\AddressesArchiving.sql" />
-    <Build Include="Archived\Types\CoursesArchiving.sql" />
-    <Build Include="Listeners\Triggers\TR_Students_Delete.sql" />
-    <Build Include="Listeners\Triggers\TR_Courses_Delete.sql" />
-    <Build Include="Listeners\Procedures\Delete\uspDeleteStudents.sql" />
-    <Build Include="Archived\Types\StudentsArchiving.sql" />
-    <Build Include="Archived\Listeners\Procedures\Update\uspUpdateArchivedCourses.sql" />
-    <Build Include="Listeners\Triggers\TR_Courses_Insert.sql" />
-    <Build Include="Listeners\Types\ModifyingCourses.sql" />
-    <Build Include="Archived\Types\StudySemestersArchiving.sql" />
     <Build Include="Listeners\Tables\Students_StudySemesters.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_StudySemesters.sql" />
     <Build Include="Archived\Listeners\ArchivedStudents_StudySemesters.sql" />
-    <Build Include="Archived\Types\Students_StudySemestersArchiving.sql" />
-    <Build Include="Listeners\Triggers\TR_Students_StudySemesters_Delete.sql" />
-    <Build Include="Archived\Listeners\Procedures\Insert\uspInsertArchivedStudents_StudySemesters.sql" />
-    <Build Include="Listeners\Triggers\TR_Students_StudySemesters_Update.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_StudySemesters.sql" />
-    <Build Include="Archived\Listeners\Procedures\Update\uspUpdateArchivedStudents_StudySemesters.sql" />
-    <Build Include="Listeners\Triggers\TR_StudySemesters_Update.sql" />
-    <Build Include="Listeners\Triggers\TR_StudySemesters_Delete.sql" />
-    <Build Include="Archived\Types\EmployeesArchiving.sql" />
-    <Build Include="Staff\Triggers\TR_Employees_Delete.sql" />
     <Build Include="Archived\Staff\ArchivedEmployees_Departments.sql" />
-    <Build Include="Archived\Types\Employees_DepartmentsArchiving.sql" />
     <Build Include="Archived\Staff\ArchivedDepartments.sql" />
-    <Build Include="Staff\Triggers\TR_Employees_Departments_Delete.sql" />
-    <Build Include="Staff\Triggers\TR_Departments_Delete.sql" />
-    <Build Include="Archived\Types\DepartmentsArchiving.sql" />
-    <Build Include="Archived\Staff\Procedures\Insert\uspInsertArchivedDepartments.sql" />
-    <Build Include="Archived\Staff\Procedures\Insert\uspInsertArchivedEmployees.sql" />
-    <Build Include="Archived\Staff\Procedures\Insert\uspInsertArchivedEmployees_Departments.sql" />
-    <Build Include="Archived\Types\FieldsOfStudiesArchiving.sql" />
-    <Build Include="Archived\Studies\Procedures\Insert\uspInsertArchivedFieldsOfStudies.sql" />
-    <Build Include="Studies\Triggers\TR_FieldsOfStudies_Delete.sql" />
-    <Build Include="Archived\Types\SchoolSubjectsArchiving.sql" />
-    <Build Include="Archived\Studies\Procedures\Insert\uspInsertArchivedSchoolSubjects.sql" />
-    <Build Include="Studies\Triggers\TR_SchoolSubjects_Delete.sql" />
-    <Build Include="Staff\Triggers\TR_Employees_Update.sql" />
     <Build Include="Utils\Functions\ufnBeginOfMonth.sql" />
     <Build Include="Utils\utils.sql" />
     <Build Include="Utils\Functions\ufnCharge.sql" />
+    <Build Include="Staff\Procedures\Delete\uspDeleteEmployees\uspDeleteEmployees.sql" />
+    <Build Include="Listeners\Procedures\Delete\uspDeleteStudents\uspDeleteStudents.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DatabaseBackup\SchoolDatabase.bak" />
+    <None Include="Staff\Procedures\Delete\uspDeleteEmployees\DeleteEmployeesSelects.sql" />
+    <None Include="Listeners\Procedures\Delete\uspDeleteStudents\StudentsDeleteSelects.sql" />
   </ItemGroup>
 </Project>

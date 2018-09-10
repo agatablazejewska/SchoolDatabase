@@ -4,6 +4,6 @@
 	CounsellorEmployeeId int NOT NULL,
 	Email nvarchar(40),
 	PhoneNumber nvarchar(15),
-	CONSTRAINT FK_CounsellorsEmployees FOREIGN KEY (CounsellorEmployeeId) REFERENCES staff.Employees ON DELETE CASCADE, 
+	CONSTRAINT FK_CounsellorsEmployees FOREIGN KEY (CounsellorEmployeeId) REFERENCES staff.Employees, 
 	CONSTRAINT PK_Counsellors PRIMARY KEY (CounsellorId)	
 )
