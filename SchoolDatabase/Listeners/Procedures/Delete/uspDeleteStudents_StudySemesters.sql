@@ -72,7 +72,10 @@ BEGIN TRANSACTION
 	FROM listeners.Courses AS c
 	WHERE c.CourseId IN (SELECT ac.CourseId FROM #ArchivedCourses AS ac)
 	--Deleting StudentsRepeatedSubjects
-
+	DELETE srs
+	FROM listeners.StudentsRepeatedSubjects AS srs
+	INNER JOIN #ArchivedStudents_StudySemesters AS asss
+	ON srs.RepeatingStudentId = asss.StudentId AND srs.StudySemester = asss.StudySemesterId;
 	--Deleting Students_StudySemesters
 	DELETE sss
 	FROM listeners.Students_StudySemesters AS sss

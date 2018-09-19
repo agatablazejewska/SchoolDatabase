@@ -3,10 +3,9 @@
 
 CREATE PROCEDURE [studies].[uspInsertFieldsOfStudies]
 	@FieldOfStudyName nvarchar(60),
-	@MaxAmountOfStudents int,
-	@FieldOfStudyFacultyId nvarchar(10)
+	@MaxAmountOfStudents int
 AS
-	INSERT INTO studies.FieldsOfStudies(FieldOfStudyName, MaxAmountOfStudents, FieldOfStudyFacultyId)
-	VALUES (@FieldOfStudyName, @MaxAmountOfStudents, @FieldOfStudyFacultyId)
+	INSERT INTO studies.FieldsOfStudies(FieldOfStudyName, MaxAmountOfStudents)
+	VALUES (@FieldOfStudyName, @MaxAmountOfStudents)
 
 RETURN 0

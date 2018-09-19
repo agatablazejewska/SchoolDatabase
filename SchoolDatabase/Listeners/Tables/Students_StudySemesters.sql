@@ -9,7 +9,7 @@
 	FormOfStudyId char(1) NOT NULL,
 	Price int DEFAULT 0,
 	Paid bit DEFAULT 0,
-	Dedadline date,
+	Deadline date,
 	CONSTRAINT FK_Students_StudySemestersFormsOfStudy FOREIGN KEY (FormOfStudyId) REFERENCES utilities.FormsOfStudy,
 	CONSTRAINT FK_Students_StudySemestersStatuses FOREIGN KEY (StatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_Students_StudySemestersStudyLevels FOREIGN KEY (StudyLevelId) REFERENCES utilities.StudyLevels,

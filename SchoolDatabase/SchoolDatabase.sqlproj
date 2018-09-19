@@ -117,7 +117,6 @@
     <Build Include="Listeners\Tables\Courses.sql" />
     <Build Include="Listeners\Tables\Students.sql" />
     <Build Include="Listeners\Tables\Students_Scholarships.sql" />
-    <Build Include="Listeners\Tables\Students_SchoolSubjects.sql" />
     <Build Include="Listeners\Tables\StudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Tables\StudySemesters.sql" />
     <Build Include="Studies\studies.sql" />
@@ -139,7 +138,6 @@
     <Build Include="Listeners\Procedures\Insert\uspInsertDeanGroups.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_Scholarships.sql" />
-    <Build Include="Listeners\Procedures\Insert\uspInsertStudents_SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudySemesters.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteCourses.sql" />
@@ -150,7 +148,6 @@
     <Build Include="Listeners\Procedures\Update\uspUpdatePayments.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudents.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudents_Scholarships.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateStudents_SchoolSubjects.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudentsRepeatedSubjects.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudySemesters.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertFaculties.sql" />
@@ -231,6 +228,21 @@
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees\uspDeleteEmployees.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents\uspDeleteStudents.sql" />
     <Build Include="Utils\Procedures\uspGetErrorInfo.sql" />
+    <Build Include="Utils\Functions\ufnStudyLevelSemestersConstraint.sql" />
+    <Build Include="Studies\Tables\IaTInformaticsEF.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertIaTInformaticsEF.sql" />
+    <Build Include="Studies\Tables\IaTTelecommunicationsEP.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertIaTTelecommunicationsEP.sql" />
+    <Build Include="Studies\Tables\EaAElectronicsEF.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertEaAElectronicsEF.sql" />
+    <Build Include="Studies\Tables\EaAAutomaticsMP.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertEaAAutomaticsMP.sql" />
+    <Build Include="Studies\Tables\ChChemistryBF.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertChChemistryBF.sql" />
+    <Build Include="Studies\Tables\Faculties_FieldsOfStudies.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertFaculties_FieldsOfStudies.sql" />
+    <Build Include="Archived\Studies\ArchivedFaculties.sql" />
+    <Build Include="Listeners\Procedures\Update\uspUpdateCoursesAddEmployees.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

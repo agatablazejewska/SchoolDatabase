@@ -2,11 +2,13 @@
 (
 	StudySemesterId int IDENTITY (1000,1),
 	StudySemester int NOT NULL,
+	FacultyId varchar(10) NOT NULL,
 	FieldOfStudyId int NOT NULL,
 	StudyLevelId int NOT NULL,
 	StudySemesterCounsellor int,
 	StartYear int NOT NULL,
 	StudySemesterStatusId int NOT NULL,
+	CONSTRAINT FK_StudySemestersFaculties FOREIGN KEY (FacultyId) REFERENCES studies.Faculties,
 	CONSTRAINT FK_StudySemestersStudyLevels FOREIGN KEY (StudyLevelId) REFERENCES utilities.StudyLevels,
 	CONSTRAINT FK_StudySemesterStatuses FOREIGN KEY (StudySemesterStatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_StudySemesterCounsellors FOREIGN KEY (StudySemesterCounsellor) REFERENCES staff.Counsellors ON DELETE SET NULL,

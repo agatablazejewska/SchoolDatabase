@@ -7,10 +7,6 @@ BEGIN TRANSACTION
     DROP TABLE #ArchivedStudents;
 	IF OBJECT_ID('tempdb..#ArchivedAddresses') IS NOT NULL
     DROP TABLE #ArchivedAddresses;
-	IF OBJECT_ID('tempdb..#ArchivedCourses') IS NOT NULL
-    DROP TABLE #ArchivedCourses;
-	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemesters') IS NOT NULL
-    DROP TABLE #ArchivedStudents_StudySemesters;
 	--finding inactive students
 	SELECT * 
 	INTO #ArchivedStudents
@@ -31,23 +27,18 @@ BEGIN TRANSACTION
 	ars.Nationality ,ars.StudentStatusId
 	FROM #ArchivedStudents AS ars;
 	--archiving Students_StudySemesters
-	SELECT *
-	INTO #ArchivedStudents_StudySemesters
+	UPDATE sss
+	SET sss.StatusId = 201
 	FROM listeners.Students_StudySemesters AS sss
-	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	INSERT INTO archived.ArchivedStudents_StudySemesters(ArchivedStudentId, PresentStudySemesterId, StudyLevelId, FormOfStudyId, Price, Paid)
-	SELECT asss.StudentId, asss.StudySemesterId, asss.StudyLevelId, asss.FormOfStudyId, asss.Price, asss.Paid
-	FROM #ArchivedStudents_StudySemesters AS asss;
+	INNER JOIN #ArchivedStudents AS ars
+	ON sss.StudentId = ars.StudentId
+	EXEC listeners.uspDeleteStudents_StudySemesters 201;
 	--updating ArchivedStudents_StudySemesters to have reference to archived students
 	UPDATE asss
 	SET asss.ArchivedStudentId = temp.StudentId
 	FROM archived.ArchivedStudents_StudySemesters AS asss
-	INNER JOIN #ArchivedStudents_StudySemesters AS temp
+	INNER JOIN #ArchivedStudents AS temp
 	ON asss.PresentStudentId = temp.StudentId;
-	--deleting Students_StudySemesters
-	DELETE sss
-	FROM listeners.Students_StudySemesters AS sss
-	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
 	--deleting Payments
 	DELETE p
 	FROM listeners.Payments AS p
@@ -56,28 +47,6 @@ BEGIN TRANSACTION
 	DELETE ss
 	FROM listeners.Students_Scholarships AS ss
 	WHERE ss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--Deleting SchoolSubjects
-	DELETE sss
-	FROM listeners.Students_SchoolSubjects AS sss
-	WHERE sss.StudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--Deleting StudentsRepeatedSubjects
-	DELETE srs
-	FROM listeners.StudentsRepeatedSubjects AS srs
-	WHERE srs.RepeatingStudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	--Archiving Courses
-	SELECT *
-	INTO #ArchivedCourses
-	FROM listeners.Courses AS c
-	WHERE c.CourseStudentId IN (SELECT ars.StudentId FROM #ArchivedStudents AS ars);
-	INSERT INTO archived.ArchivedCourses (CourseGrade, DateOfAssessment, ArchivedStudentId, PresentSchoolSubjectId,
-	PresentEmployeeId, CourseSemester, PresentStudySemesterId)
-	SELECT ac.CourseGrade, ac.DateOfAssessment, ac.CourseStudentId,
-	ac.CourseSchoolSubjectId, ac.CourseEmployeeId, ac.CourseSemester, ac.StudySemester
-	FROM #ArchivedCourses AS ac;
-	--Deleting Courses
-	DELETE c
-	FROM listeners.Courses AS c
-	WHERE c.CourseId IN (SELECT ac.CourseId FROM #ArchivedCourses AS ac);
 	--Updating Courses: PresentStudentId -> ArchivedStudentId
 	UPDATE ac
 	SET ac.ArchivedStudentId = ars.StudentId
@@ -96,10 +65,6 @@ BEGIN TRANSACTION
     DROP TABLE #ArchivedStudents;
 	IF OBJECT_ID('tempdb..#ArchivedAddresses') IS NOT NULL
     DROP TABLE #ArchivedAddresses;
-	IF OBJECT_ID('tempdb..#ArchivedCourses') IS NOT NULL
-    DROP TABLE #ArchivedCourses;
-	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemesters') IS NOT NULL
-    DROP TABLE #ArchivedStudents_StudySemesters;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
