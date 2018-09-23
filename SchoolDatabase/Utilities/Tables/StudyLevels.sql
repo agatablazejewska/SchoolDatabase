@@ -1,4 +1,6 @@
-﻿CREATE TABLE [utilities].[StudyLevels]
+﻿/* Table created to store all available study levels and how many semesters does it take to finish
+studies with such study level */
+CREATE TABLE [utilities].[StudyLevels]
 (	
 	StudyLevelId int IDENTITY(1,1),
 	StudyLevelName varchar(15) NOT NULL,

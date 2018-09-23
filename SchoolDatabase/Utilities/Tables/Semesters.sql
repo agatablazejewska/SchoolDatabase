@@ -1,4 +1,5 @@
-﻿CREATE TABLE [utilities].[Semesters]
+﻿/* Table created to make sure no one will put in semester out of range */
+CREATE TABLE [utilities].[Semesters]
 (
 	SemesterId int IDENTITY (1,1),
 	SemesterNum int,

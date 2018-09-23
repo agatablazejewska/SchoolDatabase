@@ -110,6 +110,8 @@
     <Folder Include="Utils\Procedures" />
     <Folder Include="Staff\Procedures\Delete\uspDeleteEmployees" />
     <Folder Include="Listeners\Procedures\Delete\uspDeleteStudents" />
+    <Folder Include="Archived\Listeners\Procedures" />
+    <Folder Include="Listeners\Procedures\Update\UpdateCourses" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -143,7 +145,6 @@
     <Build Include="Listeners\Procedures\Delete\uspDeleteCourses.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_Scholarships.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudySemesters.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateCourses.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateDeanGroups.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdatePayments.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudents.sql" />
@@ -222,9 +223,7 @@
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_StudySemesters.sql" />
     <Build Include="Archived\Staff\ArchivedEmployees_Departments.sql" />
     <Build Include="Archived\Staff\ArchivedDepartments.sql" />
-    <Build Include="Utils\Functions\ufnBeginOfMonth.sql" />
     <Build Include="Utils\utils.sql" />
-    <Build Include="Utils\Functions\ufnCharge.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees\uspDeleteEmployees.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents\uspDeleteStudents.sql" />
     <Build Include="Utils\Procedures\uspGetErrorInfo.sql" />
@@ -242,7 +241,11 @@
     <Build Include="Studies\Tables\Faculties_FieldsOfStudies.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertFaculties_FieldsOfStudies.sql" />
     <Build Include="Archived\Studies\ArchivedFaculties.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateCoursesAddEmployees.sql" />
+    <Build Include="Archived\Listeners\Procedures\uspInsertArchivedCourses.sql" />
+    <Build Include="Archived\Listeners\Procedures\uspUpdateArchivedCoursesAddEmployees.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCourses.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesAddEmployees.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesAddGrades.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

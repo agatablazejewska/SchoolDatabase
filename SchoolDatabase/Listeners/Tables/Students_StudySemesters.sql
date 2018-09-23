@@ -5,7 +5,7 @@
 	StudySemesterId int NOT NULL,
 	DeanGroupId int, 
 	StudyLevelId int NOT NULL,
-	StatusId int NOT NULL,
+	StatusId int NOT NULL DEFAULT 200,
 	FormOfStudyId char(1) NOT NULL,
 	Price int DEFAULT 0,
 	Paid bit DEFAULT 0,

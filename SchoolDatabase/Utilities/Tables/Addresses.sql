@@ -1,4 +1,5 @@
-﻿CREATE TABLE [utilities].[Addresses]
+﻿/* Table created to store addresses - employees as well as students */
+CREATE TABLE [utilities].[Addresses]
 (
 	AddressId int IDENTITY(1,1),
 	City nvarchar(30) NOT NULL,

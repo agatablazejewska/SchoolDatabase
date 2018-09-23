@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE PROCEDURE [utilities].[uspDeleteScholarships]
+﻿CREATE PROCEDURE [utilities].[uspDeleteScholarships]
 	@ScholarshipId int
 AS
 	DELETE FROM utilities.Scholarships

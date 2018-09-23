@@ -19,8 +19,8 @@ BEGIN TRANSACTION
 	FROM listeners.StudySemesters AS ss
 	WHERE ss.StudySemesterStatusId = @StudySemesterStatusId;
 	--Archiving StudySemesters
-	INSERT INTO archived.ArchivedStudySemesters(StudySemesterId, StudySemester, PresentFacultyId, PresentFieldOfStudyId, StudyLevelId, StartYear, StudySemesterStatusId)
-	SELECT StudySemesterId, StudySemester, FacultyId, FieldOfStudyId, StudyLevelId, StartYear, StudySemesterStatusId
+	INSERT INTO archived.ArchivedStudySemesters(StudySemesterId, StudySemester, PresentFacultyId, PresentFieldOfStudyId, StudyLevelId, FormOfStudyId, StartYear, StudySemesterStatusId)
+	SELECT StudySemesterId, StudySemester, FacultyId, FieldOfStudyId, StudyLevelId, FormOfStudyId, StartYear, StudySemesterStatusId
 	FROM #ArchivedStudySemesters AS ass;
 	/* Finding each StudySemester a new one which began year later and it's field of study is the same.
 	Might be useful when there still are students who haven't passed every SchoolSubject yet -> they

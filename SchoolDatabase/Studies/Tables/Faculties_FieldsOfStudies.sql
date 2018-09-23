@@ -1,4 +1,5 @@
-﻿CREATE TABLE [studies].[Faculties_FieldsOfStudies]
+﻿/* Table containing info about which field of study at which faculty is run */
+CREATE TABLE [studies].[Faculties_FieldsOfStudies]
 (
 	FacultyId varchar(10),
 	FieldOfStudyId int,

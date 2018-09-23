@@ -4,8 +4,11 @@ BEGIN TRY
 BEGIN TRANSACTION
 	IF OBJECT_ID('tempdb..#WhichEmployeeWhichCourse') IS NOT NULL
     DROP TABLE #WhichEmployeeWhichCourse;
-	SELECT  ess.EmployeeId, c.CourseSchoolSubjectId, c.StudySemester
-	INTO #WhichEmployeeWhichCourse 
+	IF OBJECT_ID('tempdb..#EmployeesCourses') IS NOT NULL
+    DROP TABLE #EmployeesCourses;
+
+	SELECT DISTINCT ess.EmployeeId, c.CourseSchoolSubjectId, c.StudySemester 
+	INTO #WhichEmployeeWhichCourse
 	FROM staff.Employees_SchoolSubjects AS ess
 	INNER JOIN listeners.Courses AS c
 	ON ess.SchoolSubjectId = c.CourseSchoolSubjectId
@@ -13,17 +16,25 @@ BEGIN TRANSACTION
 	ON ess.EmployeeId = e.EmployeeId
 	WHERE c.CourseEmployeeId IS NULL AND e.EmployeeStatusId = 200
 	GROUP BY c.CourseSchoolSubjectId, c.StudySemester, ess.EmployeeId
+	SELECT * FROM #WhichEmployeeWhichCourse
+
+	SELECT new.*
+	INTO #EmployeesCourses
+	FROM (SELECT wewc.*, ROW_NUMBER() over (PARTITION BY CourseSchoolSubjectId, StudySemester ORDER BY NEWID()) AS seq
+		 FROM #WhichEmployeeWhichCourse AS wewc) AS new
+	WHERE seq = 1
+	ORDER BY StudySemester
 
 	UPDATE c
-	SET c.CourseEmployeeId = (SELECT TOP 1 wewc.EmployeeId FROM #WhichEmployeeWhichCourse AS wewc
-							 WHERE wewc.CourseSchoolSubjectId = c.CourseSchoolSubjectId
-							 AND wewc.StudySemester = c.StudySemester
-							 ORDER BY NEWID())
+	SET c.CourseEmployeeId = ec.EmployeeId
 	FROM listeners.Courses AS c
-	INNER JOIN #WhichEmployeeWhichCourse AS wewc
-	ON c.CourseSchoolSubjectId = wewc.CourseSchoolSubjectId AND c.StudySemester = wewc.StudySemester
+	INNER JOIN #EmployeesCourses AS ec
+	ON c.CourseSchoolSubjectId = ec.CourseSchoolSubjectId AND c.StudySemester = ec.StudySemester
+
 	IF OBJECT_ID('tempdb..#WhichEmployeeWhichCourse') IS NOT NULL
     DROP TABLE #WhichEmployeeWhichCourse;
+	IF OBJECT_ID('tempdb..#EmployeesCourses') IS NOT NULL
+    DROP TABLE #EmployeesCourses;
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH

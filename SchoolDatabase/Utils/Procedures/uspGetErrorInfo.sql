@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE utils.uspGetErrorInfo
+﻿/* Procedure writting out error info, used with try/catch exception */
+CREATE PROCEDURE utils.uspGetErrorInfo
 AS
 	SELECT 
 	ERROR_NUMBER() AS ErrorNumber,

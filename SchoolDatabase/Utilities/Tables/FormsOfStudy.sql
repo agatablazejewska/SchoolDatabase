@@ -1,4 +1,5 @@
-﻿CREATE TABLE [utilities].[FormsOfStudy]
+﻿/* Table created to store all available forms of study - students can study full time, part time and so on*/
+CREATE TABLE [utilities].[FormsOfStudy]
 (
 	FormOfStudyId char(1),
     FormOfStudyName varchar(15) NOT NULL,

@@ -7,7 +7,6 @@ EXEC utilities.uspInsertAcademicTitle 'Master of Science', 'MS';
 EXEC utilities.uspInsertAcademicTitle 'Doctor of Philosophy', 'PhD';
 EXEC utilities.uspInsertAcademicTitle 'Post-doctoral degree', 'Postdoc';
 EXEC utilities.uspInsertAcademicTitle 'Professor', 'Prof';
-
 --Inserting some data into utilities.Addressess
 EXEC utilities.uspInsertAddresses 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343';
 EXEC utilities.uspInsertAddresses 'Oakridge', 'Skinner Hollow Road', '2065','36','Ore n', '94263';
@@ -50,15 +49,12 @@ EXEC utilities.uspInsertAddresses 'Altheimer','Cedar Street', '563','65','Arkans
 EXEC utilities.uspInsertAddresses 'San Francisco','Boring Lane', '321','56', 'California','94108';
 EXEC utilities.uspInsertAddresses 'Olivette', 'Rodney Street', '1541','4','Missouri','63132';
 EXEC utilities.uspInsertAddresses 'Charleston', 'Khale Street', '960', '32','South Carolina', '29403';
-
-
 --Inserting some data into utilities.ClassTypes
 EXEC utilities.uspInsertClassTypes 'l', 'Lecture', 0.4;
 EXEC utilities.uspInsertClassTypes 'p', 'Practical', 0.6;
 EXEC utilities.uspInsertClassTypes 'd', 'Design', 0.6;
 EXEC utilities.uspInsertClassTypes 'e','Excercises',0.6;
 EXEC utilities.uspInsertClassTypes 's','Seminar',0.4;
-
 --Inserting some data into utilities.Grades
 EXEC utilities.uspInsertGrades 2.0, 2.0, 'two';
 EXEC utilities.uspInsertGrades 2.5, 2.5, 'two-point-five';
@@ -67,14 +63,12 @@ EXEC utilities.uspInsertGrades 3.5, 3.5, 'three-point-five';
 EXEC utilities.uspInsertGrades 4.0, 4.0, 'four';
 EXEC utilities.uspInsertGrades 4.5, 4.5, 'four-point-five';
 EXEC utilities.uspInsertGrades 5.0, 5.0, 'five';
-
 --Inserting some data into utilities.Scholarships
 EXEC utilities.uspInsertScholarships 'Sports', 350;
 EXEC utilities.uspInsertScholarships 'Social', 500;
 EXEC utilities.uspInsertScholarships 'Disabled', 700;
 EXEC utilities.uspInsertScholarships 'Relocation', 200;
 EXEC utilities.uspInsertScholarships 'Scientific', 500;
-
 --Inserting some data into utilities.Semesters
 EXEC utilities.uspInsertSemesters 1, 'First';
 EXEC utilities.uspInsertSemesters 2, 'Second';
@@ -391,13 +385,13 @@ EXEC staff.uspInsertEmployees_Departments 25, 3;
 EXEC staff.uspInsertEmployees_Departments 26, 4;
 EXEC staff.uspInsertEmployees_Departments 27, 5;
 --Inserting some data into listeners.StudySemesters
-EXEC listeners.uspInsertStudySemesters 2,'IaT', 1, 2, 4, 2016, 200;
-EXEC listeners.uspInsertStudySemesters 4, 'IaT',2,2,2,2016,200;
-EXEC listeners.uspInsertStudySemesters 2, 'IaT', 19,4,1, 2015,200;
-EXEC listeners.uspInsertStudySemesters 6, 'Ch', 19, 2,3,2016,200;
-EXEC listeners.uspInsertStudySemesters 4,'Ch', 20, 1, 8, 2017, 200;
-EXEC listeners.uspInsertStudySemesters 2, 'EaA', 1, 2, 5, 2017, 200;
-EXEC listeners.uspInsertStudySemesters 6, 'EaA', 16, 4, 10, 2015, 200;
+EXEC listeners.uspInsertStudySemesters 2,'IaT', 1, 2,'f', 4, 2016, 200;
+EXEC listeners.uspInsertStudySemesters 4, 'IaT',2,2,'p',2,2016,200;
+EXEC listeners.uspInsertStudySemesters 2, 'IaT', 19,4,'f',1, 2015,200;
+EXEC listeners.uspInsertStudySemesters 6, 'CaEE', 19, 2,'p',3,2016,200;
+EXEC listeners.uspInsertStudySemesters 4,'CaEE', 20, 1,'f', 8, 2017, 200;
+EXEC listeners.uspInsertStudySemesters 2, 'EaA', 1, 2,'p', 5, 2017, 200;
+EXEC listeners.uspInsertStudySemesters 3, 'EaA', 4, 4,'p', 10, 2015, 200;
 --Inserting some data into listeners.DeanGroups
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1000;
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1001;
@@ -420,14 +414,36 @@ EXEC listeners.uspInsertStudents 'Malcolm','Leslie','98327482932', 22, 'USA', 20
 EXEC listeners.uspInsertStudents 'William','Ballinger', '87301749372',23, 'USA', 200; 
 EXEC listeners.uspInsertStudents  'Nikita','Santora', '90372819412',  24, 'USA', 200;
 EXEC listeners.uspInsertStudents  'Howard','Vogel', '98346364923',  25, 'USA', 200;
-
+EXEC listeners.uspInsertStudents 'John', 'Morris', '95671239561', 38, 'Canadian', 200;
+EXEC listeners.uspInsertStudents 'Mike', 'Ross', '93651750948', 39, 'USA', 200;
+EXEC listeners.uspInsertStudents 'Harvey', 'Specter', '90126483291', 40, 'USA', 200;
+EXEC listeners.uspInsertStudents 'Krzysztof', 'Budniewski', '95724857127', 41, 'Polish', 200;
 --Inserting some data into listeners.Students_StudySemesters
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1001, 200, 'p';
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1000, 200, 'f';
-EXEC listeners.uspInsertStudents_StudySemesters 2, 1000, 200, 'f';
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1001, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1000, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 2, 1000, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 3, 1005, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 4, 1003, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 5, 1002, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 5, 1006, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 6, 1004, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 7, 1001, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 8, 1005, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 9, 1003, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 10, 1004, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 11, 1000, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 12, 1006, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 13, 1004, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 13, 1001, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 14, 1005, 200;
 --Inserting some data into listeners.Courses
 EXEC listeners.uspInsertCourses 1000;
 EXEC listeners.uspInsertCourses 1001;
+EXEC listeners.uspInsertCourses 1006;
+--Inserting some data into archived.ArchivedCourses
+EXEC archived.uspInsertArchivedCourses 1000;
+EXEC archived.uspInsertArchivedCourses 1001;
+EXEC archived.uspInsertArchivedCourses 1006;
 --Inserting some data into Employees_SchoolSubjects
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'pPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lPB';
@@ -607,5 +623,21 @@ EXEC staff.uspInsertEmployees_SchoolSubjects 15, 'lDA';
 EXEC staff.uspInsertEmployees_SchoolSubjects 15, 'eDA';
 EXEC staff.uspInsertEmployees_SchoolSubjects 8, 'lDA';
 EXEC staff.uspInsertEmployees_SchoolSubjects 8, 'eDA';
---Inserting employees into courses
+EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lMoA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lRM';
+EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lTiA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 7, 'pRM';
+EXEC staff.uspInsertEmployees_SchoolSubjects 7, 'lTiA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 7, 'lMoA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'lMoA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'lRM';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pRM';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'lTiA';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'lPB';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pPB';
+EXEC staff.uspInsertEmployees_SchoolSubjects 7, 'lPB';
+EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pPB';
+--Inserting employees into listeners.Courses
 EXEC listeners.uspUpdateCoursesAddEmployees;
+--Inserting random grades into listeners.Courses
+EXEC listeners.uspUpdateCoursesAddGrades;
