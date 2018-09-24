@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE PROCEDURE [studies].[uspInsertFaculties]
+﻿CREATE PROCEDURE [studies].[uspInsertFaculties]
 	@FacultyId nvarchar(10),
 	@FacultyFullName nvarchar(70),
 	@DeanId int, 

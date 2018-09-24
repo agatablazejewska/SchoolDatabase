@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudySemesters]
-	@StudySemesterStatusId int
 AS
 BEGIN TRY
 BEGIN TRANSACTION
@@ -17,7 +16,7 @@ BEGIN TRANSACTION
 	SELECT *
 	INTO #ArchivedStudySemesters
 	FROM listeners.StudySemesters AS ss
-	WHERE ss.StudySemesterStatusId = @StudySemesterStatusId;
+	WHERE ss.StudySemesterStatusId = 201;
 	--Archiving StudySemesters
 	INSERT INTO archived.ArchivedStudySemesters(StudySemesterId, StudySemester, PresentFacultyId, PresentFieldOfStudyId, StudyLevelId, FormOfStudyId, StartYear, StudySemesterStatusId)
 	SELECT StudySemesterId, StudySemester, FacultyId, FieldOfStudyId, StudyLevelId, FormOfStudyId, StartYear, StudySemesterStatusId

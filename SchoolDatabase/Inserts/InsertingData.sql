@@ -127,14 +127,14 @@ EXEC staff.uspInsertEmployees 'Norbert', 'Crause', 'Prof', '71236593174', 37, 20
 --Inserting into studies.Faculties
 EXEC studies.uspInsertFaculties 'IaT','Informatics and Telecommunications', 1, 'IT100';--1
 EXEC studies.uspInsertFaculties 'EaA', 'Electronics and Automatics', 12,'EA205';--2
-EXEC studies.uspInsertFaculties 'Ch','Chemistry',3,'CH125';--3
-EXEC studies.uspInsertFaculties	'Nano','Nanotechnology',13,'NANO874';--4
-EXEC studies.uspInsertFaculties 'Bio', 'Biomedicis',6,'BIO005';--5
-EXEC studies.uspInsertFaculties 'FaD','Food and Dietetics', 14,'FAD002';--6
-EXEC studies.uspInsertFaculties 'En', 'Energetics',5,'EN920';--7
-EXEC studies.uspInsertFaculties 'RaD', 'Robotics and Drives', 15,'RAD1450';--8
-EXEC studies.uspInsertFaculties 'OEaST', 'Ocean Engineering and Ship Technology',9,'OEAST918';--9
-EXEC studies.uspInsertFaculties 'CaEE', 'Civil and Environmental Engineering', 2,'CAEE1290';--10
+EXEC studies.uspInsertFaculties 'Ch','Chemistry',13,'CH125'--3
+EXEC studies.uspInsertFaculties	'Nano','Nanotechnology',6,'NANO874';--4
+EXEC studies.uspInsertFaculties 'Bio', 'Biomedicis',14,'BIO005';--5
+EXEC studies.uspInsertFaculties 'FaD','Food and Dietetics', 2,'FAD002';--6
+EXEC studies.uspInsertFaculties 'En', 'Energetics',15,'EN920';--7
+EXEC studies.uspInsertFaculties 'RaD', 'Robotics and Drives', 7,'RAD1450';--8
+EXEC studies.uspInsertFaculties 'OEaST', 'Ocean Engineering and Ship Technology',16,'OEAST918';--9
+EXEC studies.uspInsertFaculties 'CaEE', 'Civil and Environmental Engineering', 17,'CAEE1290';--10
 --Inserting some data into studies.FieldsOfStudies
 EXEC studies.uspInsertFieldsOfStudies 'Informatics', 320; --1
 EXEC studies.uspInsertFieldsOfStudies 'Telecommunications', 280; --2
@@ -157,28 +157,28 @@ EXEC studies.uspInsertFieldsOfStudies 'Transport', 160;--18
 EXEC studies.uspInsertFieldsOfStudies 'Civil Engineering', 230;--19
 EXEC studies.uspInsertFieldsOfStudies 'Environmental Engineering', 340;--20
 --Inserting some data into studies.Faculties_FieldsOfStudies
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 1;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 2;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 4;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 3;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 4;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 5;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 6;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 8;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 7;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 8;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 9;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 10;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 11;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 12;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 13;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 14;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 15;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 16;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEaST', 17;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEasT', 18;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 19;
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 20;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 1, 'f'; 
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 2, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 4, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 3, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 4, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 5, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 6, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 8, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 7, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 8, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 9, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 10, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 11, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 12, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 13, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 14, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 15, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 16, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEaST', 17, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEasT', 18, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 19, 'p';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 20, 'f';
 --Inserting some data into studies.SchoolSubjects
 EXEC studies.uspInsertSchoolSubjects 'PB', 'Programming Basics', 20,0,'p'; --1, 2, 3,4,15,16
 EXEC studies.uspInsertSchoolSubjects 'PB', 'Programming Basics',25, 12,'l';--1,2,3,4,15,16
@@ -337,25 +337,25 @@ EXEC studies.uspInsertEaAAutomaticsMP 3, 'lRM';
 EXEC studies.uspInsertEaAAutomaticsMP 3, 'pRM';
 EXEC studies.uspInsertEaAAutomaticsMP 3, 'lTiA';
 --Inserting some data into staff.Departments
-EXEC staff.uspInsertDepartments 'Department of Computer Architecture', 'DoCA','IaT',12;--1
-EXEC staff.uspInsertDepartments 'Department of Organic Chemistry', 'DoOC','Ch', 13;--2
-EXEC staff.uspInsertDepartments 'Department of Biomedical Engineering', 'DoBE','Bio', 14;--3
-EXEC staff.uspInsertDepartments 'Department of Electrical Power Engineering', 'DoEPE','En', 15;--4
-EXEC staff.uspInsertDepartments 'Department of Geography', 'DoPC','OEaST', 2;--5
-EXEC staff.uspInsertDepartments 'Department of Food Processing', 'DoFP','FaD', 16;--6
-EXEC staff.uspInsertDepartments 'Department of Civil Engineering', 'DoCE', 'CaEE', 17;--7
-EXEC staff.uspInsertDepartments 'Department of Environmental Engineering', 'DoEE','CaEE', 18;--8
+EXEC staff.uspInsertDepartments 'Department of Computer Architecture', 'DoCA','IaT';--1
+EXEC staff.uspInsertDepartments 'Department of Organic Chemistry', 'DoOC','Ch';--2
+EXEC staff.uspInsertDepartments 'Department of Biomedical Engineering', 'DoBE','Bio';--3
+EXEC staff.uspInsertDepartments 'Department of Electrical Power Engineering', 'DoEPE','En';--4
+EXEC staff.uspInsertDepartments 'Department of Geography', 'DoPC','OEaST';--5
+EXEC staff.uspInsertDepartments 'Department of Food Processing', 'DoFP','FaD';--6
+EXEC staff.uspInsertDepartments 'Department of Civil Engineering', 'DoCE', 'CaEE';--7
+EXEC staff.uspInsertDepartments 'Department of Environmental Engineering', 'DoEE','CaEE';--8
 --Inserting some data into staff.Counsellors
-EXEC staff.uspInsertCounsellors 6, 6,'marjak@gmail.com','239-193-481';
-EXEC staff.uspInsertCounsellors 10,10, 'kjane@gmail.com','391-238-238';
-EXEC staff.uspInsertCounsellors 2,2, 'ojelas@gmail.com','182-293-128';
-EXEC staff.uspInsertCounsellors 5,5, 'hramd@gmail.com', '283-491-239';
-EXEC staff.uspInsertCounsellors 1,1,'ojak@gmail.com','127-283-273';
-EXEC staff.uspInsertCounsellors 4,4,'suwp@gmail.com','192-293-120';
-EXEC staff.uspInsertCounsellors 7,7, 'koark@gmail.com', '127-238-291';
-EXEC staff.uspInsertCounsellors 13,13, 'urgena@gmail.com','128-892-912';
-EXEC staff.uspInsertCounsellors 3,3, 'loaran@gmail.com','938-237-237';
-EXEC staff.uspInsertCounsellors 8,8, 'ewan@gmail.com','934-238-480';
+EXEC staff.uspInsertCounsellors 6, 6,'marjak@gmail.com','239193481';
+EXEC staff.uspInsertCounsellors 10,10, 'kjane@gmail.com','391238238';
+EXEC staff.uspInsertCounsellors 2,2, 'ojelas@gmail.com','182293128';
+EXEC staff.uspInsertCounsellors 5,5, 'hramd@gmail.com', '283491239';
+EXEC staff.uspInsertCounsellors 1,1,'ojak@gmail.com','127283273';
+EXEC staff.uspInsertCounsellors 4,4,'suwp@gmail.com','192293120';
+EXEC staff.uspInsertCounsellors 7,7, 'koark@gmail.com', '127238291';
+EXEC staff.uspInsertCounsellors 13,13, 'urgena@gmail.com','128892912';
+EXEC staff.uspInsertCounsellors 3,3, 'loaran@gmail.com','938237237';
+EXEC staff.uspInsertCounsellors 8,8, 'ewan@gmail.com','934238480';
 --Inserting some data into staff.Employees_Departments
 EXEC staff.uspInsertEmployees_Departments 12,1;
 EXEC staff.uspInsertEmployees_Departments 13,2;
@@ -385,13 +385,13 @@ EXEC staff.uspInsertEmployees_Departments 25, 3;
 EXEC staff.uspInsertEmployees_Departments 26, 4;
 EXEC staff.uspInsertEmployees_Departments 27, 5;
 --Inserting some data into listeners.StudySemesters
-EXEC listeners.uspInsertStudySemesters 2,'IaT', 1, 2,'f', 4, 2016, 200;
-EXEC listeners.uspInsertStudySemesters 4, 'IaT',2,2,'p',2,2016,200;
-EXEC listeners.uspInsertStudySemesters 2, 'IaT', 19,4,'f',1, 2015,200;
-EXEC listeners.uspInsertStudySemesters 6, 'CaEE', 19, 2,'p',3,2016,200;
-EXEC listeners.uspInsertStudySemesters 4,'CaEE', 20, 1,'f', 8, 2017, 200;
-EXEC listeners.uspInsertStudySemesters 2, 'EaA', 1, 2,'p', 5, 2017, 200;
-EXEC listeners.uspInsertStudySemesters 3, 'EaA', 4, 4,'p', 10, 2015, 200;
+EXEC listeners.uspInsertStudySemestersExample 2, 'IaT', 1, 2,'f', 4, 2016, 200; --2
+EXEC listeners.uspInsertStudySemestersExample 4, 'IaT',2,2,'p',2,2016,200; --4
+EXEC listeners.uspInsertStudySemestersExample 2, 'IaT', 19,4,'f',1, 2015,200; --2
+EXEC listeners.uspInsertStudySemestersExample 6, 'CaEE', 19, 2,'p',3,2016,200; --6
+EXEC listeners.uspInsertStudySemestersExample 4,'CaEE', 20, 1,'f', 8, 2017, 200; --4
+EXEC listeners.uspInsertStudySemestersExample 2, 'EaA', 1, 2,'p', 5, 2017, 200; --2
+EXEC listeners.uspInsertStudySemestersExample 3, 'EaA', 4, 4,'p', 10, 2015, 200; --3
 --Inserting some data into listeners.DeanGroups
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1000;
 EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1001;
@@ -419,23 +419,23 @@ EXEC listeners.uspInsertStudents 'Mike', 'Ross', '93651750948', 39, 'USA', 200;
 EXEC listeners.uspInsertStudents 'Harvey', 'Specter', '90126483291', 40, 'USA', 200;
 EXEC listeners.uspInsertStudents 'Krzysztof', 'Budniewski', '95724857127', 41, 'Polish', 200;
 --Inserting some data into listeners.Students_StudySemesters
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1001, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1000, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 2, 1000, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 3, 1005, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 4, 1003, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 5, 1002, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 5, 1006, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 6, 1004, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 7, 1001, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 8, 1005, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 9, 1003, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 10, 1004, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 11, 1000, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 12, 1006, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 13, 1004, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 13, 1001, 200;
-EXEC listeners.uspInsertStudents_StudySemesters 14, 1005, 200;
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1001;
+EXEC listeners.uspInsertStudents_StudySemesters 1, 1000;
+EXEC listeners.uspInsertStudents_StudySemesters 2, 1000;
+EXEC listeners.uspInsertStudents_StudySemesters 3, 1005;
+EXEC listeners.uspInsertStudents_StudySemesters 4, 1003;
+EXEC listeners.uspInsertStudents_StudySemesters 5, 1002;
+EXEC listeners.uspInsertStudents_StudySemesters 5, 1006;
+EXEC listeners.uspInsertStudents_StudySemesters 6, 1004;
+EXEC listeners.uspInsertStudents_StudySemesters 7, 1001;
+EXEC listeners.uspInsertStudents_StudySemesters 8, 1005;
+EXEC listeners.uspInsertStudents_StudySemesters 9, 1003;
+EXEC listeners.uspInsertStudents_StudySemesters 10, 1004;
+EXEC listeners.uspInsertStudents_StudySemesters 11, 1000;
+EXEC listeners.uspInsertStudents_StudySemesters 12, 1006;
+EXEC listeners.uspInsertStudents_StudySemesters 13, 1004;
+EXEC listeners.uspInsertStudents_StudySemesters 13, 1001;
+EXEC listeners.uspInsertStudents_StudySemesters 14, 1005;
 --Inserting some data into listeners.Courses
 EXEC listeners.uspInsertCourses 1000;
 EXEC listeners.uspInsertCourses 1001;
@@ -640,4 +640,4 @@ EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pPB';
 --Inserting employees into listeners.Courses
 EXEC listeners.uspUpdateCoursesAddEmployees;
 --Inserting random grades into listeners.Courses
-EXEC listeners.uspUpdateCoursesAddGrades;
+EXEC listeners.uspUpdateCoursesAddGradesAuto;

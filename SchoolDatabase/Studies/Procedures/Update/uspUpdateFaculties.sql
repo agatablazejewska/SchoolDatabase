@@ -1,10 +1,6 @@
-﻿ 
- 
-
-CREATE PROCEDURE [studies].[uspUpdateFaculties]
+﻿CREATE PROCEDURE [studies].[uspUpdateFaculties]
 	@FacultyId nvarchar(10),
-	@DeanId int, 
-	@DeputyDeanId int
+	@DeanId int
 AS
 	UPDATE studies.Faculties
 	SET  DeanId = @DeanId

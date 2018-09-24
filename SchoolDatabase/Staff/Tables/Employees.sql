@@ -7,6 +7,7 @@
     PESEL char(11) NOT NULL,
 	EmployeeAddressId int NOT NULL, 
 	EmployeeStatusId int NOT NULL,
+	CONSTRAINT CHK_EmployeesPESEL CHECK (ISNUMERIC(PESEL) = 1),
 	CONSTRAINT UQ_EmployeesPesel UNIQUE (PESEL),
 	CONSTRAINT FK_EmployeesStatuses FOREIGN KEY (EmployeeStatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_EmployeesAcademicTitle FOREIGN KEY (AcademicTitleId) REFERENCES utilities.AcademicTitles,

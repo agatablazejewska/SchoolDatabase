@@ -112,6 +112,12 @@
     <Folder Include="Listeners\Procedures\Delete\uspDeleteStudents" />
     <Folder Include="Archived\Listeners\Procedures" />
     <Folder Include="Listeners\Procedures\Update\UpdateCourses" />
+    <Folder Include="Staff\Procedures\Update\UpdateEmployees" />
+    <Folder Include="Staff\Procedures\Update\UpdateCounsellors" />
+    <Folder Include="Listeners\Procedures\Update\UpdateStudents" />
+    <Folder Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters" />
+    <Folder Include="Listeners\Procedures\Update\UpdateStudySemesters" />
+    <Folder Include="Utils\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Utilities\utilities.sql" />
@@ -141,16 +147,11 @@
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_Scholarships.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudentsRepeatedSubjects.sql" />
-    <Build Include="Listeners\Procedures\Insert\uspInsertStudySemesters.sql" />
+    <Build Include="Listeners\Procedures\Insert\uspInsertStudySemestersExample.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteCourses.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudents_Scholarships.sql" />
     <Build Include="Listeners\Procedures\Delete\uspDeleteStudySemesters.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateDeanGroups.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdatePayments.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateStudents.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateStudents_Scholarships.sql" />
     <Build Include="Listeners\Procedures\Update\uspUpdateStudentsRepeatedSubjects.sql" />
-    <Build Include="Listeners\Procedures\Update\uspUpdateStudySemesters.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertFaculties.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertFieldsOfStudies.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertSchoolSubjects.sql" />
@@ -158,8 +159,6 @@
     <Build Include="Studies\Procedures\Delete\uspDeleteFieldsOfStudies.sql" />
     <Build Include="Studies\Procedures\Delete\uspDeleteSchoolSubjects.sql" />
     <Build Include="Studies\Procedures\Update\uspUpdateFaculties.sql" />
-    <Build Include="Studies\Procedures\Update\uspUpdateFieldsOfStudies.sql" />
-    <Build Include="Studies\Procedures\Update\uspUpdateSchoolSubjects.sql" />
     <Build Include="Utilities\Procedures\Insert\uspInsertAcademicTitle.sql" />
     <Build Include="Utilities\Procedures\Insert\uspInsertAddresses.sql" />
     <Build Include="Utilities\Procedures\Insert\uspInsertClassTypes.sql" />
@@ -199,10 +198,6 @@
     <Build Include="Staff\Procedures\Delete\uspDeleteCounsellors.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteDepartments.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_SchoolSubjects.sql" />
-    <Build Include="Staff\Procedures\Update\uspUpdateCounsellors.sql" />
-    <Build Include="Staff\Procedures\Update\uspUpdateDepartments.sql" />
-    <Build Include="Staff\Procedures\Update\uspUpdateEmployees.sql" />
-    <Build Include="Staff\Procedures\Update\uspUpdateEmployees_SchoolSubjects.sql" />
     <Build Include="Staff\Procedures\Other\uspCheckEmployees_SchoolSubjects.sql" />
     <Build Include="Archived\archived.sql" />
     <Build Include="Archived\Listeners\ArchivedCourses.sql" />
@@ -215,7 +210,6 @@
     <Build Include="Staff\Tables\Employees_Departments.sql" />
     <Build Include="Staff\Procedures\Insert\uspInsertEmployees_Departments.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_Departments.sql" />
-    <Build Include="Staff\Procedures\Update\uspUpdateEmployees_Departments.sql" />
     <Build Include="Archived\Utilities\Procedures\Delete\uspDeleteArchivedAddresses.sql" />
     <Build Include="Listeners\Tables\Students_StudySemesters.sql" />
     <Build Include="Listeners\Procedures\Insert\uspInsertStudents_StudySemesters.sql" />
@@ -243,9 +237,26 @@
     <Build Include="Archived\Studies\ArchivedFaculties.sql" />
     <Build Include="Archived\Listeners\Procedures\uspInsertArchivedCourses.sql" />
     <Build Include="Archived\Listeners\Procedures\uspUpdateArchivedCoursesAddEmployees.sql" />
-    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCourses.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesGradeDateOfAssessment.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesAddEmployees.sql" />
-    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesAddGrades.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateCourses\uspUpdateCoursesAddGradesAuto.sql" />
+    <Build Include="Staff\Procedures\Update\UpdateEmployees\uspUpdateEmployeesStatusId.sql" />
+    <Build Include="Staff\Procedures\Update\UpdateEmployees\uspUpdateEmployeesSurname.sql" />
+    <Build Include="Staff\Procedures\Update\UpdateEmployees\uspUpdateEmployeesAcademicTitle.sql" />
+    <Build Include="Staff\Procedures\Update\UpdateCounsellors\uspUpdateCounsellorsEmail.sql" />
+    <Build Include="Staff\Procedures\Update\UpdateCounsellors\uspUpdateConsellorsPhoneNumber.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudents\uspUpdateStudentsSurname.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudents\uspUpdateStudentsStatus.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters\uspUpdateStudentsStudySemestersPaid.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters\uspUpdateStudents_StudySemestersStatus.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudySemesters\uspUpdateStudySemestersStatus.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudySemesters\uspUpdateStudySemestersCounsellor.sql" />
+    <Build Include="Listeners\Procedures\Insert\uspInsertStudySemesters.sql" />
+    <Build Include="Utils\Views\vFacultiesNames.sql" />
+    <Build Include="Utils\Views\vFieldsOfStudy.sql" />
+    <Build Include="Utils\Views\vFormOfStudy.sql" />
+    <Build Include="Utils\Views\vCounsellors.sql" />
+    <Build Include="Utils\Views\vStatusForNonHuman.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

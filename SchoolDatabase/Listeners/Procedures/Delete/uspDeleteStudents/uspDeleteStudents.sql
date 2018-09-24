@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudents]
-	@StastusId int
 AS
 BEGIN TRY
 BEGIN TRANSACTION
@@ -11,7 +10,7 @@ BEGIN TRANSACTION
 	SELECT * 
 	INTO #ArchivedStudents
 	FROM listeners.Students AS s
-	WHERE s.StudentStatusId = @StastusId;
+	WHERE s.StudentStatusId = 201;
 	--archiving addresses
 	SELECT * 
 	INTO #ArchivedAddresses

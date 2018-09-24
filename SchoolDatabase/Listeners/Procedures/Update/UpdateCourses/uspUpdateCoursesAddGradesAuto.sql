@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [listeners].[uspUpdateCoursesAddGrades]
+﻿CREATE PROCEDURE [listeners].[uspUpdateCoursesAddGradesAuto]
 AS
 	UPDATE c
 	 SET c.CourseGrade = (SELECT TOP 1 GradeNum

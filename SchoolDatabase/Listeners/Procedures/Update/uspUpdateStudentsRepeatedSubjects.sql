@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdateStudentsRepeatedSubjects]
 	@RepeatingStudentId int,
-	@RepeatedSchoolSubjectId varchar(7)
+	@RepeatedSchoolSubjectId varchar(7),
+	@Paid bit
 AS
 	UPDATE listeners.StudentsRepeatedSubjects
-	SET RepeatingStudentId = @RepeatingStudentId, RepeatedSubjectId=@RepeatedSchoolSubjectId;
+	SET Paid = @Paid
+	WHERE RepeatingStudentId = @RepeatingStudentId AND RepeatedSubjectId=@RepeatedSchoolSubjectId;
 RETURN 0

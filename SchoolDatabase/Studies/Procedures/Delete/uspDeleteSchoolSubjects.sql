@@ -1,7 +1,4 @@
-﻿ 
- 
-
-CREATE PROCEDURE [studies].[uspDeleteSchoolSubjects]
+﻿ CREATE PROCEDURE [studies].[uspDeleteSchoolSubjects]
 	@SchoolSubjectId nvarchar(7)
 AS
 	DELETE FROM studies.SchoolSubjects

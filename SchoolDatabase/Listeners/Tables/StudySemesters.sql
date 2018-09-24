@@ -1,13 +1,13 @@
 ﻿CREATE TABLE [listeners].[StudySemesters]
 (
 	StudySemesterId int IDENTITY (1000,1),
-	StudySemester int NOT NULL,
+	StudySemester int NOT NULL DEFAULT 1,
 	FacultyId varchar(10) NOT NULL,
 	FieldOfStudyId int NOT NULL,
 	StudyLevelId int NOT NULL,
 	FormOfStudyId char(1) NOT NULL,
 	StudySemesterCounsellor int,
-	StartYear int NOT NULL,
+	StartYear int NOT NULL DEFAULT YEAR(GETDATE()),
 	StudySemesterStatusId int NOT NULL,
 	CONSTRAINT FK_StudySemestersFormsOfStudy FOREIGN KEY (FormOfStudyId) REFERENCES utilities.FormsOfStudy,
 	CONSTRAINT FK_StudySemestersFaculties FOREIGN KEY (FacultyId) REFERENCES studies.Faculties,

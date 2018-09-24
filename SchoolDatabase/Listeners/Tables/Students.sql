@@ -7,6 +7,7 @@
 	StudentAddressId int NOT NULL,
 	Nationality nvarchar(30) NOT NULL,
 	StudentStatusId int NOT NULL,
+	CONSTRAINT CHK_StudentPESEL CHECK (ISNUMERIC(StudentPESEL) = 1),
 	CONSTRAINT UQ_StudentPESEL UNIQUE (StudentPESEL),
 	CONSTRAINT FK_StudentsStatuses FOREIGN KEY (StudentStatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_StudentsAddresses FOREIGN KEY (StudentAddressId) REFERENCES utilities.Addresses,
