@@ -10,6 +10,7 @@
 	StartYear int NOT NULL DEFAULT YEAR(GETDATE()),
 	AmountOfStudents int NOT NULL DEFAULT 0,
 	StudySemesterStatusId int NOT NULL DEFAULT 200,
+	CONSTRAINT UQ_StudySemesters UNIQUE (StudySemester, FacultyId, FieldOfStudyId, StudyLevelId, FormOfStudyId),
 	CONSTRAINT CHK_StudySemestersAmountOfStudents CHECK (AmountOfStudents >= 0 AND AmountOfStudents <= utils.ufnStudySemestersAmountOfStudentsConstraint(FieldOfStudyId)),
 	CONSTRAINT FK_StudySemestersFormsOfStudy FOREIGN KEY (FormOfStudyId) REFERENCES utilities.FormsOfStudy,
 	CONSTRAINT FK_StudySemestersFaculties FOREIGN KEY (FacultyId) REFERENCES studies.Faculties,

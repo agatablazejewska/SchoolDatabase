@@ -9,6 +9,7 @@
 	CourseSemester int NOT NULL,
 	StudySemester int,
 	Confirmed bit DEFAULT 0,
+	CONSTRAINT UQ_Courses UNIQUE (CourseStudentId, CourseSchoolSubjectId, CourseSemester, StudySemester),
 	CONSTRAINT FK_CoursesStudySemesters FOREIGN KEY (StudySemester) REFERENCES listeners.StudySemesters,
 	CONSTRAINT FK_CoursesSemesters FOREIGN KEY (CourseSemester) REFERENCES utilities.Semesters,
 	CONSTRAINT FK_CoursesGrades FOREIGN KEY (CourseGrade) REFERENCES utilities.Grades,

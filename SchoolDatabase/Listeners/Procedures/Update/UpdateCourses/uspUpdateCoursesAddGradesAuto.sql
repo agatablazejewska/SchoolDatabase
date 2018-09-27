@@ -1,5 +1,7 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdateCoursesAddGradesAuto]
 AS
+BEGIN TRY
+BEGIN TRANSACTION
 	UPDATE c
 	 SET c.CourseGrade = (SELECT TOP 1 GradeNum
 						FROM utilities.Grades AS g
@@ -18,4 +20,10 @@ AS
 		c.Confirmed = 1
 	FROM  listeners.Courses AS c
 	WHERE c.CourseGrade IS NULL
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	EXEC utils.uspGetErrorInfo;
+	ROLLBACK TRANSACTION
+END CATCH
 RETURN 0

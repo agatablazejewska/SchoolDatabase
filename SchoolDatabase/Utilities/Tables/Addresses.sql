@@ -8,6 +8,7 @@ CREATE TABLE [utilities].[Addresses]
 	ApartmentNumber varchar(5),
 	CityState nvarchar(25),
 	ZIP char(5),
-	CONSTRAINT CHK_ZIP CHECK (LEN(ZIP) = 5),
+	CONSTRAINT CHK_Addresses_ZIPNUMERIC CHECK (ISNUMERIC(ZIP) = 1),
+	CONSTRAINT CHK_Addresses_ZIPLENGTH CHECK (LEN(ZIP) = 5),
 	CONSTRAINT PK_Addresses PRIMARY KEY (AddressId)
 )

@@ -198,7 +198,6 @@
     <Build Include="Staff\Procedures\Delete\uspDeleteCounsellors.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteDepartments.sql" />
     <Build Include="Staff\Procedures\Delete\uspDeleteEmployees_SchoolSubjects.sql" />
-    <Build Include="Staff\Procedures\Other\uspCheckEmployees_SchoolSubjects.sql" />
     <Build Include="Archived\archived.sql" />
     <Build Include="Archived\Listeners\ArchivedCourses.sql" />
     <Build Include="Archived\Listeners\ArchivedStudents.sql" />
@@ -261,6 +260,7 @@
     <Build Include="Utils\Views\vStudyLevels.sql" />
     <Build Include="Utils\Views\vSemester.sql" />
     <Build Include="Utils\Functions\ufnStudySemestersAmountOfStudentsConstraint.sql" />
+    <Build Include="Utils\Views\vScholarships.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

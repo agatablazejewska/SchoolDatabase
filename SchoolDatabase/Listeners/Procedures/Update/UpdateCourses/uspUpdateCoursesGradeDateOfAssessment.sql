@@ -2,7 +2,7 @@
 	@CourseId int,
 	@CourseGrade decimal(2,1)
 AS
-	
+BEGIN TRY
 	UPDATE listeners.Courses 
 	SET CourseGrade = @CourseGrade, DateOfAssessment = GETDATE(), 
 	Confirmed = (SELECT
@@ -11,4 +11,8 @@ AS
 						ELSE 0
 					END)
 	WHERE CourseId=@CourseId;
+END TRY
+BEGIN CATCH
+	EXEC utils.uspGetErrorInfo;
+END CATCH
 RETURN 0
