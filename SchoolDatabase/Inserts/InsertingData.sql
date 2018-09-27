@@ -129,7 +129,7 @@ EXEC studies.uspInsertFaculties 'IaT','Informatics and Telecommunications', 1, '
 EXEC studies.uspInsertFaculties 'EaA', 'Electronics and Automatics', 12,'EA205';--2
 EXEC studies.uspInsertFaculties 'Ch','Chemistry',13,'CH125'--3
 EXEC studies.uspInsertFaculties	'Nano','Nanotechnology',6,'NANO874';--4
-EXEC studies.uspInsertFaculties 'Bio', 'Biomedicis',14,'BIO005';--5
+EXEC studies.uspInsertFaculties 'Bio', 'Biomedics',14,'BIO005';--5
 EXEC studies.uspInsertFaculties 'FaD','Food and Dietetics', 2,'FAD002';--6
 EXEC studies.uspInsertFaculties 'En', 'Energetics',15,'EN920';--7
 EXEC studies.uspInsertFaculties 'RaD', 'Robotics and Drives', 7,'RAD1450';--8
@@ -157,28 +157,28 @@ EXEC studies.uspInsertFieldsOfStudies 'Transport', 160;--18
 EXEC studies.uspInsertFieldsOfStudies 'Civil Engineering', 230;--19
 EXEC studies.uspInsertFieldsOfStudies 'Environmental Engineering', 340;--20
 --Inserting some data into studies.Faculties_FieldsOfStudies
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 1, 'f'; 
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 2, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 4, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 3, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 4, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 5, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 6, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 8, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 7, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 8, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 9, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 10, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 11, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 12, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 13, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 14, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 15, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 16, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEaST', 17, 'f';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEasT', 18, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 19, 'p';
-EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 20, 'f';
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 1, 'f',2; 
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 2, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'IaT', 4, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 3, 'f',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'EaA', 4, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 5, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 6, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Ch', 8, 'f',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 7, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Nano', 8, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 9, 'p',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'Bio', 10, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 11, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'FaD', 12, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 13, 'p',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'En', 14, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 15, 'p',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'RaD', 16, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEaST', 17, 'f',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'OEasT', 18, 'p',4;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 19, 'p',2;
+EXEC studies.uspInsertFaculties_FieldsOfStudies 'CaEE', 20, 'f',4;
 --Inserting some data into studies.SchoolSubjects
 EXEC studies.uspInsertSchoolSubjects 'PB', 'Programming Basics', 20,0,'p'; --1, 2, 3,4,15,16
 EXEC studies.uspInsertSchoolSubjects 'PB', 'Programming Basics',25, 12,'l';--1,2,3,4,15,16
@@ -392,17 +392,6 @@ EXEC listeners.uspInsertStudySemestersExample 6, 'CaEE', 19, 2,'p',3,2016,200; -
 EXEC listeners.uspInsertStudySemestersExample 4,'CaEE', 20, 1,'f', 8, 2017, 200; --4
 EXEC listeners.uspInsertStudySemestersExample 2, 'EaA', 1, 2,'p', 5, 2017, 200; --2
 EXEC listeners.uspInsertStudySemestersExample 3, 'EaA', 4, 4,'p', 10, 2015, 200; --3
---Inserting some data into listeners.DeanGroups
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1000;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1001;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1002;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1003;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1004;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1005;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 1, @GroupStudySemester = 1006;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1000;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1001;
-EXEC listeners.uspInsertDeanGroups @DeanGroup = 2, @GroupStudySemester = 1004;
 --Inserting some data into listeners.Students
 EXEC listeners.uspInsertStudents 'Joy', 'Box','91837401732', 5,'USA', 201;
 EXEC listeners.uspInsertStudents 'Stevie', 'Gutierrez', '281923740183',  4,'Mexican', 201;

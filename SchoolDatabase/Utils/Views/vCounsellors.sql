@@ -1,5 +1,10 @@
 ﻿CREATE VIEW [utils].[vCounsellors]
-	AS SELECT e.EmployeeId, e.EmployeeName, e.EmployeeSurname FROM staff.Counsellors AS c
+	AS SELECT c.CounsellorId, e.EmployeeName, e.EmployeeSurname, f.FacultyId FROM staff.Counsellors AS c
 	INNER JOIN staff.Employees AS e
 	ON c.CounsellorEmployeeId = e.EmployeeId
-	WHERE c.CounsellorId NOT IN (SELECT ss.StudySemesterCounsellor FROM listeners.StudySemesters AS ss);
+	INNER JOIN staff.Employees_Departments AS ed
+	ON ed.EmployeeId = e.EmployeeId
+	INNER JOIN staff.Departments AS d
+	ON ed.DepartmentId = d.DepartmentId
+	INNER JOIN studies.Faculties AS f
+	ON d.FacultyId = f.FacultyId

@@ -257,6 +257,10 @@
     <Build Include="Utils\Views\vFormOfStudy.sql" />
     <Build Include="Utils\Views\vCounsellors.sql" />
     <Build Include="Utils\Views\vStatusForNonHuman.sql" />
+    <Build Include="Utils\Views\vStudents.sql" />
+    <Build Include="Utils\Views\vStudyLevels.sql" />
+    <Build Include="Utils\Views\vSemester.sql" />
+    <Build Include="Utils\Functions\ufnStudySemestersAmountOfStudentsConstraint.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

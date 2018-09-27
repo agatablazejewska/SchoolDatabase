@@ -10,6 +10,7 @@
 	Price int DEFAULT 0,
 	Paid bit DEFAULT 0,
 	Deadline date,
+	CONSTRAINT UQ_Students_StudySemesters UNIQUE (StudentId, StudySemesterId, FormOfStudyId, StudyLevelId),
 	CONSTRAINT FK_Students_StudySemestersFormsOfStudy FOREIGN KEY (FormOfStudyId) REFERENCES utilities.FormsOfStudy,
 	CONSTRAINT FK_Students_StudySemestersStatuses FOREIGN KEY (StatusId) REFERENCES utilities.Statuses,
 	CONSTRAINT FK_Students_StudySemestersStudyLevels FOREIGN KEY (StudyLevelId) REFERENCES utilities.StudyLevels,
