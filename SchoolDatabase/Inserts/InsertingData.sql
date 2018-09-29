@@ -425,10 +425,10 @@ EXEC listeners.uspInsertStudents_StudySemesters 12, 1006;
 EXEC listeners.uspInsertStudents_StudySemesters 13, 1004;
 EXEC listeners.uspInsertStudents_StudySemesters 13, 1001;
 EXEC listeners.uspInsertStudents_StudySemesters 14, 1005;
---Inserting some data into listeners.Courses
+/*--Inserting some data into listeners.Courses
 EXEC listeners.uspInsertCourses 1000;
 EXEC listeners.uspInsertCourses 1001;
-EXEC listeners.uspInsertCourses 1006;
+EXEC listeners.uspInsertCourses 1006;*/
 --Inserting some data into archived.ArchivedCourses
 EXEC archived.uspInsertArchivedCourses 1000;
 EXEC archived.uspInsertArchivedCourses 1001;
