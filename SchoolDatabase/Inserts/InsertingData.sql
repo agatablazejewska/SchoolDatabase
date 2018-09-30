@@ -408,7 +408,7 @@ EXEC listeners.uspInsertStudents 'Mike', 'Ross', '93651750948', 39, 'USA', 200;
 EXEC listeners.uspInsertStudents 'Harvey', 'Specter', '90126483291', 40, 'USA', 200;
 EXEC listeners.uspInsertStudents 'Krzysztof', 'Budniewski', '95724857127', 41, 'Polish', 200;
 --Inserting some data into listeners.Students_StudySemesters
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1001;
+/*EXEC listeners.uspInsertStudents_StudySemesters 1, 1001;
 EXEC listeners.uspInsertStudents_StudySemesters 1, 1000;
 EXEC listeners.uspInsertStudents_StudySemesters 2, 1000;
 EXEC listeners.uspInsertStudents_StudySemesters 3, 1005;
@@ -425,14 +425,14 @@ EXEC listeners.uspInsertStudents_StudySemesters 12, 1006;
 EXEC listeners.uspInsertStudents_StudySemesters 13, 1004;
 EXEC listeners.uspInsertStudents_StudySemesters 13, 1001;
 EXEC listeners.uspInsertStudents_StudySemesters 14, 1005;
-/*--Inserting some data into listeners.Courses
+--Inserting some data into listeners.Courses
 EXEC listeners.uspInsertCourses 1000;
 EXEC listeners.uspInsertCourses 1001;
-EXEC listeners.uspInsertCourses 1006;*/
+EXEC listeners.uspInsertCourses 1006;
 --Inserting some data into archived.ArchivedCourses
 EXEC archived.uspInsertArchivedCourses 1000;
 EXEC archived.uspInsertArchivedCourses 1001;
-EXEC archived.uspInsertArchivedCourses 1006;
+EXEC archived.uspInsertArchivedCourses 1006;*/
 --Inserting some data into Employees_SchoolSubjects
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'pPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lPB';
