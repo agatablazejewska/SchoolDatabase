@@ -6,7 +6,7 @@
     AcademicTitleId varchar(12), 
     PESEL char(11) NOT NULL,
 	EmployeeAddressId int NOT NULL, 
-	EmployeeStatusId int NOT NULL,
+	EmployeeStatusId int NOT NULL DEFAULT 200,
 	CONSTRAINT CHK_EmployeesPESEL CHECK (ISNUMERIC(PESEL) = 1),
 	CONSTRAINT UQ_EmployeesPesel UNIQUE (PESEL),
 	CONSTRAINT FK_EmployeesStatuses FOREIGN KEY (EmployeeStatusId) REFERENCES utilities.Statuses,
