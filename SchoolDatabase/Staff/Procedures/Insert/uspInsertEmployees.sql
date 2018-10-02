@@ -12,8 +12,8 @@
 AS
 BEGIN TRY
 BEGIN TRANSACTION
-	DECLARE @EmployeeAddressId int;
-	EXEC utilities.uspInsertAddresses @City, @Street, @Building, @ApartmentNumber, @CityState, @ZIP, @EmployeeAddressId OUTPUT;
+	DECLARE @EmployeeAddressId int, @ErrNum int;
+	EXEC utilities.uspInsertAddresses @City, @Street, @Building, @ApartmentNumber, @CityState, @ZIP, @EmployeeAddressId OUTPUT, @ErrNum OUTPUT;
 	INSERT INTO staff.Employees(EmployeeName, EmployeeSurname, AcademicTitleId, PESEL, EmployeeAddressId)
 	VALUES (@EmployeeName, @EmployeeSurname, @AcademicTitleId, @PESEL,
 	@EmployeeAddressId);

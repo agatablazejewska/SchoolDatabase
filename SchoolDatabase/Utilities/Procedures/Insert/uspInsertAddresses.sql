@@ -5,7 +5,8 @@
 	@ApartmentNumber varchar(5),
 	@CityState nvarchar(25),
 	@ZIP char(5),
-	@AddressId int OUTPUT
+	@AddressId int OUTPUT,
+	@ErrNo int OUTPUT
 AS
  DECLARE @trancount int;
 	  SET @trancount = @@trancount;
@@ -14,6 +15,7 @@ BEGIN TRY
            BEGIN TRANSACTION
         ELSE
             SAVE TRANSACTION Addresses;
+	SET @ErrNo = 0;
 	INSERT INTO utilities.Addresses(City, Street, Building, ApartmentNumber, CityState, ZIP)
 	VALUES (@City, @Street, @Building, @ApartmentNumber, @CityState, @ZIP)
 	SELECT  @AddressId = SCOPE_IDENTITY();
@@ -36,5 +38,6 @@ BEGIN CATCH
 	BEGIN
 		ROLLBACK TRANSACTION Addresses;
 	END
+	SELECT @ErrNo = ERROR_NUMBER();
 END CATCH	
 RETURN 0

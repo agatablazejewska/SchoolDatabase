@@ -351,21 +351,21 @@ EXEC listeners.uspInsertStudySemestersExample 4,'CaEE', 20, 1,'f', 8, 2017, 200;
 EXEC listeners.uspInsertStudySemestersExample 2, 'EaA', 1, 2,'p', 5, 2017, 200; --2
 EXEC listeners.uspInsertStudySemestersExample 3, 'EaA', 4, 4,'p', 10, 2015, 200; --3
 --Inserting some data into listeners.Students
-DECLARE @StudentId int;
-EXEC listeners.uspInsertStudents 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343' ,'Joy', 'Box','9183740173h','USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Oakridge', 'Skinner Hollow Road', '2065','36','Oregon', '94263','Stevie', 'Gutierrez', '281923740183','Mexican',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Liscomb', 'Park Boulevard', '2039','46', 'Iowa', '50148','Judith','Sayler', '93827301748','Canadian',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Arlington', 'Broadcast Drive', '2343','937', 'Virginia', '22201','Helen', 'Price', '98374017231', 'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Seattle', 'Mutton Town Road', '456','442', 'Washington','98133','Donna','Chaney','87364026381','USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents  'Dallas', 'Baker Avenue', '3487','78', 'Texas','75244','Lisa', 'Martin', '89372947291', 'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Worthington', 'Robinson Lane', '274','93', 'Ohio','43085','Malcolm','Leslie','98327482932', 'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Wilmington', 'Callison Lane', '356','563', 'Delaware', '19801','William','Ballinger', '87301749372','USA',@StudentId OUTPUT; 
-EXEC listeners.uspInsertStudents  'Mays','Winifred Way', '923','943', 'Indiana', '46155','Nikita','Santora', '90372819412',  'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents  'Elmsford', 'Morningview Lane', '4674','51', 'New York','10523','Howard','Vogel', '98346364923',   'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Fulton','Melville Street','7623','789','Tennessee','42041','John', 'Morris', '95671239561', 'Canadian',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Grand Rapids','Twin Oaks Drive','982','34','Michigan','49503','Mike', 'Ross', '93651750948', 'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents 'Owatonna','Pritchard Court', '5328','424','Minnesota','55060','Harvey', 'Specter', '90126483291', 'USA',@StudentId OUTPUT;
-EXEC listeners.uspInsertStudents  'Sergeant Bluff','Woodland Drive', '1993','38', 'Iowa','51054','Krzysztof', 'Budniewski', '95724857127', 'Polish',@StudentId OUTPUT;
+DECLARE @StudentId int, @ErrNo int;
+EXEC listeners.uspInsertStudents 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343' ,'Joy', 'Box','9183740173h','USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Oakridge', 'Skinner Hollow Road', '2065','36','Oregon', '94263','Stevie', 'Gutierrez', '281923740183','Mexican',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Liscomb', 'Park Boulevard', '2039','46', 'Iowa', '50148','Judith','Sayler', '93827301748','Canadian',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Arlington', 'Broadcast Drive', '2343','937', 'Virginia', '22201','Helen', 'Price', '98374017231', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Seattle', 'Mutton Town Road', '456','442', 'Washington','98133','Donna','Chaney','87364026381','USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents  'Dallas', 'Baker Avenue', '3487','78', 'Texas','75244','Lisa', 'Martin', '89372947291', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Worthington', 'Robinson Lane', '274','93', 'Ohio','43085','Malcolm','Leslie','98327482932', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Wilmington', 'Callison Lane', '356','563', 'Delaware', '19801','William','Ballinger', '87301749372','USA',@StudentId OUTPUT, @ErrNo OUTPUT; 
+EXEC listeners.uspInsertStudents  'Mays','Winifred Way', '923','943', 'Indiana', '46155','Nikita','Santora', '90372819412',  'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents  'Elmsford', 'Morningview Lane', '4674','51', 'New York','10523','Howard','Vogel', '98346364923',   'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Fulton','Melville Street','7623','789','Tennessee','42041','John', 'Morris', '95671239561', 'Canadian',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Grand Rapids','Twin Oaks Drive','982','34','Michigan','49503','Mike', 'Ross', '93651750948', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Owatonna','Pritchard Court', '5328','424','Minnesota','55060','Harvey', 'Specter', '90126483291', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents  'Sergeant Bluff','Woodland Drive', '1993','38', 'Iowa','51054','Krzysztof', 'Budniewski', '95724857127', 'Polish',@StudentId OUTPUT, @ErrNo OUTPUT;
 --Inserting some data into listeners.Students_StudySemesters
 /*EXEC listeners.uspInsertStudents_StudySemesters 1, 1001;
 EXEC listeners.uspInsertStudents_StudySemesters 1, 1000;
