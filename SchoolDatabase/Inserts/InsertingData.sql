@@ -55,33 +55,34 @@ EXEC utilities.uspInsertFormsOfStudy 'f', 'Full time', 'Mon.-Fri.','07:15-17:15'
 EXEC utilities.uspInsertFormsOfStudy 'p','Part time', 'Fri.-Sun.', '07:15-21:15', 2800;
 EXEC utilities.uspInsertFormsOfStudy 'e', 'Evening', 'Mon.-Fri.', '17:15-21:15', 2000;
 --Inserting into staff.Employees
-EXEC staff.uspInsertEmployees 'Baltimore', 'Hickory Heights Drive', '748','2','Maryland','21201','Michael','Felts', 'Eng','98374023841'; --1
-EXEC staff.uspInsertEmployees 'Jacksonville', 'Arrowood Drive', '2345', '21', 'Florida', '32204','Daniel','Albright','Prof','983471039421'; --2
-EXEC staff.uspInsertEmployees 'Gulfport','Kelley Road', '321','95','Mississippi','39503','Ryan','Trent','PhD','92381280940'; --3
-EXEC staff.uspInsertEmployees 'Baltimore','Five Points', '974','22','Maryland','21201','Richard','Zick','MS','94029340239'; --4
-EXEC staff.uspInsertEmployees 'Atlanta','Post Farm Road','7541','82','Georgia','30303','Robert','Watts','Prof','83729102843'; --5
-EXEC staff.uspInsertEmployees 'Indianapolis','Barfield Lane','23','134','Indiana','46254','Julia','Smith','Postdoc','83740182731'; --6
-EXEC staff.uspInsertEmployees 'Chica ','Bingamon Branch Road', '341','432', 'Illinois','60631','Terrance','Solares','PhD','87492047128'; --7
-EXEC staff.uspInsertEmployees 'Brockport','James Street', '45','523','New York','14420','Sandra','Caley','MS','67723918321'; --8 
-EXEC staff.uspInsertEmployees 'New Berlin','Woodlawn Drive', '2423', '466', 'Wisconsin','53151','Janie','Lawson','Prof','64810283721';--9
-EXEC staff.uspInsertEmployees 'Star City','Villa Drive', '2099','453', 'Indiana','46985','Carole','McKinney', 'BS','87302810481';--10
-EXEC staff.uspInsertEmployees 'Stamford','Cook Hill Road','5430','953', 'Connecticut','06901','Angela', 'Keller', 'MA','99312840212';--11
-EXEC staff.uspInsertEmployees 'Boise','Science Center Drive','2394','934','Idaho','83702','Donald','Simmons', 'Prof','67391726391';--12
-EXEC staff.uspInsertEmployees 'Greensboro','Keyser Ridge Road', '932','237','North Carolina','27403','Max','Collins', 'Prof', '76381927381';--13
-EXEC staff.uspInsertEmployees 'Springfield','Briarwood Road', '3482','973', 'Missouri','65804','James', 'Levy','Prof','73910385031';--14
-EXEC staff.uspInsertEmployees 'Hazleton','High Meadow Lane', '3456','34', 'Pennsylvania','18201','Martin','Zepeda','Prof','73048502174';--15
-EXEC staff.uspInsertEmployees 'Clinton','Armory Road','3452','245', 'North Carolina','28328','Robert', 'King', 'Prof', '65928374612';--16
-EXEC staff.uspInsertEmployees 'Boston','Gerald L. Bates Drive','1220','453', 'Massachusetts','02110','Asha', 'Modsen', 'PhD', '87632643190';--17
-EXEC staff.uspInsertEmployees 'Southfield','Charles Street', '1234','93', 'Michigan','48075','Daisy', 'Moner', 'MS', '78364521937'; --18
-EXEC staff.uspInsertEmployees 'Reno','Martha Ellen Drive','34','938','Nevada','89501','Monica', 'Stelman','MA', '76598601234';--19
-EXEC staff.uspInsertEmployees 'Roanoke','Baker Avenue','335', '20', 'Texas','76262','David', 'Misen', 'BS', '67354219361';--20
-EXEC staff.uspInsertEmployees 'Northridge','Glendale Avenue', '234', '98', 'California','91324','Karol', N'Miżewski', 'MA', '85630164274';--21
-EXEC staff.uspInsertEmployees 'Franklin','Huntz Lane','453','92', 'Massachusetts','23124','Stefan', 'Rodrick', 'PhD', '56783519463';--22
-EXEC staff.uspInsertEmployees 'Lewisville', 'Pritchard Court','243','12','Minnesota','56060','Theodor', 'Kien', 'Prof', '86491363125';--23
-EXEC staff.uspInsertEmployees 'Altheimer','Cedar Street', '563','65','Arkansas','72004','Lucas', 'Lester', 'MS', '609741236431'; --24
-EXEC staff.uspInsertEmployees 'San Francisco','Boring Lane', '321','56', 'California','94108','Leon', 'Zarno', 'PhD', '65832154823'; --25
-EXEC staff.uspInsertEmployees 'Olivette', 'Rodney Street', '1541','4','Missouri','63132','Agatha', 'Christie', 'Prof', '67592361239'; --26
-EXEC staff.uspInsertEmployees 'Charleston', 'Khale Street', '960', '32','South Carolina', '29403','Norbert', 'Crause', 'Prof', '71236593174'; --27
+DECLARE @ErrNo int;
+EXEC staff.uspInsertEmployees 'Baltimore', 'Hickory Heights Drive', '748','2','Maryland','21201','Michael','Felts', 'Eng','98374023841',@ErrNo OUTPUT; --1
+EXEC staff.uspInsertEmployees 'Jacksonville', 'Arrowood Drive', '2345', '21', 'Florida', '32204','Daniel','Albright','Prof','983471039421',@ErrNo OUTPUT; --2
+EXEC staff.uspInsertEmployees 'Gulfport','Kelley Road', '321','95','Mississippi','39503','Ryan','Trent','PhD','92381280940',@ErrNo OUTPUT; --3
+EXEC staff.uspInsertEmployees 'Baltimore','Five Points', '974','22','Maryland','21201','Richard','Zick','MS','94029340239',@ErrNo OUTPUT; --4
+EXEC staff.uspInsertEmployees 'Atlanta','Post Farm Road','7541','82','Georgia','30303','Robert','Watts','Prof','83729102843',@ErrNo OUTPUT; --5
+EXEC staff.uspInsertEmployees 'Indianapolis','Barfield Lane','23','134','Indiana','46254','Julia','Smith','Postdoc','83740182731',@ErrNo OUTPUT; --6
+EXEC staff.uspInsertEmployees 'Chica ','Bingamon Branch Road', '341','432', 'Illinois','60631','Terrance','Solares','PhD','87492047128',@ErrNo OUTPUT; --7
+EXEC staff.uspInsertEmployees 'Brockport','James Street', '45','523','New York','14420','Sandra','Caley','MS','67723918321',@ErrNo OUTPUT; --8 
+EXEC staff.uspInsertEmployees 'New Berlin','Woodlawn Drive', '2423', '466', 'Wisconsin','53151','Janie','Lawson','Prof','64810283721',@ErrNo OUTPUT;--9
+EXEC staff.uspInsertEmployees 'Star City','Villa Drive', '2099','453', 'Indiana','46985','Carole','McKinney', 'BS','87302810481',@ErrNo OUTPUT;--10
+EXEC staff.uspInsertEmployees 'Stamford','Cook Hill Road','5430','953', 'Connecticut','06901','Angela', 'Keller', 'MA','99312840212',@ErrNo OUTPUT;--11
+EXEC staff.uspInsertEmployees 'Boise','Science Center Drive','2394','934','Idaho','83702','Donald','Simmons', 'Prof','67391726391',@ErrNo OUTPUT;--12
+EXEC staff.uspInsertEmployees 'Greensboro','Keyser Ridge Road', '932','237','North Carolina','27403','Max','Collins', 'Prof', '76381927381',@ErrNo OUTPUT;--13
+EXEC staff.uspInsertEmployees 'Springfield','Briarwood Road', '3482','973', 'Missouri','65804','James', 'Levy','Prof','73910385031',@ErrNo OUTPUT;--14
+EXEC staff.uspInsertEmployees 'Hazleton','High Meadow Lane', '3456','34', 'Pennsylvania','18201','Martin','Zepeda','Prof','73048502174',@ErrNo OUTPUT;--15
+EXEC staff.uspInsertEmployees 'Clinton','Armory Road','3452','245', 'North Carolina','28328','Robert', 'King', 'Prof', '65928374612',@ErrNo OUTPUT;--16
+EXEC staff.uspInsertEmployees 'Boston','Gerald L. Bates Drive','1220','453', 'Massachusetts','02110','Asha', 'Modsen', 'PhD', '87632643190',@ErrNo OUTPUT;--17
+EXEC staff.uspInsertEmployees 'Southfield','Charles Street', '1234','93', 'Michigan','48075','Daisy', 'Moner', 'MS', '78364521937',@ErrNo OUTPUT; --18
+EXEC staff.uspInsertEmployees 'Reno','Martha Ellen Drive','34','938','Nevada','89501','Monica', 'Stelman','MA', '76598601234',@ErrNo OUTPUT;--19
+EXEC staff.uspInsertEmployees 'Roanoke','Baker Avenue','335', '20', 'Texas','76262','David', 'Misen', 'BS', '67354219361',@ErrNo OUTPUT;--20
+EXEC staff.uspInsertEmployees 'Northridge','Glendale Avenue', '234', '98', 'California','91324','Karol', N'Miżewski', 'MA', '85630164274',@ErrNo OUTPUT;--21
+EXEC staff.uspInsertEmployees 'Franklin','Huntz Lane','453','92', 'Massachusetts','23124','Stefan', 'Rodrick', 'PhD', '56783519463',@ErrNo OUTPUT;--22
+EXEC staff.uspInsertEmployees 'Lewisville', 'Pritchard Court','243','12','Minnesota','56060','Theodor', 'Kien', 'Prof', '86491363125',@ErrNo OUTPUT;--23
+EXEC staff.uspInsertEmployees 'Altheimer','Cedar Street', '563','65','Arkansas','72004','Lucas', 'Lester', 'MS', '609741236431',@ErrNo OUTPUT; --24
+EXEC staff.uspInsertEmployees 'San Francisco','Boring Lane', '321','56', 'California','94108','Leon', 'Zarno', 'PhD', '65832154823',@ErrNo OUTPUT; --25
+EXEC staff.uspInsertEmployees 'Olivette', 'Rodney Street', '1541','4','Missouri','63132','Agatha', 'Christie', 'Prof', '67592361239',@ErrNo OUTPUT; --26
+EXEC staff.uspInsertEmployees 'Charleston', 'Khale Street', '960', '32','South Carolina', '29403','Norbert', 'Crause', 'Prof', '71236593174',@ErrNo OUTPUT; --27
 --Inserting into studies.Faculties
 EXEC studies.uspInsertFaculties 'IaT','Informatics and Telecommunications', 1, 'IT100';--1
 EXEC studies.uspInsertFaculties 'EaA', 'Electronics and Automatics', 12,'EA205';--2
@@ -342,16 +343,8 @@ EXEC staff.uspInsertEmployees_Departments 24, 8;
 EXEC staff.uspInsertEmployees_Departments 25, 3;
 EXEC staff.uspInsertEmployees_Departments 26, 4;
 EXEC staff.uspInsertEmployees_Departments 27, 5;
---Inserting some data into listeners.StudySemesters
-EXEC listeners.uspInsertStudySemestersExample 2, 'IaT', 1, 2,'f', 4, 2016, 200; --2
-EXEC listeners.uspInsertStudySemestersExample 4, 'IaT',2,2,'p',2,2016,200; --4
-EXEC listeners.uspInsertStudySemestersExample 2, 'IaT', 19,4,'f',1, 2015,200; --2
-EXEC listeners.uspInsertStudySemestersExample 6, 'CaEE', 19, 2,'p',3,2016,200; --6
-EXEC listeners.uspInsertStudySemestersExample 4,'CaEE', 20, 1,'f', 8, 2017, 200; --4
-EXEC listeners.uspInsertStudySemestersExample 2, 'EaA', 1, 2,'p', 5, 2017, 200; --2
-EXEC listeners.uspInsertStudySemestersExample 3, 'EaA', 4, 4,'p', 10, 2015, 200; --3
 --Inserting some data into listeners.Students
-DECLARE @StudentId int, @ErrNo int;
+DECLARE @StudentId int;
 EXEC listeners.uspInsertStudents 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343' ,'Joy', 'Box','9183740173h','USA',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Oakridge', 'Skinner Hollow Road', '2065','36','Oregon', '94263','Stevie', 'Gutierrez', '281923740183','Mexican',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Liscomb', 'Park Boulevard', '2039','46', 'Iowa', '50148','Judith','Sayler', '93827301748','Canadian',@StudentId OUTPUT, @ErrNo OUTPUT;
@@ -366,32 +359,6 @@ EXEC listeners.uspInsertStudents 'Fulton','Melville Street','7623','789','Tennes
 EXEC listeners.uspInsertStudents 'Grand Rapids','Twin Oaks Drive','982','34','Michigan','49503','Mike', 'Ross', '93651750948', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Owatonna','Pritchard Court', '5328','424','Minnesota','55060','Harvey', 'Specter', '90126483291', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents  'Sergeant Bluff','Woodland Drive', '1993','38', 'Iowa','51054','Krzysztof', 'Budniewski', '95724857127', 'Polish',@StudentId OUTPUT, @ErrNo OUTPUT;
---Inserting some data into listeners.Students_StudySemesters
-/*EXEC listeners.uspInsertStudents_StudySemesters 1, 1001;
-EXEC listeners.uspInsertStudents_StudySemesters 1, 1000;
-EXEC listeners.uspInsertStudents_StudySemesters 2, 1000;
-EXEC listeners.uspInsertStudents_StudySemesters 3, 1005;
-EXEC listeners.uspInsertStudents_StudySemesters 4, 1003;
-EXEC listeners.uspInsertStudents_StudySemesters 5, 1002;
-EXEC listeners.uspInsertStudents_StudySemesters 5, 1006;
-EXEC listeners.uspInsertStudents_StudySemesters 6, 1004;
-EXEC listeners.uspInsertStudents_StudySemesters 7, 1001;
-EXEC listeners.uspInsertStudents_StudySemesters 8, 1005;
-EXEC listeners.uspInsertStudents_StudySemesters 9, 1003;
-EXEC listeners.uspInsertStudents_StudySemesters 10, 1004;
-EXEC listeners.uspInsertStudents_StudySemesters 11, 1000;
-EXEC listeners.uspInsertStudents_StudySemesters 12, 1006;
-EXEC listeners.uspInsertStudents_StudySemesters 13, 1004;
-EXEC listeners.uspInsertStudents_StudySemesters 13, 1001;
-EXEC listeners.uspInsertStudents_StudySemesters 14, 1005;
---Inserting some data into listeners.Courses
-EXEC listeners.uspInsertCourses 1000;
-EXEC listeners.uspInsertCourses 1001;
-EXEC listeners.uspInsertCourses 1006;
---Inserting some data into archived.ArchivedCourses
-EXEC archived.uspInsertArchivedCourses 1000;
-EXEC archived.uspInsertArchivedCourses 1001;
-EXEC archived.uspInsertArchivedCourses 1006;*/
 --Inserting some data into Employees_SchoolSubjects
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'pPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 1, 'lPB';
@@ -585,7 +552,3 @@ EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'lPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 7, 'lPB';
 EXEC staff.uspInsertEmployees_SchoolSubjects 12, 'pPB';
---Inserting employees into listeners.Courses
-EXEC listeners.uspUpdateCoursesAddEmployees;
---Inserting random grades into listeners.Courses
-EXEC listeners.uspUpdateCoursesAddGradesAuto;

@@ -1,10 +1,17 @@
 ﻿/*Procedure used to removal of all Students_StudySemesters with a certain status (inactive for example).
 Instead of deleting these rows directly, user has to update their status to inactive first */
 CREATE PROCEDURE [listeners].[uspDeleteStudents_StudySemesters]
-		@StatusId int
+		@ErrNo int OUTPUT
 AS
+DECLARE @trancount int;
+	  SET @trancount = @@trancount;
 BEGIN TRY
 BEGIN TRANSACTION
+	IF @trancount = 0
+           BEGIN TRANSACTION
+        ELSE
+            SAVE TRANSACTION DeleteStudents_StudySemesters;
+	SET @ErrNo = 0;
 	IF OBJECT_ID('tempdb..#ArchivedCourses') IS NOT NULL
     DROP TABLE #ArchivedCourses;
 	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemesters') IS NOT NULL
@@ -17,7 +24,7 @@ BEGIN TRANSACTION
 	SELECT *
 	INTO #ArchivedStudents_StudySemesters
 	FROM listeners.Students_StudySemesters AS sss
-	WHERE sss.StatusId = @StatusId;
+	WHERE sss.StatusId = 201;
 	--Reducing current dean's groups size:
 	--a) count
 	SELECT asss.DeanGroupId, count(asss.StudentId) AS Students
@@ -93,6 +100,20 @@ BEGIN TRANSACTION
 END TRY
 BEGIN CATCH
 	EXEC utils.uspGetErrorInfo; 
-	ROLLBACK TRANSACTION
+	IF (XACT_STATE()) = -1
+	BEGIN
+		PRINT N'The transaction is in uncommitable state.' + N'Rolling back transaction.';
+		ROLLBACK TRANSACTION
+	END
+	-- Test whether the transaction is commitable
+	IF (XACT_STATE()) = 1 AND @trancount = 0
+	BEGIN
+		ROLLBACK TRANSACTION
+	END
+	IF (XACT_STATE()) = 1 AND @trancount> 0
+	BEGIN
+		ROLLBACK TRANSACTION DeleteStudents_StudySemesters;
+	END
+	SELECT @ErrNo = ERROR_NUMBER();
 END CATCH
 

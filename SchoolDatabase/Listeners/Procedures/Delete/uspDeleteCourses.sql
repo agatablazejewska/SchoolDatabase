@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteCourses]
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
 BEGIN TRANSACTION
+	SET @ErrNo = 0;
 	IF OBJECT_ID('tempdb..#ArchivedCourses') IS NOT NULL
     DROP TABLE #ArchivedCourses;
 	--Check which courses are going to be deleted: all of them with grade 3.0 or above
@@ -24,6 +26,7 @@ BEGIN TRANSACTION
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
+	SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo; 
 	ROLLBACK TRANSACTION
 END CATCH

@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [listeners].[uspInsertCourses]
-	@StudySemesterId int
+	@StudySemesterId int,
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
 BEGIN TRANSACTION
+	SET @ErrNo = 0;
 	IF OBJECT_ID('tempdb..#NeededForName') IS NOT NULL
     DROP TABLE #NeededForName;
 	--Looking for all data needed for name of table which we will be querying to get student's courses.
@@ -33,6 +35,7 @@ BEGIN TRANSACTION
 	 COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
+	SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo; 
 	ROLLBACK TRANSACTION
 END CATCH

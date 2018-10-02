@@ -1,9 +1,11 @@
 ﻿CREATE PROCEDURE [listeners].[uspInsertStudents_StudySemesters]
 	@StudentId int,
-	@StudySemesterId int
+	@StudySemesterId int,
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
 BEGIN TRANSACTION
+	SET @ErrNo = 0;
 	DECLARE @DeanGroupId int, @Price int, @StudyLevelId int, @FormOfStudyId char(1);
 	SELECT @StudyLevelId = StudyLevelId, @FormOfStudyId = FormOfStudyId FROM listeners.StudySemesters WHERE StudySemesterId = @StudySemesterId
 	SET @Price = (SELECT FormOfStudyPrice FROM utilities.FormsOfStudy WHERE FormOfStudyId = @FormOfStudyId)
@@ -29,6 +31,7 @@ BEGIN TRANSACTION
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
+	SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo;
 	ROLLBACK TRANSACTION
 END CATCH

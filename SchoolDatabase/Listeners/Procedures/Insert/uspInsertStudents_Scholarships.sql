@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [listeners].[uspInsertStudents_Scholarships]
 	@StudentId int, 
-	@ScholarshipId int
+	@ScholarshipId int,
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
+	SET @ErrNo = 0;
 	DECLARE @StudentAvg decimal(3,2);
 	SET @StudentAvg = (SELECT sum(c.CourseGrade*ct.Weighted)/sum(ct.Weighted)
 						FROM listeners.Courses AS c
@@ -16,6 +18,7 @@ BEGIN TRY
 	VALUES (@StudentId, @ScholarshipId, @StudentAvg);
 END TRY
 BEGIN CATCH
+	SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo;
 END CATCH
 RETURN 0

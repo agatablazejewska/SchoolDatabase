@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudySemesters]
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
 BEGIN TRANSACTION
+	SET @ErrNo = 0;
 	IF OBJECT_ID('tempdb..#ArchivedStudySemesters') IS NOT NULL
     DROP TABLE #ArchivedStudySemesters;
 	IF OBJECT_ID('tempdb..#ArchivedStudents_StudySemester') IS NOT NULL
@@ -126,6 +128,7 @@ BEGIN TRANSACTION
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
+	SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo; 
 	ROLLBACK TRANSACTION
 END CATCH

@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdateCoursesGradeDateOfAssessment]
 	@CourseId int,
-	@CourseGrade decimal(2,1)
+	@CourseGrade decimal(2,1),
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
+	SET @ErrNo = 0;
 	UPDATE listeners.Courses 
 	SET CourseGrade = @CourseGrade, DateOfAssessment = GETDATE(), 
 	Confirmed = (SELECT
@@ -13,6 +15,7 @@ BEGIN TRY
 	WHERE CourseId=@CourseId;
 END TRY
 BEGIN CATCH
+		SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo;
 END CATCH
 RETURN 0

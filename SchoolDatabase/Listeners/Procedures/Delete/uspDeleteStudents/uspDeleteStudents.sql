@@ -1,7 +1,10 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudents]
+	@ErrNo int OUTPUT
 AS
 BEGIN TRY
 BEGIN TRANSACTION
+	DECLARE @ErrNum int;
+	SET @ErrNo = 0;
 	IF OBJECT_ID('tempdb..#ArchivedStudents') IS NOT NULL
     DROP TABLE #ArchivedStudents;
 	IF OBJECT_ID('tempdb..#ArchivedAddresses') IS NOT NULL
@@ -31,7 +34,7 @@ BEGIN TRANSACTION
 	FROM listeners.Students_StudySemesters AS sss
 	INNER JOIN #ArchivedStudents AS ars
 	ON sss.StudentId = ars.StudentId
-	EXEC listeners.uspDeleteStudents_StudySemesters 201;
+	EXEC listeners.uspDeleteStudents_StudySemesters @ErrNum OUTPUT;
 	--updating ArchivedStudents_StudySemesters to have reference to archived students
 	UPDATE asss
 	SET asss.ArchivedStudentId = temp.StudentId
@@ -67,6 +70,10 @@ BEGIN TRANSACTION
 	COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
+	IF (@ErrNum != 0)
+		SET @ErrNo = @ErrNum;
+	ELSE
+		SELECT @ErrNo = ERROR_NUMBER();
 	EXEC utils.uspGetErrorInfo; 
 	ROLLBACK TRANSACTION
 END CATCH
