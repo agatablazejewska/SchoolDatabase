@@ -4,6 +4,7 @@ Simulates DB for university/school also with implemented automatic data archivin
 Project created for learning purposes and for presenting programming skills. 
 
 Created using:
+
 	MS SQL Server Version: 2016
 	Programming language: T-SQL
 	Testing framework: tsqlt
