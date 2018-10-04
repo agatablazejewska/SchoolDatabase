@@ -7,7 +7,6 @@ Created using:
 
 	MS SQL Server Version: 2016
 	Programming language: T-SQL
-	Testing framework: tsqlt
 	
 Installation:
 
