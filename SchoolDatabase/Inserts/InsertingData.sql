@@ -345,7 +345,7 @@ EXEC staff.uspInsertEmployees_Departments 26, 4;
 EXEC staff.uspInsertEmployees_Departments 27, 5;
 --Inserting some data into listeners.Students
 DECLARE @StudentId int;
-EXEC listeners.uspInsertStudents 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343' ,'Joy', 'Box','9183740173h','USA',@StudentId OUTPUT, @ErrNo OUTPUT;
+EXEC listeners.uspInsertStudents 'Sepulveda', 'Oakway Lane', '3456', '123', 'California', '91343' ,'Joy', 'Box','91837401739','USA',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Oakridge', 'Skinner Hollow Road', '2065','36','Oregon', '94263','Stevie', 'Gutierrez', '281923740183','Mexican',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Liscomb', 'Park Boulevard', '2039','46', 'Iowa', '50148','Judith','Sayler', '93827301748','Canadian',@StudentId OUTPUT, @ErrNo OUTPUT;
 EXEC listeners.uspInsertStudents 'Arlington', 'Broadcast Drive', '2343','937', 'Virginia', '22201','Helen', 'Price', '98374017231', 'USA',@StudentId OUTPUT, @ErrNo OUTPUT;

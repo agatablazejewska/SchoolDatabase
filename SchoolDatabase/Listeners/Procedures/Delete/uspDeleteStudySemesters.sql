@@ -33,7 +33,7 @@ BEGIN TRANSACTION
 	INNER JOIN #ArchivedStudySemesters AS ass
 	ON ss.FieldOfStudyId = ass.FieldOfStudyId AND ss.StartYear = ass.StartYear + 1;
 	--Finding students who haven't passed yet
-	SELECT DISTINCT c.StudentId AS StudentId, nss.OldStudySemesterId, nss.NewStudySemesterId
+	SELECT DISTINCT c.CourseStudentId AS StudentId, nss.OldStudySemesterId, nss.NewStudySemesterId
 	INTO #StudentsWhoHaventPassed
 	FROM listeners.Courses AS c
 	INNER JOIN #NewStudySemester AS nss

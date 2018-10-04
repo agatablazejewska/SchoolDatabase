@@ -261,6 +261,7 @@
     <Build Include="Utils\Views\vSemester.sql" />
     <Build Include="Utils\Functions\ufnStudySemestersAmountOfStudentsConstraint.sql" />
     <Build Include="Utils\Views\vScholarships.sql" />
+    <Build Include="Utils\Views\vStudents_Scholarships.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

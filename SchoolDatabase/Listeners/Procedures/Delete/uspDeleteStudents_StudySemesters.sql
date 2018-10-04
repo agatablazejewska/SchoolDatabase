@@ -4,9 +4,8 @@ CREATE PROCEDURE [listeners].[uspDeleteStudents_StudySemesters]
 		@ErrNo int OUTPUT
 AS
 DECLARE @trancount int;
-	  SET @trancount = @@trancount;
+	  SET @trancount = @@TRANCOUNT;
 BEGIN TRY
-BEGIN TRANSACTION
 	IF @trancount = 0
            BEGIN TRANSACTION
         ELSE
@@ -96,13 +95,13 @@ BEGIN TRANSACTION
     DROP TABLE #DeanGroupAmount;
 	IF OBJECT_ID('tempdb..#DeanGroupToDelete') IS NOT NULL
     DROP TABLE #DeanGroupToDelete;
-	COMMIT TRANSACTION
+	IF @trancount = 0
+		COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
 	EXEC utils.uspGetErrorInfo; 
 	IF (XACT_STATE()) = -1
 	BEGIN
-		PRINT N'The transaction is in uncommitable state.' + N'Rolling back transaction.';
 		ROLLBACK TRANSACTION
 	END
 	-- Test whether the transaction is commitable
