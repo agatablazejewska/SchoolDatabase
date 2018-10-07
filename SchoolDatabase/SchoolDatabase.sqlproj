@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1adc7be9-36de-4b22-ba9c-aef596fd7c6e}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -246,7 +246,7 @@
     <Build Include="Staff\Procedures\Update\UpdateCounsellors\uspUpdateConsellorsPhoneNumber.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateStudents\uspUpdateStudentsSurname.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateStudents\uspUpdateStudentsStatus.sql" />
-    <Build Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters\uspUpdateStudentsStudySemestersPaid.sql" />
+    <Build Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters\uspUpdateStudents_StudySemestersPaid.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateStudents_StudySemesters\uspUpdateStudents_StudySemestersStatus.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateStudySemesters\uspUpdateStudySemestersStatus.sql" />
     <Build Include="Listeners\Procedures\Update\UpdateStudySemesters\uspUpdateStudySemestersCounsellor.sql" />
@@ -262,6 +262,8 @@
     <Build Include="Utils\Functions\ufnStudySemestersAmountOfStudentsConstraint.sql" />
     <Build Include="Utils\Views\vScholarships.sql" />
     <Build Include="Utils\Views\vStudents_Scholarships.sql" />
+    <Build Include="Utils\Views\vStudents_Status.sql" />
+    <Build Include="Utils\Views\vStudents_StudySemesters.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />
