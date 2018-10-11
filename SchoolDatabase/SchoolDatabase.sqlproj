@@ -264,6 +264,7 @@
     <Build Include="Utils\Views\vStudents_Scholarships.sql" />
     <Build Include="Utils\Views\vStudents_Status.sql" />
     <Build Include="Utils\Views\vStudents_StudySemesters.sql" />
+    <Build Include="Utils\Views\vStudentsRepeatedSubjects.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />
