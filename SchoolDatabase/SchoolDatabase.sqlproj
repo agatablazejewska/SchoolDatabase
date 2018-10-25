@@ -265,6 +265,9 @@
     <Build Include="Utils\Views\vStudents_Status.sql" />
     <Build Include="Utils\Views\vStudents_StudySemesters.sql" />
     <Build Include="Utils\Views\vStudentsRepeatedSubjects.sql" />
+    <Build Include="Utils\Views\vCoursesGrades.sql" />
+    <Build Include="Utils\Functions\ufnPaymentDeadline.sql" />
+    <Build Include="Listeners\Procedures\Other\uspConfirmAllCoursesGrades.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Inserts\InsertingData.sql" />

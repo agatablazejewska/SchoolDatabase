@@ -6,11 +6,19 @@ AS
 BEGIN TRY
 BEGIN TRANSACTION
 	SET @ErrNo = 0;
-	DECLARE @DeanGroupId int, @Price int, @StudyLevelId int, @FormOfStudyId char(1);
-	SELECT @StudyLevelId = StudyLevelId, @FormOfStudyId = FormOfStudyId FROM listeners.StudySemesters WHERE StudySemesterId = @StudySemesterId
+	DECLARE @DeanGroupId int, @Price int, @StudyLevelId int, @FormOfStudyId char(1), @Date date;
+	--Setting variables
+	SELECT @Date = utils.ufnPaymentDeadline(GETDATE());
+	SELECT @StudyLevelId = StudyLevelId, @FormOfStudyId = FormOfStudyId FROM listeners.StudySemesters WHERE StudySemesterId = @StudySemesterId;
+	--Selecting price
 	SET @Price = (SELECT FormOfStudyPrice FROM utilities.FormsOfStudy WHERE FormOfStudyId = @FormOfStudyId)
-	SET @DeanGroupId = (SELECT TOP(1) DeanGroupId FROM DeanGroups WHERE GroupStudySemester = @StudySemesterId AND CurrentGroupSize < MaxGroupSize)
-
+	
+	--Selecting dean group with free spaces
+	SET @DeanGroupId = (SELECT TOP(1) DeanGroupId FROM DeanGroups
+						WHERE GroupStudySemester = @StudySemesterId AND CurrentGroupSize < MaxGroupSize 
+						ORDER BY DeanGroupId);
+	
+	--If there is no dean group with free spaces we create next one
 	IF (@DeanGroupId IS NULL)
 		BEGIN
 			DECLARE @NextDeanGroup int;
@@ -22,11 +30,13 @@ BEGIN TRANSACTION
 	SET CurrentGroupSize = CurrentGroupSize + 1
 	WHERE DeanGroupId = @DeanGroupId;
 
-	INSERT INTO listeners.Students_StudySemesters(StudentId, StudySemesterId, DeanGroupId, StudyLevelId, FormOfStudyId, Price)
-	VALUES (@StudentId, @StudySemesterId, @DeanGroupId, @StudyLevelId,  @FormOfStudyId, @Price)
+	--Inserting into table
+	INSERT INTO listeners.Students_StudySemesters(StudentId, StudySemesterId, DeanGroupId, StudyLevelId, FormOfStudyId, Price, Deadline)
+	VALUES (@StudentId, @StudySemesterId, @DeanGroupId, @StudyLevelId,  @FormOfStudyId, @Price, @Date);
 
+	--Adding student to amount of students in study semesters
 	UPDATE StudySemesters
-	SET AmountOfStudents = AmountOfStudents +1
+	SET AmountOfStudents = AmountOfStudents + 1
 	WHERE StudySemesterId = @StudySemesterId;
 	COMMIT TRANSACTION
 END TRY
