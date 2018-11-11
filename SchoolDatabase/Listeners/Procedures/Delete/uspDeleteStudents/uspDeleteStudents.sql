@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [listeners].[uspDeleteStudents]
 	@ErrNo int OUTPUT
 AS
+IF 1=0 BEGIN 
+	SET FMTONLY OFF 
+END
 BEGIN TRY
 BEGIN TRANSACTION
 	DECLARE @ErrNum int;

@@ -18,7 +18,7 @@ BEGIN TRANSACTION
 	WHERE c.CourseGrade < 3 AND c.Confirmed = 1;
 
 	--Merging into listeners.StudentsRepeatedSubjects
-	MERGE INTO listeners.StudentsRepeatedsubjects AS srs USING #TempRepeated ON
+	MERGE INTO listeners.StudentsRepeatedSubjects AS srs USING #TempRepeated ON
 	(srs.RepeatingStudentId = #TempRepeated.CourseStudentId AND srs.RepeatedSubjectId = #TempRepeated.CourseSchoolSubjectId)
 	WHEN NOT MATCHED THEN
 	INSERT(RepeatingStudentId, RepeatedSubjectId, StudySemester, Price, Deadline)

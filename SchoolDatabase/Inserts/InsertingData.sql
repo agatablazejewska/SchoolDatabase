@@ -269,32 +269,32 @@ EXEC studies.uspInsertIaTTelecommunicationsEP 5, 'lCT';
 EXEC studies.uspInsertIaTTelecommunicationsEP 6, 'lTT';
 EXEC studies.uspInsertIaTTelecommunicationsEP 6, 'pTT';
 EXEC studies.uspInsertIaTTelecommunicationsEP 7, 'lDT';
---Inserting some data into studies.ElectronicsEF
-EXEC studies.uspInsertEaAElectronicsEF 1, 'lPB';
-EXEC studies.uspInsertEaAElectronicsEF 1, 'pPB';
-EXEC studies.uspInsertEaAElectronicsEF 2, 'lLA';
-EXEC studies.uspInsertEaAElectronicsEF 2, 'eLA';
-EXEC studies.uspInsertEaAElectronicsEF 3, 'lPhs';
-EXEC studies.uspInsertEaAElectronicsEF 3, 'ePhs';
-EXEC studies.uspInsertEaAElectronicsEF 4, 'lDA';
-EXEC studies.uspInsertEaAElectronicsEF 4, 'eDA';
-EXEC studies.uspInsertEaAElectronicsEF 5, 'lES';
-EXEC studies.uspInsertEaAElectronicsEF 5, 'pES';
-EXEC studies.uspInsertEaAElectronicsEF 6, 'lEC';
-EXEC studies.uspInsertEaAElectronicsEF 6, 'eEC';
-EXEC studies.uspInsertEaAElectronicsEF 7, 'lLE';
---Inserting some data into studies.AutomaticsMP
-EXEC studies.uspInsertEaAAutomaticsMP 1, 'lAI';
-EXEC studies.uspInsertEaAAutomaticsMP 1, 'pAI';
-EXEC studies.uspInsertEaAAutomaticsMP 1, 'lOOP';
-EXEC studies.uspInsertEaAAutomaticsMP 1, 'pOOP';
-EXEC studies.uspInsertEaAAutomaticsMP 2, 'lOS';
-EXEC studies.uspInsertEaAAutomaticsMP 2, 'pOS';
-EXEC studies.uspInsertEaAAutomaticsMP 2, 'lSH';
-EXEC studies.uspInsertEaAAutomaticsMP 3, 'lMoA';
-EXEC studies.uspInsertEaAAutomaticsMP 3, 'lRM';
-EXEC studies.uspInsertEaAAutomaticsMP 3, 'pRM';
-EXEC studies.uspInsertEaAAutomaticsMP 3, 'lTiA';
+--Inserting some data into studies.ElectronicsMF
+EXEC studies.uspInsertEaAElectronicsMF 1, 'lPB';
+EXEC studies.uspInsertEaAElectronicsMF 1, 'pPB';
+EXEC studies.uspInsertEaAElectronicsMF 2, 'lLA';
+EXEC studies.uspInsertEaAElectronicsMF 2, 'eLA';
+EXEC studies.uspInsertEaAElectronicsMF 3, 'lPhs';
+EXEC studies.uspInsertEaAElectronicsMF 3, 'ePhs';
+EXEC studies.uspInsertEaAElectronicsMF 4, 'lDA';
+EXEC studies.uspInsertEaAElectronicsMF 4, 'eDA';
+EXEC studies.uspInsertEaAElectronicsMF 5, 'lES';
+EXEC studies.uspInsertEaAElectronicsMF 5, 'pES';
+EXEC studies.uspInsertEaAElectronicsMF 6, 'lEC';
+EXEC studies.uspInsertEaAElectronicsMF 6, 'eEC';
+EXEC studies.uspInsertEaAElectronicsMF 7, 'lLE';
+--Inserting some data into studies.AutomaticsEF
+EXEC studies.uspInsertEaAAutomaticsEF 1, 'lAI';
+EXEC studies.uspInsertEaAAutomaticsEF 1, 'pAI';
+EXEC studies.uspInsertEaAAutomaticsEF 1, 'lOOP';
+EXEC studies.uspInsertEaAAutomaticsEF 1, 'pOOP';
+EXEC studies.uspInsertEaAAutomaticsEF 2, 'lOS';
+EXEC studies.uspInsertEaAAutomaticsEF 2, 'pOS';
+EXEC studies.uspInsertEaAAutomaticsEF 2, 'lSH';
+EXEC studies.uspInsertEaAAutomaticsEF 3, 'lMoA';
+EXEC studies.uspInsertEaAAutomaticsEF 3, 'lRM';
+EXEC studies.uspInsertEaAAutomaticsEF 3, 'pRM';
+EXEC studies.uspInsertEaAAutomaticsEF 3, 'lTiA';
 --Inserting some data into staff.Departments
 EXEC staff.uspInsertDepartments 'Department of Computer Architecture', 'DoCA','IaT';--1
 EXEC staff.uspInsertDepartments 'Department of Organic Chemistry', 'DoOC','Ch';--2

@@ -2,6 +2,9 @@
 	@StudySemesterId int,
 	@ErrNo int OUTPUT
 AS
+IF 1=0 BEGIN
+ SET FMTONLY OFF
+END
 BEGIN TRY
 BEGIN TRANSACTION
 	SET @ErrNo = 0;
@@ -9,7 +12,7 @@ BEGIN TRANSACTION
     DROP TABLE #NeededForName;
 	--Looking for all data needed for name of table which we will be querying to get student's courses.
 	SELECT sss.StudentId, ss.StudySemester, ss.FacultyId, fos.FieldOfStudyName, LEFT(slvl.StudyLevelName, 1) AS StudyLevel, 
-	sss.FormOfStudyId
+	sss.FormOfStudyId, @StudySemesterId AS StudySemesterId
 	INTO #NeededForName
 	FROM listeners.Students_StudySemesters AS sss
 	INNER JOIN listeners.StudySemesters AS ss
@@ -21,14 +24,14 @@ BEGIN TRANSACTION
 	WHERE sss.StudySemesterId = @StudySemesterId AND sss.StatusId = 200;
 	--Querying the table and inserting data into listeners.Courses
 	DECLARE @TableName varchar(80);
-	SET @TableName = ((SELECT TOP(1) FacultyId FROM #NeededForName) + (SELECT TOP(1) FieldOfStudyName FROM #NeededForName) + 
-	(SELECT TOP(1) StudyLevel FROM #NeededForName) + (SELECT TOP(1) FormOfStudyId FROM #NeededForName))
+	SET @TableName = CONCAT((SELECT TOP(1) FacultyId FROM #NeededForName), (SELECT TOP(1) FieldOfStudyName FROM #NeededForName), 
+	(SELECT TOP(1) StudyLevel FROM #NeededForName), (SELECT TOP(1) FormOfStudyId FROM #NeededForName));
 	DECLARE @Query varchar(1000);   
-	 SET @Query = N'INSERT INTO listeners.Courses(CourseStudentId, CourseSchoolSubjectId, CourseSemester, StudySemester)
-	 SELECT nfn.StudentId, tn.SchoolSubject, tn.Semester, ' + CONVERT(varchar(20), @StudySemesterId)+N'
-	 FROM studies.' + @TableName + N' AS tn 
+	 SET @Query = CONCAT('INSERT INTO listeners.Courses(CourseStudentId, CourseSchoolSubjectId, CourseSemester, StudySemester)
+	 SELECT nfn.StudentId, tn.SchoolSubject, tn.Semester, nfn.StudySemesterId
+	 FROM studies.', CONVERT(varchar(80),@TableName),' AS tn 
 	 INNER JOIN #NeededForName AS nfn
-	 ON tn.Semester = nfn.StudySemester'
+	 ON tn.Semester = nfn.StudySemester');
 	 EXEC (@Query);
 	 IF OBJECT_ID('tempdb..#NeededForName') IS NOT NULL
      DROP TABLE #NeededForName;
@@ -39,3 +42,4 @@ BEGIN CATCH
 	EXEC utils.uspGetErrorInfo; 
 	ROLLBACK TRANSACTION
 END CATCH
+GO

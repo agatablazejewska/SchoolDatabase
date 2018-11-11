@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [listeners].[uspUpdateStudentsRepeatedSubjects]
+	@StudentRepeatedSubjectId int,
 	@RepeatingStudentId int,
-	@RepeatedSchoolSubjectId varchar(7),
 	@Paid bit,
 	@ErrNo int OUTPUT
 AS
@@ -8,7 +8,7 @@ BEGIN TRY
 	SET @ErrNo = 0;
 	UPDATE listeners.StudentsRepeatedSubjects
 	SET Paid = @Paid
-	WHERE RepeatingStudentId = @RepeatingStudentId AND RepeatedSubjectId=@RepeatedSchoolSubjectId;
+	WHERE StudentRepeatedSubjectId = @StudentRepeatedSubjectId;
 
 	IF((@Paid = 1 AND
 		(SELECT srs.RepeatingStudentId FROM listeners.StudentsRepeatedSubjects AS srs

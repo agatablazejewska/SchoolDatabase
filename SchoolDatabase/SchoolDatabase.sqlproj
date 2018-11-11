@@ -225,10 +225,10 @@
     <Build Include="Studies\Procedures\Insert\uspInsertIaTInformaticsEF.sql" />
     <Build Include="Studies\Tables\IaTTelecommunicationsEP.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertIaTTelecommunicationsEP.sql" />
-    <Build Include="Studies\Tables\EaAElectronicsEF.sql" />
-    <Build Include="Studies\Procedures\Insert\uspInsertEaAElectronicsEF.sql" />
-    <Build Include="Studies\Tables\EaAAutomaticsMP.sql" />
-    <Build Include="Studies\Procedures\Insert\uspInsertEaAAutomaticsMP.sql" />
+    <Build Include="Studies\Tables\EaAElectronicsMF.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertEaAElectronicsMF.sql" />
+    <Build Include="Studies\Tables\EaAAutomaticsEF.sql" />
+    <Build Include="Studies\Procedures\Insert\uspInsertEaAAutomaticsEF.sql" />
     <Build Include="Studies\Tables\ChChemistryBF.sql" />
     <Build Include="Studies\Procedures\Insert\uspInsertChChemistryBF.sql" />
     <Build Include="Studies\Tables\Faculties_FieldsOfStudies.sql" />

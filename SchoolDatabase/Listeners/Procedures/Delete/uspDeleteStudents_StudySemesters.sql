@@ -3,6 +3,9 @@ Instead of deleting these rows directly, user has to update their status to inac
 CREATE PROCEDURE [listeners].[uspDeleteStudents_StudySemesters]
 		@ErrNo int OUTPUT
 AS
+IF 1=0 BEGIN 
+	SET FMTONLY OFF 
+END
 DECLARE @trancount int;
 	  SET @trancount = @@TRANCOUNT;
 BEGIN TRY
